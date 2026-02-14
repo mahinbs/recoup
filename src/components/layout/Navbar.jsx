@@ -28,14 +28,13 @@ const Navbar = () => {
         <nav
             className={cn(
                 'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-                isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'
+                isScrolled ? 'bg-white/60 backdrop-blur-md shadow-sm py-3' : 'py-5 bg-white backdrop-blur-md'
             )}
         >
             <div className="container px-4 md:px-6 flex items-center justify-between">
                 {/* Logo */}
-                <a href="/" className="text-2xl font-bold text-primary-dark tracking-tighter flex items-center gap-2">
-                    <span>Recoup</span>
-                    <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
+                <a href="/" className="">
+                    <img src="/logo.png" alt="Recoup" className='w-[6rem] h-auto object-contain' />
                 </a>
 
                 {/* Desktop Nav */}
@@ -44,7 +43,7 @@ const Navbar = () => {
                         <a
                             key={link.name}
                             href={link.href}
-                            className={`text-sm font-medium ${isScrolled ? 'text-gray-600' : 'text-white'} hover:text-primary transition-colors`}
+                            className={`text-sm font-medium ${isScrolled ? 'text-gray-800' : 'text-gray-900'} hover:text-primary transition-colors`}
                         >
                             {link.name}
                         </a>
@@ -68,7 +67,7 @@ const Navbar = () => {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-white border-t"
+                        className="md:hidden mt-3 bg-white border-t"
                     >
                         <div className="container px-4 py-6 flex flex-col gap-4">
                             {navLinks.map((link) => (

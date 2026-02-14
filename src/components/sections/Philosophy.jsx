@@ -4,131 +4,133 @@ import { motion } from 'framer-motion';
 import { Activity, Heart, Brain, Leaf, Sun, Cross } from 'lucide-react';
 import { cn } from '../../lib/utils';
 
+const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.7,
+            ease: "easeOut"
+        }
+    }
+};
+
 const PhilosophyCard = ({ item, className }) => (
     <motion.div
         className={cn(
-            "relative overflow-hidden rounded-[2rem] p-8 group transition-all duration-500 hover:shadow-xl flex flex-col justify-between h-[320px] isolate",
+            "relative overflow-hidden rounded-3xl group bg-white shadow-xl shadow-gray-100 border border-gray-100 flex flex-col h-full",
             className
         )}
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        variants={cardVariants}
+        whileHover={{
+            y: -12,
+            transition: { duration: 0.3, ease: "easeOut" }
+        }}
     >
-        {/* Background Image - Subtle & Elegant */}
-        <div className="absolute inset-0 z-0">
-            <img
+        {/* Top Image Section */}
+        <div className="h-64 overflow-hidden relative">
+            <motion.img
                 src={item.bgImage}
                 alt={item.title}
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                className="w-full h-full object-cover"
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
             />
-            {/* Elegant light overly for readability and 'Light Theme' adherence */}
-            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/40 transition-all duration-500 hover:backdrop-blur-[2px]" />
-            <div className={cn("absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-500 bg-gradient-to-t from-black via-black to-transparent")} />
+            <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
+            <motion.div
+                className="absolute top-4 left-4 w-12 h-12 rounded-2xl bg-white/90 backdrop-blur-md flex items-center justify-center text-primary-dark shadow-sm z-10"
+                whileHover={{ rotate: [0, -10, 10, -5, 5, 0], scale: 1.1, transition: { duration: 0.5 } }}
+            >
+                {item.icon}
+            </motion.div>
         </div>
 
-        {/* Content Layer */}
-        <div className="relative z-10 h-full flex flex-col">
-            <div className="flex justify-between items-start mb-auto">
-                <div className={cn(
-                    "w-12 h-12 rounded-2xl flex items-center justify-center text-white shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:rotate-6",
-                    item.iconBg
-                )}>
-                    {item.icon}
-                </div>
-            </div>
+        {/* Bottom Content Section */}
+        <div className="p-8 flex flex-col flex-grow">
+            <h3 className="text-2xl font-bold text-primary-dark mb-3 tracking-tight group-hover:text-primary transition-colors">
+                {item.title}
+            </h3>
+            <p className="text-gray-600 leading-relaxed font-medium text-pretty mb-4 flex-grow">
+                {item.desc}
+            </p>
 
-            <div className="mt-8">
-                <h3 className="text-2xl font-bold text-white mb-3 tracking-tight group-hover:text-accent transition-colors">
-                    {item.title}
-                </h3>
-                <p className="text-gray-200 leading-relaxed font-medium text-pretty">
-                    {item.desc}
-                </p>
-
-                {/* Decorative Line */}
-                <div className={cn(
-                    "h-1 w-12 mt-6 rounded-full transition-all duration-500 group-hover:w-full",
-                    item.iconBg.replace("bg-", "bg-opacity-50 bg-") // Hacky way to get lighter color or just use gray
-                )} style={{ backgroundColor: 'currentColor', opacity: 0.2 }} />
-            </div>
+            {/* <motion.div
+                className="flex items-center text-primary font-semibold text-sm cursor-pointer mt-auto pt-4 border-t border-gray-100"
+                whileHover={{ x: 5 }}
+            >
+                Learn More <span className="ml-1">→</span>
+            </motion.div> */}
         </div>
     </motion.div>
 );
+
+const containerVariants = {
+    hidden: {},
+    visible: {
+        transition: {
+            staggerChildren: 0.2
+        }
+    }
+};
 
 const Philosophy = () => {
     const approaches = [
         {
             icon: <Activity className="h-6 w-6" />,
-            title: "Functional Medicine",
-            desc: "Addressing the root cause of disease, not just silencing symptoms.",
-            iconBg: "bg-emerald-600",
+            title: "Advanced Physical Therapy",
+            desc: "Personalized rehabilitation programs designed to restore strength, flexibility, and function.",
             bgImage: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop",
-            className: "md:col-span-1 bg-white"
-        },
-        {
-            icon: <Brain className="h-6 w-6" />,
-            title: "Behavioral Science",
-            desc: "Rewiring the mind for sustainable lifestyle transformation.",
-            iconBg: "bg-indigo-600",
-            bgImage: "https://images.unsplash.com/photo-1493836512294-502baa1986e2?q=80&w=2067&auto=format&fit=crop",
-            className: "md:col-span-1 bg-white"
+            className: "md:col-span-1"
         },
         {
             icon: <Sun className="h-6 w-6" />,
-            title: "Ayurveda",
-            desc: "Ancient wisdom for modern balance.",
-            iconBg: "bg-orange-500",
+            title: "Holistic Wellness Care",
+            desc: "Integrating mind, body, and lifestyle for comprehensive healing and lasting results.",
             bgImage: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=2073&auto=format&fit=crop",
-            className: "md:col-span-1 bg-white"
-        },
-        {
-            icon: <Leaf className="h-6 w-6" />,
-            title: "Functional Nutrition",
-            desc: "Food as medicine for deep cellular healing.",
-            iconBg: "bg-green-600",
-            bgImage: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=2053&auto=format&fit=crop",
-            className: "md:col-span-1 bg-white"
+            className: "md:col-span-1"
         },
         {
             icon: <Heart className="h-6 w-6" />,
-            title: "Mind-Body Medicine",
-            desc: "Harmonizing mental & physical health.",
-            iconBg: "bg-rose-500",
+            title: "Pain Management",
+            desc: "Evidence-based protocols targeting root causes to eliminate chronic pain conditions.",
             bgImage: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=2031&auto=format&fit=crop",
-            className: "md:col-span-1 bg-white"
+            className: "md:col-span-1"
         },
         {
-            icon: <Cross className="h-6 w-6" />,
-            title: "Naturopathy",
-            desc: "Healing through nature's elements.",
-            iconBg: "bg-teal-600",
+            icon: <Leaf className="h-6 w-6" />,
+            title: "Regenerative Medicine",
+            desc: "Cutting-edge treatments promoting natural healing and tissue regeneration.",
             bgImage: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop",
-            className: "md:col-span-1 bg-white"
+            className: "md:col-span-1"
         },
     ];
 
     return (
-        <Section id="philosophy" className="bg-secondary/30 relative overflow-hidden py-24">
-            {/* Subtle background texture */}
-            <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#2F5A50_1px,transparent_1px)] [background-size:16px_16px]" />
-
+        <Section id="philosophy" className="bg-white relative overflow-hidden py-12">
             <div className="flex flex-col md:flex-row items-end justify-between mb-20 gap-8 relative z-10">
                 <div className="max-w-3xl">
-                    <span className="text-accent font-bold tracking-wider uppercase text-xs mb-4 block border-b border-accent/20 pb-4 w-fit">Recoup Philosophy</span>
+                    <span className="text-primary-light font-bold tracking-wider uppercase text-xs mb-4 block border-b border-primary-light/20 pb-4 w-fit">Recoup Philosophy</span>
                     <h2 className="text-4xl md:text-6xl font-bold text-primary-dark leading-[1.1]">
-                        The Art of <span className="text-primary-light font-serif italic">Holistic Healing</span>
+                        Experience <span className="text-primary-light font-serif italic">Comprehensive Care</span>
                     </h2>
                 </div>
                 <p className="text-lg text-gray-600 max-w-sm leading-relaxed">
-                    We fuse ancient wisdom with modern medical science to create a personalized path to your full recovery.
+                    Watch how our expert team delivers personalized, holistic treatment using the revolutionary 4R Protocol.
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div
+                className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 overflow-x-auto md:overflow-visible pb-6 md:pb-0 snap-x snap-mandatory scrollbar-hide"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+            >
                 {approaches.map((item, index) => (
-                    <PhilosophyCard key={index} item={item} className={item.className} />
+                    <PhilosophyCard key={index} item={item} className={cn(item.className, "min-w-[85vw] md:min-w-0 snap-center")} />
                 ))}
-            </div>
+            </motion.div>
         </Section>
     );
 };

@@ -9,18 +9,17 @@ export default {
         extend: {
             colors: {
                 primary: {
-                    DEFAULT: '#2F5A50', // Wellness Green
-                    light: '#4A9D96',   // Fresh Teal
-                    dark: '#1A332E',
+                    DEFAULT: '#862CD6', // Vibrant Purple
+                    light: '#A665E4',   // Lighter Purple
+                    dark: '#5B1E91',    // Darker Purple
+                    darker: "#6107b5",
+                    darkest: "#571396"
                 },
                 secondary: {
-                    DEFAULT: '#F5F5F0', // Warm Beige
-                    foreground: '#333333',
+                    DEFAULT: '#6F6AA5', // Slate Blue
+                    foreground: '#FFFFFF',
                 },
-                accent: {
-                    DEFAULT: '#E6B89C', // Sunrise Gold
-                    hover: '#DBA88A',
-                },
+
                 surface: {
                     DEFAULT: '#FFFFFF',
                     muted: '#F0F2F5',

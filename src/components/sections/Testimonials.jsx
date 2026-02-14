@@ -4,6 +4,7 @@ import { Card, CardContent } from '../ui/Card';
 import { Quote, Star, User } from 'lucide-react';
 import 'keen-slider/keen-slider.min.css';
 import { useKeenSlider } from 'keen-slider/react';
+import { motion } from 'framer-motion';
 
 const Testimonials = () => {
     const [sliderRef] = useKeenSlider(
@@ -84,42 +85,56 @@ const Testimonials = () => {
     ];
 
     return (
-        <Section className="bg-primary-dark text-white relative overflow-hidden py-24">
+        <Section className="bg-primary-dark text-white relative overflow-hidden py-12">
             {/* Background Decor */}
             <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
                 <Quote size={200} />
             </div>
 
             <div className="text-center max-w-3xl mx-auto mb-16 relative z-10 px-4">
-                <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">Stories of <span className="text-accent italic font-serif">Recovery</span></h2>
-                <p className="text-gray-300 text-lg">Real patients, real healing. See how Recoup is changing lives across India.</p>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                >
+                    <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">Stories of <span className="text-primary-light italic font-serif">Recovery</span></h2>
+                    <p className="text-gray-300 text-lg">Real patients, real healing. See how Recoup is changing lives across India.</p>
+                </motion.div>
             </div>
 
-            <div ref={sliderRef} className="keen-slider relative z-10">
+            <motion.div
+                ref={sliderRef}
+                className="keen-slider relative z-10"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+            >
                 {testimonials.map((item, index) => (
                     <div key={index} className="keen-slider__slide h-full">
                         <Card className="bg-white/5 border-white/10 hover:bg-white/10 transition-colors h-full rounded-2xl">
                             <CardContent className="p-8 flex flex-col h-full justify-between">
                                 <div>
-                                    <div className="flex gap-1 mb-6 text-accent">
+                                    <div className="flex gap-1 mb-6 text-primary-light">
                                         {[...Array(5)].map((_, i) => <Star key={i} size={18} fill="currentColor" />)}
                                     </div>
                                     <p className="text-gray-200 mb-8 italic leading-relaxed text-lg font-light">"{item.content}"</p>
                                 </div>
                                 <div className="flex items-center gap-4 mt-auto">
-                                    <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border border-accent/30 text-accent">
+                                    <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border border-primary-light/30 text-primary-light">
                                         <User size={24} />
                                     </div>
                                     <div>
                                         <h4 className="font-bold text-white text-lg">{item.name}</h4>
-                                        <p className="text-sm text-accent/80">{item.role}</p>
+                                        <p className="text-sm text-primary-light/80">{item.role}</p>
                                     </div>
                                 </div>
                             </CardContent>
                         </Card>
                     </div>
                 ))}
-            </div>
+            </motion.div>
         </Section>
     );
 };

@@ -6,12 +6,12 @@ const Button = React.forwardRef(({ className, variant = 'primary', size = 'defau
     const Comp = asChild ? 'span' : motion.button;
 
     const variants = {
-        primary: 'bg-primary text-white hover:bg-primary-light shadow-md',
-        secondary: 'bg-secondary text-primary-dark hover:bg-accent/20 border border-primary/10',
+        primary: 'bg-primary text-white hover:bg-primary-darker shadow-md',
+        secondary: 'bg-secondary text-primary-dark hover:bg-primary-darkest border border-primary/10',
         outline: 'border-2 border-primary text-primary hover:bg-primary hover:text-white',
         ghost: 'hover:bg-primary/5 text-primary',
         link: 'text-primary underline-offset-4 hover:underline',
-        accent: 'bg-accent text-primary-dark hover:bg-accent-hover',
+        accent: 'bg-primary-light text-white hover:bg-primary',
     };
 
     const sizes = {
