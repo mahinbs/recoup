@@ -4,7 +4,7 @@ import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, MessageCir
 
 const Footer = () => {
     return (
-        <footer className="bg-primary-dark text-white py-12 md:py-24">
+        <footer className="bg-primary-dark text-white py-12 md:py-24 border-t border-white/10">
             <div className="container px-4 md:px-6">
                 {/* Top Section */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">

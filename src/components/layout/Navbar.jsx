@@ -17,11 +17,8 @@ const Navbar = () => {
     }, []);
 
     const navLinks = [
-        { name: 'Treatments', href: '#conditions' },
-        { name: 'Philosophy', href: '#philosophy' },
-        { name: 'Doctors', href: '#doctors' },
-        { name: 'Academy', href: '#academy' },
-        { name: 'Blog', href: '#blog' },
+        { name: 'Home', href: '/' },
+        { name: 'Second Bell', href: '/second-bell' },
     ];
 
     return (
