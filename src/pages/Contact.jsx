@@ -71,16 +71,57 @@ const Contact = () => {
                                     <div className="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"><Mail size={20} /></div>
                                     <span className="font-medium">connect@recoup.health</span>
                                 </a>
-                                <a href="tel:+919845155449" className="flex items-center gap-4 text-gray-600 hover:text-primary transition-colors group">
-                                    <div className="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"><Phone size={20} /></div>
-                                    <span className="font-medium">+91 98451 55449</span>
-                                </a>
-                                <div className="flex items-center gap-4 text-gray-600">
-                                    <div className="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center shrink-0"><MapPin size={20} /></div>
-                                    <span className="font-medium leading-relaxed">
-                                        7/1, Eco Space, 3rd Floor<br />
-                                        Kaikondrahalli, Bengaluru 560103
-                                    </span>
+                                
+                                <div className="space-y-6 pt-6 border-t border-gray-100">
+                                    <h4 className="text-lg font-bold text-primary-dark mb-4">Our Clinics in Bangalore</h4>
+                                    
+                                    {/* Bellandur */}
+                                    <div className="flex items-start gap-4 text-gray-600">
+                                        <div className="w-10 h-10 bg-primary/10 text-primary rounded-xl flex items-center justify-center shrink-0 mt-1"><MapPin size={18} /></div>
+                                        <div>
+                                            <span className="font-bold text-gray-900 block mb-1">Bellandur</span>
+                                            <span className="text-sm leading-relaxed block mb-2">
+                                                7/1, Eco Space, 3rd Floor Doddakannelli, Exit Gate Bhoganhalli, opp. Campus 8B, RMZ Ecoworld<br />
+                                                Kaikondrahalli, Bengaluru, Karnataka 560103
+                                            </span>
+                                            <a href="tel:+919845155449" className="flex items-center gap-2 text-sm text-primary hover:text-primary-dark transition-colors font-medium">
+                                                <Phone size={14} />
+                                                +91 98451 55449
+                                            </a>
+                                        </div>
+                                    </div>
+                                    
+                                    {/* Anjanapura */}
+                                    <div className="flex items-start gap-4 text-gray-600 pt-2">
+                                        <div className="w-10 h-10 bg-primary/10 text-primary rounded-xl flex items-center justify-center shrink-0 mt-1"><MapPin size={18} /></div>
+                                        <div>
+                                            <span className="font-bold text-gray-900 block mb-1">Anjanapura</span>
+                                            <span className="text-sm leading-relaxed block mb-2">
+                                                312, 10th Block, Further Extension of Anjanapura Layout, 80 Feet Road<br />
+                                                LB Shastri Nagar, Bangalore, Karnataka 560062
+                                            </span>
+                                            <a href="tel:+917676499396" className="flex items-center gap-2 text-sm text-primary hover:text-primary-dark transition-colors font-medium">
+                                                <Phone size={14} />
+                                                +91 76764 99396
+                                            </a>
+                                        </div>
+                                    </div>
+                                    
+                                    {/* Jayanagar */}
+                                    <div className="flex items-start gap-4 text-gray-600 pt-2">
+                                        <div className="w-10 h-10 bg-primary/10 text-primary rounded-xl flex items-center justify-center shrink-0 mt-1"><MapPin size={18} /></div>
+                                        <div>
+                                            <span className="font-bold text-gray-900 block mb-1">Jayanagar</span>
+                                            <span className="text-sm leading-relaxed block mb-2">
+                                                Contact us for exact location<br />
+                                                Jayanagar, Bengaluru
+                                            </span>
+                                            <a href="tel:+919845155449" className="flex items-center gap-2 text-sm text-primary hover:text-primary-dark transition-colors font-medium">
+                                                <Phone size={14} />
+                                                +91 98451 55449
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

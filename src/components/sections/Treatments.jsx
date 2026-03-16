@@ -12,8 +12,8 @@ const treatments = [
         image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=2070&auto=format&fit=crop"
     },
     {
-        title: "Chronic Disease",
-        fullTitle: "Chronic Disease Care",
+        title: "Lifestyle Disease",
+        fullTitle: "Lifestyle Disease Care",
         desc: "Comprehensive support for diabetes, heart disease, autoimmune conditions, and gut health.",
         image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2070&auto=format&fit=crop"
     },

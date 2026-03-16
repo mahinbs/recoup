@@ -65,7 +65,7 @@ const Overview = () => {
                         { icon: <UserCheck />, title: "Posture & Physicality", desc: "Poor ergonomics leading to musculoskeletal pain and reduced stamina." },
                         { icon: <ShieldAlert />, title: "Student Wellbeing", desc: "A holistic measure of a child's safety, mental health, and overall physiological balance." }
                     ].map((item, idx) => (
-                        <div key={idx} className="bg-slate-50 border border-slate-100 p-8 rounded-2xl hover:shadow-lg hover:border-primary/20 transition-all duration-300">
+                        <div key={idx} className="bg-slate-50 border border-slate-100 p-8 rounded-2xl hover:shadow-lg hover:border-primary/20 transition-all duration-300 flex flex-col items-center sm:items-start text-center sm:text-start">
                             <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-primary mb-6 shadow-sm">
                                 {item.icon}
                             </div>

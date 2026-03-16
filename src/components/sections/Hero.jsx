@@ -45,7 +45,7 @@ const Hero = () => {
                             </span> for Lasting Wellness<br />
                         </h1>
                         <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl leading-relaxed">
-                            Led by Dr. Deepak Sharan, internationally acclaimed expert and Presidential Award winner. Treating root causes with our proprietary 4R Approach: Recognize, Remedy, Restore, Regenerate.
+                            Led by Dr. Deepak Sharan, internationally acclaimed expert and Presidential Award winner. We specialize in **rehabilitation** for **chronic pain** and **lifestyle diseases**, treating root causes with our proprietary 4R Approach: Recognize, Remedy, Restore, Regenerate.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4">

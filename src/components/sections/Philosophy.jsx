@@ -86,7 +86,7 @@ const Philosophy = () => {
         {
             icon: <Sun className="h-6 w-6" />,
             title: "Holistic Wellness Care",
-            desc: "Integrating mind, body, and lifestyle for comprehensive healing and lasting results.",
+            desc: "Integrating mind, body, and lifestyle for comprehensive healing, targeting lifestyle diseases with lasting results.",
             bgImage: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=2073&auto=format&fit=crop",
             className: "md:col-span-1"
         },

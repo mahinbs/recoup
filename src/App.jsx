@@ -2,6 +2,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import ContactPage from './pages/Contact';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 import SecondBellOverview from './pages/second-bell/Overview';
 import SecondBellFramework from './pages/second-bell/Framework';
 import SecondBellSchoolProgram from './pages/second-bell/SchoolProgram';
@@ -20,6 +22,12 @@ function App() {
         {/* Global Contact Route */}
         <Route path='/contact' element={<Layout />}>
           <Route index element={<ContactPage />} />
+        </Route>
+
+        {/* Blog Routes */}
+        <Route path='/blog' element={<Layout />}>
+          <Route index element={<Blog />} />
+          <Route path=':id' element={<BlogPost />} />
         </Route>
 
         {/* Second Bell Routes */}

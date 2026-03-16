@@ -94,7 +94,7 @@ const Impact = () => {
                                     {[1, 2, 3, 4, 5].map(i => <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />)}
                                 </div>
                             </div>
-                            <span className="text-purple-200">Excellent patient care</span>
+                            <span className="text-purple-200">Average 4.9 on Google Reviews</span>
                         </div>
 
                         <div>

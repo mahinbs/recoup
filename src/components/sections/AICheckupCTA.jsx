@@ -20,7 +20,7 @@ const AICheckupCTA = () => {
                         >
                             <div className="flex items-center gap-3 mb-8">
                                 <span className="h-px w-12 bg-primary"></span>
-                                <span className="italic text-primary tracking-wider">AI-Powered Planning</span>
+                                <span className="italic text-primary tracking-wider">Data-Driven Personalized Planning</span>
                             </div>
 
                             <h2 className="text-5xl md:text-6xl lg:text-7xl text-gray-900 mb-8 leading-[1.1]">
@@ -29,7 +29,7 @@ const AICheckupCTA = () => {
                             </h2>
 
                             <p className="text-gray-600 text-lg leading-relaxed mb-12 max-w-xl">
-                                Experience the 4R Protocol tailored specifically to your physiology. Our AI analyzes your unique profile to craft a bespoke roadmap for recovery and longevity.
+                                Experience the 4R Protocol tailored specifically to your physiology. Our data-driven approach analyzes your unique profile to craft a bespoke roadmap for recovery and longevity.
                             </p>
 
                             {/* Minimal 4R Timeline */}

@@ -3,6 +3,7 @@ import { Button } from '../ui/Button';
 import { Menu, X } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -19,6 +20,8 @@ const Navbar = () => {
     const navLinks = [
         { name: 'Home', href: '/' },
         { name: 'Second Bell', href: '/second-bell' },
+        { name: 'Blog', href: '/blog' },
+        { name: 'Contact', href: '/contact' },
     ];
 
     return (
@@ -37,15 +40,17 @@ const Navbar = () => {
                 {/* Desktop Nav */}
                 <div className="hidden md:flex items-center gap-8">
                     {navLinks.map((link) => (
-                        <a
+                        <Link
                             key={link.name}
-                            href={link.href}
+                            to={link.href}
                             className={`text-sm font-medium ${isScrolled ? 'text-gray-800' : 'text-gray-900'} hover:text-primary transition-colors`}
                         >
                             {link.name}
-                        </a>
+                        </Link>
                     ))}
-                    <Button size="sm" variant="primary">Book Consultation</Button>
+                    <Link to="/contact">
+                        <Button size="sm" variant="primary">Book Consultation</Button>
+                    </Link>
                 </div>
 
                 {/* Mobile Menu Toggle */}
@@ -68,16 +73,18 @@ const Navbar = () => {
                     >
                         <div className="container px-4 py-6 flex flex-col gap-4">
                             {navLinks.map((link) => (
-                                <a
+                                <Link
                                     key={link.name}
-                                    href={link.href}
+                                    to={link.href}
                                     className="text-base font-medium text-gray-700 hover:text-primary"
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
                                     {link.name}
-                                </a>
+                                </Link>
                             ))}
-                            <Button className="w-full" variant="primary">Book Consultation</Button>
+                            <Link to="/contact">
+                                <Button className="w-full" variant="primary">Book Consultation</Button>
+                            </Link>
                         </div>
                     </motion.div>
                 )}
