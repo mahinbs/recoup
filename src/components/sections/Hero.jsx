@@ -30,8 +30,8 @@ const Hero = () => {
                             Founded by Dr. Deepak Sharan
                         </span>
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#111827] tracking-tight !leading-tight mb-6 text-balance">
-                            Revolutionary  <span className="relative inline-block">
-                                <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-light to-[#D92779]">4R Protocol</span>
+                            Revolutionary <span className="relative inline-block">
+                                <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-light to-[#D92779]">Chronic Pain</span>
                                 <svg className="absolute w-full h-8 -bottom-2 left-0 text-primary-light" viewBox="0 0 100 25" preserveAspectRatio="none">
                                     <path d="M0 15 Q 50 25 100 15" stroke="url(#underline-gradient)" strokeWidth="8" fill="none" />
                                     <defs>
@@ -42,10 +42,10 @@ const Hero = () => {
                                         </linearGradient>
                                     </defs>
                                 </svg>
-                            </span> for Lasting Wellness<br />
+                            </span> Rehabilitation & Lifestyle Disease Care<br />
                         </h1>
                         <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl leading-relaxed">
-                            Led by Dr. Deepak Sharan, internationally acclaimed expert and Presidential Award winner. We specialize in **rehabilitation** for **chronic pain** and **lifestyle diseases**, treating root causes with our proprietary 4R Approach: Recognize, Remedy, Restore, Regenerate.
+                            Led by Dr. Deepak Sharan, internationally acclaimed expert with 35+ years of research and 27 years of clinical experience. We specialize in <b>comprehensive rehabilitation</b> for <b>chronic pain</b> and <b>lifestyle diseases</b>, focusing on treating the <b>root cause</b> rather than just the symptoms through our proprietary 4R Approach: Recognize, Remedy, Restore, Regenerate.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4">

@@ -15,7 +15,7 @@ const Footer = () => {
                             Recoup Health
                         </h3>
                         <p className="text-gray-300 text-sm leading-relaxed max-w-md">
-                            Transforming healthcare with lasting wellness through holistic, patient-centered care. Backed by 35+ years of research.
+                            Transforming healthcare through holistic, patient-centered care for lasting wellness.
                         </p>
                         <div className="space-y-2 text-sm">
                             <div className="flex items-center gap-3">

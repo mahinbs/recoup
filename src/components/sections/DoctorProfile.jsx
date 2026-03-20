@@ -56,7 +56,7 @@ const DoctorProfile = () => {
                             </h2>
 
                             <p className="text-lg text-gray-600 leading-relaxed mb-10 border-l-4 border-primary pl-6 italic">
-                                "Internationally recognized expert in Ergonomics, RSI, and Pain Management with over 27 years of clinical experience. Dr. Sharan has revolutionized workplace health and developed the proprietary SHARAN Protocol and 4R Approach that have transformed lives across 40 countries."
+                                "Internationally recognized expert in Ergonomics, RSI, and Pain Management with 35+ Years of Research in Ergonomics & Pain Science and over 27 years of clinical experience. Dr. Sharan has revolutionized workplace health and developed the proprietary SHARAN Protocol and 4R Approach that have transformed lives across 40+ countries."
                             </p>
 
                             {/* Achievements Grid */}

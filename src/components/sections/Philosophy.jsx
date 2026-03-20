@@ -112,7 +112,7 @@ const Philosophy = () => {
                 <div className="max-w-3xl">
                     <span className="text-primary-light font-bold tracking-wider uppercase text-xs mb-4 block border-b border-primary-light/20 pb-4 w-fit">Recoup Philosophy</span>
                     <h2 className="text-4xl md:text-6xl font-bold text-primary-dark leading-[1.1]">
-                        Experience <span className="text-primary-light font-serif italic">Comprehensive Care</span>
+                        Chronic Pain <span className="text-primary-light font-serif italic">& Lifestyle Rehabilitation</span>
                     </h2>
                 </div>
                 <p className="text-lg text-gray-600 max-w-sm leading-relaxed">
