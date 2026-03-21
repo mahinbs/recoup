@@ -16,10 +16,10 @@ const MediaLogos = () => {
         },
         breakpoints: {
             "(min-width: 640px)": {
-                slides: { perView: 4, spacing: 40 },
+                slides: { perView: 4, spacing: 30 },
             },
             "(min-width: 1024px)": {
-                slides: { perView: 5, spacing: 50 },
+                slides: { perView: 5, spacing: 30 },
             },
             "(min-width: 1280px)": {
                 slides: { perView: 6, spacing: 50 },
@@ -47,7 +47,7 @@ const MediaLogos = () => {
     ];
 
     return (
-        <Section className="py-10 bg-white border-b border-gray-100 overflow-hidden">
+        <div className="w-full py-8 md:py-16 lg:py-20 relative bg-white border-b border-gray-100 overflow-hidden">
             <div className="">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-sm font-semibold text-gray-400 uppercase tracking-widest mb-8">
@@ -60,13 +60,13 @@ const MediaLogos = () => {
                             <img
                                 src={logo.url}
                                 alt={logo.name}
-                                className="max-h-7 md:max-h-9 w-auto object-contain opacity-50 hover:opacity-100 transition-all duration-300 pointer-events-none rounded-lg"
+                                className="w-auto object-contain opacity-50 hover:opacity-100 transition-all duration-300 pointer-events-none rounded-xl"
                             />
                         </div>
                     ))}
                 </div>
             </div>
-        </Section>
+        </div>
     );
 };
 

@@ -11,6 +11,8 @@ import SecondBellInterventions from './pages/second-bell/Interventions';
 import SecondBellHowItWorks from './pages/second-bell/HowItWorks';
 import SecondBellRSHS from './pages/second-bell/RSHS';
 import Layout from './pages/second-bell/Layout';
+import Conditions from './pages/Conditions';
+import ConditionDetail from './pages/ConditionDetail';
 
 function App() {
   return (
@@ -28,6 +30,12 @@ function App() {
         <Route path='/blog' element={<Layout />}>
           <Route index element={<Blog />} />
           <Route path=':id' element={<BlogPost />} />
+        </Route>
+
+        {/* Conditions / Programs */}
+        <Route path='/conditions' element={<Layout />}>
+          <Route index element={<Conditions />} />
+          <Route path=':slug' element={<ConditionDetail />} />
         </Route>
 
         {/* Second Bell Routes */}
