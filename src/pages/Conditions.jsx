@@ -4,6 +4,7 @@ import { Card, CardContent } from '../components/ui/Card';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { conditions } from '../conditions/conditions';
+import { motion } from 'framer-motion';
 
 const Conditions = () => {
     return (
