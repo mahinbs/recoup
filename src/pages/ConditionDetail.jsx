@@ -17,7 +17,7 @@ const ConditionDetail = () => {
 
     if (!condition) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-slate-50 pt-24 pb-20 px-4">
+            <div className="min-h-screen flex items-center justify-center bg-slate-50 pt-32 pb-20 px-4">
                 <div className="text-center max-w-md">
                     <h1 className="text-2xl font-bold text-primary-dark mb-4">Program Not Found</h1>
                     <p className="text-gray-500 mb-8">
@@ -35,7 +35,7 @@ const ConditionDetail = () => {
     }
 
     return (
-        <article className="bg-slate-50 min-h-screen pt-24 pb-20">
+        <article className="bg-slate-50 min-h-screen pt-32 pb-20">
             <header className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
                 <Link
                     to="/conditions"
