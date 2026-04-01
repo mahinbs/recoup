@@ -59,7 +59,7 @@ import coverPrimaryCare from '../assets/conditions/Primary Care Program.jpeg';
 import coverRespiratoryHealth from '../assets/conditions/Respiratory Health.jpeg';
 import coverRheumatologicalRehabilitation from '../assets/conditions/Rheumatological Rehabilitation.jpeg';
 import coverSchoolHealth from '../assets/conditions/Health School Program.jpeg';
-import coverSleepCircadianRhythmClinic from '../assets/conditions/Sleep and Circadian Rhythm Clinic (RSCRC).jpeg';
+import coverSleepCircadianRhythmClinic from '../assets/conditions/Sleep and Circadian Rhythm Clinic (RSCRC).jpg';
 import coverSmokingCessationProgram from '../assets/conditions/Smoking Cessation Program.jpeg';
 import coverSpinalDeformityRehabilitation from '../assets/conditions/Spinal Deformity Rehabilitation Program.jpeg';
 import coverStressPositiveRelationshipsProgram from '../assets/conditions/Stress and Positive Relationships Program.jpeg';

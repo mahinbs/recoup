@@ -75,7 +75,7 @@ const Footer = () => {
                     </div>
                     <div className="w-full md:w-1/2 h-40 rounded-xl overflow-hidden shadow-lg border border-white/10">
                         <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.750939922241!2d77.6749931750756!3d12.923722787386762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae137119e7a885%3A0xea6949db2d58bf01!2sRecoup%20Health!5e0!3m2!1sen!2sin!4v1709495034988!5m2!1sen!2sin" 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.5042052993285!2d77.58285057484082!3d12.939555737372887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1576468020dd%3A0x6824b12b0253ef4f!2sRecoup%20Health%20Jayanagar!5e0!3m2!1sen!2sin!4v1775026443785!5m2!1sen!2sin" 
                             width="100%" 
                             height="100%" 
                             style={{ border: 0 }} 
