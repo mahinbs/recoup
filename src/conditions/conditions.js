@@ -35,7 +35,7 @@ import weightManagement from './content/weight-management.json';
 
 const coverRasap = "https://images.pexels.com/photos/7176026/pexels-photo-7176026.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
 const coverAlzheimersCognitiveDecline = "https://images.pexels.com/photos/7551684/pexels-photo-7551684.jpeg?cs=srgb&dl=pexels-kampus-production-7551684.jpg&fm=jpg";
-const coverAutismSpectrumDisorders = "https://www.careplusautism.com/wp-content/uploads/2024/10/toys-for-autistic-kids-6.jpg";
+const coverAutismSpectrumDisorders = "https://images.unsplash.com/photo-1604881991720-f91add269bed?auto=format&fit=crop&w=1260&q=80";
 const coverBioenergeticsProgram = "https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
 const coverCancerRehabilitation = "https://images.pexels.com/photos/2324837/pexels-photo-2324837.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
 const coverCardiometabolicProgram = "https://images.pexels.com/photos/5340270/pexels-photo-5340270.jpeg?cs=srgb&dl=pexels-puwadon-sangngern-5340270.jpg&fm=jpg";

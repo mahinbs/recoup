@@ -1,7 +1,13 @@
 import React from 'react';
-import { Section } from '../ui/Section';
 import 'keen-slider/keen-slider.min.css';
 import { useKeenSlider } from 'keen-slider/react';
+import logo1 from '../../assets/logos/1.png';
+import logo2 from '../../assets/logos/2.png';
+import logo3 from '../../assets/logos/3.png';
+import logo4 from '../../assets/logos/4.png';
+import logo5 from '../../assets/logos/5.png';
+import logo6 from '../../assets/logos/6.png';
+import logo7 from '../../assets/logos/7.png';
 
 const animation = { duration: 25000, easing: (t) => t };
 
@@ -37,13 +43,13 @@ const MediaLogos = () => {
     });
 
     const logos = [
-        { name: "Forbes", url: "https://placehold.co/400x150/000000/FFFFFF/svg?text=Forbes" },
-        { name: "The Times of India", url: "https://placehold.co/400x150/000000/FFFFFF/svg?text=Times+of+India" },
-        { name: "The Hindu", url: "https://placehold.co/400x150/000000/FFFFFF/svg?text=The+Hindu" },
-        { name: "The Economic Times", url: "https://placehold.co/400x150/000000/FFFFFF/svg?text=Economic+Times" },
-        { name: "NDTV", url: "https://placehold.co/400x150/000000/FFFFFF/svg?text=NDTV" },
-        { name: "Healthline", url: "https://placehold.co/400x150/000000/FFFFFF/svg?text=Healthline" },
-        { name: "CNN", url: "https://placehold.co/400x150/000000/FFFFFF/svg?text=CNN" },
+        { name: 'Wall Street Journal', src: logo1 },
+        { name: 'The Indian Express', src: logo2 },
+        { name: 'NDTV', src: logo3 },
+        // { name: 'India Today', src: logo4 },
+        { name: 'The Times of India', src: logo5 },
+        { name: 'The Hindu', src: logo6 },
+        { name: 'Hindustan Times', src: logo7 },
     ];
 
     return (
@@ -54,13 +60,13 @@ const MediaLogos = () => {
                         Recognized By
                     </p>
                 </div>
-                <div ref={sliderRef} className="keen-slider h-12 flex items-center hidden-scrollbar">
-                    {logos.map((logo, idx) => (
-                        <div key={idx} className="keen-slider__slide flex items-center justify-center">
+                <div ref={sliderRef} className="keen-slider flex items-center hidden-scrollbar">
+                    {logos.concat(logos).map((logo) => (
+                        <div key={logo.name} className="keen-slider__slide flex items-center justify-center">
                             <img
-                                src={logo.url}
+                                src={logo.src}
                                 alt={logo.name}
-                                className="w-auto object-contain opacity-50 hover:opacity-100 transition-all duration-300 pointer-events-none rounded-xl"
+                                className="max-h-12 w-auto object-contain opacity-50 hover:opacity-100 transition-all duration-300 pointer-events-none"
                             />
                         </div>
                     ))}

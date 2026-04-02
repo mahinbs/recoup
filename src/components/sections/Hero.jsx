@@ -20,7 +20,7 @@ const Hero = () => {
       </div>
 
       <div className="container px-4 md:px-6 relative z-10 pt-20">
-        <div className="max-w-4xl">
+        <div className="max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -76,7 +76,7 @@ const Hero = () => {
               Rehabilitation & Lifestyle Disease Care
               <br />
             </h1>
-            <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-4xl leading-relaxed">
               Led by Dr. Deepak Sharan, internationally acclaimed expert with
               35+ years of research and 27 years of clinical experience. We
               specialize in <b>comprehensive rehabilitation</b> for{" "}
