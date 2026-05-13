@@ -7,8 +7,9 @@ const Button = React.forwardRef(({ className, variant = 'primary', size = 'defau
 
     const variants = {
         primary: 'bg-primary text-white hover:bg-primary-darker shadow-md',
+        danger: 'bg-red-600 text-white hover:bg-red-700 shadow-md shadow-red-600/15',
         secondary: 'bg-secondary text-primary-dark hover:bg-primary-darkest border border-primary/10',
-        outline: 'border-2 border-primary text-primary hover:bg-primary hover:text-white',
+        outline: 'border-2 border-primary text-primary hover:bg-slate-50 hover:text-primary',
         ghost: 'hover:bg-primary/5 text-primary',
         link: 'text-primary underline-offset-4 hover:underline',
         accent: 'bg-primary-light text-white hover:bg-primary',

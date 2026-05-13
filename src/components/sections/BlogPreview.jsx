@@ -5,11 +5,11 @@ import { Button } from '../ui/Button';
 import { ArrowRight, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { blogPosts } from '../../pages/Blog'; // Use shared data
+import { useSiteContent } from '../../context/SiteContentContext';
 
 const BlogPreview = () => {
-    // Only show the first 3 posts on the preview
-    const previewPosts = blogPosts.slice(0, 3);
+    const { blogs } = useSiteContent();
+    const previewPosts = blogs.slice(0, 3);
 
     return (
         <Section id="blog" className="bg-white">
@@ -37,7 +37,7 @@ const BlogPreview = () => {
             <div className="flex md:grid md:grid-cols-3 gap-4 md:gap-8 overflow-x-auto md:overflow-visible pb-6 md:pb-0 snap-x snap-mandatory scrollbar-hide">
                 {previewPosts.map((post, idx) => (
                     <motion.div
-                        key={idx}
+                        key={post.id}
                         className="min-w-[85vw] md:min-w-0 snap-center h-full"
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -46,12 +46,16 @@ const BlogPreview = () => {
                     >
                         <Link to={`/blog/${post.id}`} className="block h-full">
                             <Card className="overflow-hidden border-none shadow-sm hover:shadow-xl transition-shadow bg-white group cursor-pointer h-full flex flex-col">
-                                <div className="h-48 overflow-hidden relative shrink-0">
+                                <div className="h-48 overflow-hidden relative shrink-0 bg-slate-100">
+                                    {post.image ? (
                                     <img
                                         src={post.image}
                                         alt={post.title}
                                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                     />
+                                    ) : (
+                                        <div className="w-full h-full flex items-center justify-center text-slate-400 text-xs">No image</div>
+                                    )}
                                     <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-primary uppercase tracking-wider">
                                         {post.category}
                                     </div>
