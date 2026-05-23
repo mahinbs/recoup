@@ -20,7 +20,7 @@ import SecondBellRSHS from './pages/second-bell/RSHS';
 import Layout from './pages/second-bell/Layout';
 import Conditions from './pages/Conditions';
 import ConditionDetail from './pages/ConditionDetail';
-import Ephr from './pages/Ephr';
+import EphrPage from './pages/EphrPage';
 
 function App() {
   return (
@@ -49,7 +49,7 @@ function App() {
 
         {/* EPHR Route */}
         <Route path='/ephr' element={<Layout />}>
-          <Route index element={<Ephr />} />
+          <Route index element={<EphrPage />} />
         </Route>
 
         {/* Second Bell Routes */}
