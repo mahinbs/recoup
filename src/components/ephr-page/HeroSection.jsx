@@ -166,7 +166,7 @@ const HeroSection = () => {
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row items-center gap-6 pointer-events-auto">
                     <button
-                        onClick={() => navigate('/contact')}
+                        onClick={() => navigate('/contact?from=ephr&section=hero')}
                         className="px-10 py-5 rounded-full bg-primary text-white font-sans font-medium text-sm md:text-base tracking-wide hover:bg-white hover:text-primary transition-all duration-500 shadow-[0_0_40px_rgba(134,44,214,0.4)]"
                     >
                         Get Your EPHR Assessment

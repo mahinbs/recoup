@@ -21,6 +21,7 @@ import Layout from './pages/second-bell/Layout';
 import Conditions from './pages/Conditions';
 import ConditionDetail from './pages/ConditionDetail';
 import EphrPage from './pages/EphrPage';
+import Academy from './pages/Academy';
 
 function App() {
   return (
@@ -50,6 +51,11 @@ function App() {
         {/* EPHR Route */}
         <Route path='/ephr' element={<Layout />}>
           <Route index element={<EphrPage />} />
+        </Route>
+
+        {/* Academy Route */}
+        <Route path='/academy' element={<Layout />}>
+          <Route index element={<Academy />} />
         </Route>
 
         {/* Second Bell Routes */}

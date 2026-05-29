@@ -50,7 +50,7 @@ const Navbar = () => {
                             {link.name}
                         </Link>
                     ))}
-                    <Link to="/contact">
+                    <Link to="/contact?from=navbar&section=book_consultation">
                         <Button size="sm" variant="primary">Book Consultation</Button>
                     </Link>
                 </div>
@@ -84,7 +84,7 @@ const Navbar = () => {
                                     {link.name}
                                 </Link>
                             ))}
-                            <Link to="/contact">
+                            <Link to="/contact?from=navbar_mobile&section=book_consultation">
                                 <Button className="w-full" variant="primary">Book Consultation</Button>
                             </Link>
                         </div>

@@ -27,7 +27,7 @@ export default {
             },
             fontFamily: {
                 sans: ['Ubuntu', 'sans-serif'],
-                serif: ['Merriweather', 'serif'],
+                serif: ['SN Pro', 'serif'],
             },
             container: {
                 center: true,

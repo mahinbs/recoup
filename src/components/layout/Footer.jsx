@@ -46,7 +46,7 @@ const Footer = () => {
                             <li><Link to="/" className="hover:text-primary-light transition-colors">Home</Link></li>
                             <li><Link to="/conditions" className="hover:text-primary-light transition-colors">Programs</Link></li>
                             <li><Link to="/ephr" className="hover:text-primary-light transition-colors">EPHR</Link></li>
-                            <li><Link to="/contact" className="hover:text-primary-light transition-colors">Contact</Link></li>
+                            <li><Link to="/contact?from=footer&section=links" className="hover:text-primary-light transition-colors">Contact</Link></li>
                             <li><a href="/#treatments" className="hover:text-primary-light transition-colors">Our Services</a></li>
                             <li><Link to="/blog" className="hover:text-primary-light transition-colors">Blog</Link></li>
                         </ul>
@@ -71,7 +71,7 @@ const Footer = () => {
                     <div className="md:w-1/2">
                         <h4 className="text-xl font-semibold mb-3">Our Clinics in Bangalore</h4>
                         <p className="text-sm text-gray-300">
-                            Visit our clinics across Bangalore. Head over to our <a href="/contact" className="text-primary-light hover:underline font-medium">Contact</a> page for detailed addresses and directions to all our locations including Bellandur, Anjanapura, and Jayanagar.
+                            Visit our clinics across Bangalore. Head over to our <a href="/contact?from=footer&section=text" className="text-primary-light hover:underline font-medium">Contact</a> page for detailed addresses and directions to all our locations including Bellandur, Anjanapura, and Jayanagar.
                         </p>
                     </div>
                     <div className="w-full md:w-1/2 h-40 rounded-xl overflow-hidden shadow-lg border border-white/10">

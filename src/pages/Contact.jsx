@@ -1,17 +1,36 @@
 import React from "react";
+import { useSearchParams } from "react-router-dom";
 import { Section } from "../components/ui/Section";
 import { Button } from "../components/ui/Button";
 import { Mail, Phone, MapPin, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Contact = () => {
+  const [searchParams] = useSearchParams();
+  const from = searchParams.get("from") || "";
+  const section = searchParams.get("section") || "";
+
+  // Personalize eyebrow based on landing referral source
+  let eyebrow = "Let's Connect";
+  if (from === "academy") {
+    eyebrow = "RECOUP Academy Enquiry";
+  } else if (from === "ephr" || from === "ephr_legacy") {
+    eyebrow = "RECOUP EPHR Enquiry";
+  } else if (from.startsWith("second_bell")) {
+    eyebrow = "Second Bell Program Enquiry";
+  } else if (from === "conditions" || from === "programs" || from === "home") {
+    eyebrow = "Clinical Program Enquiry";
+  } else if (from === "blog_post" || from === "blog") {
+    eyebrow = "Blog Reader Enquiry";
+  }
+
   return (
     <div className="bg-slate-50 min-h-screen pt-20 text-left">
       {/* Header */}
       <Section className="pt-16 md:pt-24 pb-12 bg-white text-center">
         <div className="max-w-3xl mx-auto">
           <span className="text-primary font-semibold tracking-wide uppercase text-sm mb-4 block">
-            Let's Connect
+            {eyebrow}
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-primary-dark mb-6">
             A conversation, not a decision.
@@ -38,6 +57,8 @@ const Contact = () => {
               Send Us a Message
             </h2>
             <form className="space-y-6">
+              <input type="hidden" name="utm_source_page" value={from} />
+              <input type="hidden" name="utm_source_section" value={section} />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-gray-700">

@@ -50,13 +50,13 @@ const FinalCTA = () => {
                     className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-40"
                 >
                     <button
-                        onClick={() => navigate('/contact')}
+                        onClick={() => navigate('/contact?from=ephr&section=final_cta_primary')}
                         className="w-full sm:w-auto px-5 sm:px-12 py-5 rounded-full bg-primary text-white font-sans font-medium text-lg tracking-wide hover:bg-white hover:text-primary transition-all duration-500 shadow-[0_0_40px_rgba(134,44,214,0.6)] transform hover:-translate-y-1"
                     >
                         Begin Your EPHR Journey
                     </button>
                     <button
-                        onClick={() => navigate('/contact')}
+                        onClick={() => navigate('/contact?from=ephr&section=final_cta_secondary')}
                         className="w-full sm:w-auto px-5 sm:px-12 py-5 rounded-full bg-transparent text-white font-sans font-medium text-lg tracking-wide border border-white/30 hover:border-white hover:bg-white/10 transition-all duration-500"
                     >
                         Schedule Your Assessment

@@ -87,7 +87,7 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/contact">
+              <Link to="/contact?from=home&section=hero">
                 <Button size="lg" variant="primary">
                   Book Consultation
                 </Button>
