@@ -22,4 +22,43 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  .ephr-section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 600px;
+  }
+
+  /* content-visibility breaks position:sticky — use on sections that need scroll pinning */
+  .ephr-section-allow-sticky {
+    content-visibility: visible;
+    contain-intrinsic-size: unset;
+  }
+
+  .gpu-layer {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+}
+
+.ephr-reveal {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition:
+    opacity 0.65s cubic-bezier(0.25, 1, 0.5, 1),
+    transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: opacity, transform;
+}
+
+.ephr-reveal.ephr-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ephr-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

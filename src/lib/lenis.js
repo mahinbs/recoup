@@ -6,15 +6,22 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function initLenis() {
   const lenis = new Lenis({
-    duration: 1.2,
+    duration: 1.1,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smoothTouch: false,
   });
 
-  // Sync GSAP ScrollTrigger with Lenis scroll updates
   lenis.on('scroll', ScrollTrigger.update);
 
-  gsap.ticker.add((time) => lenis.raf(time * 1000));
+  const onTick = (time) => lenis.raf(time * 1000);
+  gsap.ticker.add(onTick);
   gsap.ticker.lagSmoothing(0);
+
+  const originalDestroy = lenis.destroy.bind(lenis);
+  lenis.destroy = () => {
+    gsap.ticker.remove(onTick);
+    originalDestroy();
+  };
 
   return lenis;
 }

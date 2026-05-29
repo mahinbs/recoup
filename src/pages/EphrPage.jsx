@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
-import { ReactLenis } from 'lenis/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { initLenis } from '../lib/lenis';
 import HeroSection from '../components/ephr-page/HeroSection';
 import NarrativeSequence from '../components/ephr-page/NarrativeSequence';
 import HealthTreeEcosystem from '../components/ephr-page/HealthTreeEcosystem';
 import HowEphrWorks from '../components/ephr-page/HowEphrWorks';
 import HealthSystemsCarousel from '../components/ephr-page/HealthSystemsCarousel';
-import HealthScore from '../components/ephr-page/HealthScore';
 import SixPillars from '../components/ephr-page/SixPillars';
 import LabIntelligence from '../components/ephr-page/LabIntelligence';
 import BiologicalAge from '../components/ephr-page/BiologicalAge';
@@ -18,25 +17,34 @@ gsap.registerPlugin(ScrollTrigger);
 
 const EphrPage = () => {
     useEffect(() => {
-        ScrollTrigger.refresh();
+        ScrollTrigger.config({ limitCallbacks: true });
+        const lenis = initLenis();
+
+        const refresh = () => ScrollTrigger.refresh();
+        refresh();
+        window.addEventListener('load', refresh);
+
+        return () => {
+            window.removeEventListener('load', refresh);
+            lenis.destroy();
+            ScrollTrigger.getAll().forEach((st) => st.kill());
+        };
     }, []);
 
     return (
-        <ReactLenis root options={{ lerp: 0.05, duration: 1.5, smoothTouch: true }}>
-            <main className="bg-surface min-h-screen text-slate-900 font-sans overflow-x-hidden selection:bg-primary selection:text-white">
-                <HeroSection />
-                <NarrativeSequence />
-                <HealthTreeEcosystem />
-                <HowEphrWorks />
-                <HealthSystemsCarousel />
-                {/* <HealthScore /> */}
-                <SixPillars />
-                <LabIntelligence />
-                <BiologicalAge />
-                <WhoCanBenefit />
-                <FinalCTA />
-            </main>
-        </ReactLenis>
+        <main className="bg-surface min-h-screen text-slate-900 font-sans overflow-x-clip selection:bg-primary selection:text-white">
+            <HeroSection />
+            <NarrativeSequence />
+            <HealthTreeEcosystem />
+            <HowEphrWorks />
+            <HealthSystemsCarousel />
+            {/* <HealthScore /> */}
+            <SixPillars />
+            <LabIntelligence />
+            <BiologicalAge />
+            <WhoCanBenefit />
+            <FinalCTA />
+        </main>
     );
 };
 
