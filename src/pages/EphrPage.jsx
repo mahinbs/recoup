@@ -3,10 +3,9 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { initLenis } from '../lib/lenis';
 import HeroSection from '../components/ephr-page/HeroSection';
-import NarrativeSequence from '../components/ephr-page/NarrativeSequence';
-import HealthTreeEcosystem from '../components/ephr-page/HealthTreeEcosystem';
-import HowEphrWorks from '../components/ephr-page/HowEphrWorks';
-import HealthSystemsCarousel from '../components/ephr-page/HealthSystemsCarousel';
+import HealthAreasSection from '../components/ephr-page/HealthAreasSection';
+import SampleReportSection from '../components/ephr-page/SampleReportSection';
+import EphrJourney from '../components/ephr-page/EphrJourney';
 import SixPillars from '../components/ephr-page/SixPillars';
 import LabIntelligence from '../components/ephr-page/LabIntelligence';
 import BiologicalAge from '../components/ephr-page/BiologicalAge';
@@ -34,11 +33,9 @@ const EphrPage = () => {
     return (
         <main className="bg-surface min-h-screen text-slate-900 font-sans overflow-x-clip selection:bg-primary selection:text-white">
             <HeroSection />
-            <NarrativeSequence />
-            <HealthTreeEcosystem />
-            <HowEphrWorks />
-            <HealthSystemsCarousel />
-            {/* <HealthScore /> */}
+            <HealthAreasSection />
+            <SampleReportSection />
+            <EphrJourney />
             <SixPillars />
             <LabIntelligence />
             <BiologicalAge />

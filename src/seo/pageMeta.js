@@ -27,6 +27,11 @@ export const pageMetaByPath = {
     description:
       "Explore evidence-based articles on chronic pain, gut health, mental wellness, nutrition & integrative medicine — written by Recoup Health's expert team in Bangalore.",
   },
+  '/services': {
+    title: 'Services & Healing Ecosystems | Recoup Health Bangalore',
+    description:
+      'Explore Recoup Health’s integrated healing ecosystems — regenerative medicine, gut health, mind-body therapies, rehabilitation, diagnostics, nutrition, Ayurveda & more in Bangalore.',
+  },
   '/conditions': {
     title: 'Conditions We Treat | Integrative Rehab Bangalore | Recoup',
     description:

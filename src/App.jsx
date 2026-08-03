@@ -22,6 +22,7 @@ import Conditions from './pages/Conditions';
 import ConditionDetail from './pages/ConditionDetail';
 import EphrPage from './pages/EphrPage';
 import Academy from './pages/Academy';
+import Services from './pages/Services';
 
 function App() {
   return (
@@ -40,6 +41,11 @@ function App() {
         <Route path='/blog' element={<Layout />}>
           <Route index element={<Blog />} />
           <Route path=':id' element={<BlogPost />} />
+        </Route>
+
+        {/* Services / Healing Ecosystems */}
+        <Route path='/services' element={<Layout />}>
+          <Route index element={<Services />} />
         </Route>
 
         {/* Conditions / Programs */}

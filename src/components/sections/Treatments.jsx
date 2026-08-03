@@ -21,7 +21,7 @@ const Treatments = () => {
           </h2>
         </div>
         <Link
-          to="/conditions"
+          to="/services"
           className="hidden md:flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-primary transition-colors"
         >
           Explore Services
