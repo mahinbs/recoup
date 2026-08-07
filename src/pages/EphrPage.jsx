@@ -6,9 +6,9 @@ import HeroSection from '../components/ephr-page/HeroSection';
 import HealthAreasSection from '../components/ephr-page/HealthAreasSection';
 import SampleReportSection from '../components/ephr-page/SampleReportSection';
 import EphrJourney from '../components/ephr-page/EphrJourney';
-import SixPillars from '../components/ephr-page/SixPillars';
+// import SixPillars from '../components/ephr-page/SixPillars';
 import LabIntelligence from '../components/ephr-page/LabIntelligence';
-import BiologicalAge from '../components/ephr-page/BiologicalAge';
+// import BiologicalAge from '../components/ephr-page/BiologicalAge';
 import WhoCanBenefit from '../components/ephr-page/WhoCanBenefit';
 import FinalCTA from '../components/ephr-page/FinalCTA';
 
@@ -36,9 +36,9 @@ const EphrPage = () => {
             <HealthAreasSection />
             <SampleReportSection />
             <EphrJourney />
-            <SixPillars />
+            {/* <SixPillars /> */}
             <LabIntelligence />
-            <BiologicalAge />
+            {/* <BiologicalAge /> */}
             <WhoCanBenefit />
             <FinalCTA />
         </main>
