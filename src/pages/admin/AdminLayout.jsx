@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, Outlet, Link } from 'react-router-dom';
-import { FileText, Globe, LogOut, LayoutDashboard, ExternalLink, Menu, X, Settings } from 'lucide-react';
+import { FileText, Globe, LogOut, LayoutDashboard, ExternalLink, Menu, X, Settings, Mail } from 'lucide-react';
 import { Button } from '../../components/ui/Button';
 import { useAdminAuth } from '../../context/AdminAuthContext';
 import { cn } from '../../lib/utils';
@@ -77,6 +77,10 @@ export default function AdminLayout() {
           <NavLink to="/admin/blogs" className={linkClass} end={false} onClick={closeMobileNav}>
             <FileText className="h-5 w-5 shrink-0" />
             Blog posts
+          </NavLink>
+          <NavLink to="/admin/messages" className={linkClass} onClick={closeMobileNav}>
+            <Mail className="h-5 w-5 shrink-0" />
+            Messages
           </NavLink>
           <NavLink to="/admin/site" className={linkClass} onClick={closeMobileNav}>
             <Globe className="h-5 w-5 shrink-0" />

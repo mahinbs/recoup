@@ -10,6 +10,7 @@ import AdminLayout from './pages/admin/AdminLayout';
 import AdminBlogs from './pages/admin/AdminBlogs';
 import AdminSiteSettings from './pages/admin/AdminSiteSettings';
 import AdminSettings from './pages/admin/AdminSettings';
+import AdminMessages from './pages/admin/AdminMessages';
 import RequireAdmin from './pages/admin/RequireAdmin';
 import SecondBellOverview from './pages/second-bell/Overview';
 import SecondBellFramework from './pages/second-bell/Framework';
@@ -85,6 +86,7 @@ function App() {
         >
           <Route index element={<Navigate to='blogs' replace />} />
           <Route path='blogs' element={<AdminBlogs />} />
+          <Route path='messages' element={<AdminMessages />} />
           <Route path='site' element={<AdminSiteSettings />} />
           <Route path='settings' element={<AdminSettings />} />
         </Route>

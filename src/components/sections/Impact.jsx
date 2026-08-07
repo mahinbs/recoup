@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { Section } from '../ui/Section';
 import { Button } from '../ui/Button';
-import { motion, useInView, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { ShieldCheck, Users, Activity, Star, Smartphone, ArrowRight } from 'lucide-react';
+import { motion, useInView } from 'framer-motion';
+import { Star, Smartphone, ArrowRight } from 'lucide-react';
 import { cn } from '../../lib/utils';
 
 const Counter = ({ value, suffix }) => {
@@ -36,11 +36,10 @@ const Counter = ({ value, suffix }) => {
 
 const Impact = () => {
     return (
+        <>
         <Section className="bg-gray-50 py-12 relative overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
                 {/* Bento Grid Layout */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-12">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
 
                     {/* Card 1: Comprehensive Solutions */}
                     <motion.div
@@ -148,34 +147,54 @@ const Impact = () => {
                         </div>
                     </motion.div>
                 </div>
-
-                {/* Bottom Stats Row */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-gray-100 pt-12">
-                    {[
-                        { value: 35, suffix: "+", label: "Years of Research", icon: <ShieldCheck className="w-8 h-8 text-purple-500" />, delay: 0 },
-                        { value: 1, suffix: "M+", label: "Patients Treated", icon: <Users className="w-8 h-8 text-pink-500" />, delay: 0.1 },
-                        { value: 95, suffix: "%", label: "Success Rate", icon: <Activity className="w-8 h-8 text-blue-500" />, delay: 0.2 },
-                    ].map((stat, index) => (
-                        <motion.div
-                            key={index}
-                            className="flex flex-col items-center text-center"
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.3 + stat.delay }}
-                        >
-                            <div className="mb-4 p-4 bg-white rounded-2xl shadow-sm border border-gray-100">
-                                {stat.icon}
-                            </div>
-                            <span className="text-4xl font-bold text-primary-dark mb-2">
-                                <Counter value={stat.value} suffix={stat.suffix} />
-                            </span>
-                            <span className="text-gray-500 font-medium">{stat.label}</span>
-                        </motion.div>
-                    ))}
-                </div>
-            </div>
         </Section>
+
+            {/* By the Numbers — full-width contrasting band */}
+            <section className="relative w-full overflow-hidden bg-primary-dark">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-dark via-primary to-primary-dark opacity-90" />
+                <div
+                    className="absolute inset-0 opacity-10"
+                    style={{
+                        backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
+                        backgroundSize: '28px 28px',
+                    }}
+                />
+                <div className="relative z-10 px-6 py-12 md:py-16 max-w-7xl mx-auto">
+                    <p className="text-center text-primary-light font-bold tracking-[0.2em] uppercase text-xs mb-10">
+                        Recoup Health by the Numbers
+                    </p>
+                    <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-4">
+                        {[
+                            { value: 35, suffix: '+', label: 'Years of Excellence', delay: 0 },
+                            { display: '1 Million+', label: 'Patients Treated', delay: 0.05 },
+                            { value: 45, suffix: '+', label: 'Countries Reached', delay: 0.1 },
+                            { value: 20, suffix: '+', label: 'International Awards', delay: 0.15 },
+                            { value: 600, suffix: '+', label: 'Scientific Publications', delay: 0.2 },
+                        ].map((stat) => (
+                            <motion.div
+                                key={stat.label}
+                                className="flex flex-col items-center text-center"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: 0.2 + stat.delay }}
+                            >
+                                <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2 leading-none tracking-tight">
+                                    {stat.display ? (
+                                        stat.display
+                                    ) : (
+                                        <Counter value={stat.value} suffix={stat.suffix} />
+                                    )}
+                                </span>
+                                <span className="text-white/70 text-xs md:text-sm font-medium tracking-wide">
+                                    {stat.label}
+                                </span>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+        </>
     );
 };
 
