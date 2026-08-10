@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ChevronLeft,
@@ -324,12 +323,33 @@ const pages = [
   },
 ];
 
+const FLIP_MS = 500;
+
 const SampleReportSection = () => {
   const [page, setPage] = useState(0);
+  const [flip, setFlip] = useState(null);
+  const timeoutRef = useRef(null);
   const total = pages.length;
 
-  const go = (dir) => {
-    setPage((p) => (p + dir + total) % total);
+  useEffect(() => () => clearTimeout(timeoutRef.current), []);
+
+  const goTo = (target) => {
+    const next = ((target % total) + total) % total;
+    if (next === page || flip) return;
+
+    const reduceMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) {
+      setPage(next);
+      return;
+    }
+
+    setFlip({ dir: target >= page ? 'next' : 'prev', from: page, to: next });
+    timeoutRef.current = setTimeout(() => {
+      setPage(next);
+      setFlip(null);
+    }, FLIP_MS);
   };
 
   const scrollToPreview = () => {
@@ -342,7 +362,7 @@ const SampleReportSection = () => {
   return (
     <section id="sample-report" className="relative w-full bg-[#f7f4fb] py-20 md:py-28">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="rounded-3xl border border-primary/10 bg-white/80 backdrop-blur-sm shadow-xl shadow-primary/5 overflow-hidden">
+        <div className="rounded-3xl border border-primary/10 bg-white/80 backdrop-blur-sm shadow-xl shadow-primary/5 overflow-visible lg:overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
             {/* Left copy */}
             <div className="p-8 md:p-12 lg:p-14 flex flex-col justify-center">
@@ -397,43 +417,52 @@ const SampleReportSection = () => {
             {/* Right flip-through */}
             <div
               id="sample-report-preview"
-              className="relative bg-gradient-to-br from-[#f3ecfa] to-[#ebe3f7] p-6 md:p-10 lg:p-12 flex flex-col items-center justify-center border-t lg:border-t-0 lg:border-l border-primary/10"
+              className="relative bg-gradient-to-br from-[#f3ecfa] to-[#ebe3f7] p-6 md:p-10 lg:p-12 flex flex-col items-center justify-center border-t lg:border-t-0 lg:border-l border-primary/10 overflow-visible"
             >
               <div className="relative w-full max-w-md">
                 {/* Stacked paper effect */}
-                <div className="absolute inset-x-4 top-3 h-full rounded-2xl bg-white/60 border border-white/80 translate-y-2" />
-                <div className="absolute inset-x-2 top-1.5 h-full rounded-2xl bg-white/80 border border-white shadow-sm translate-y-1" />
+                <div className="absolute inset-x-10 top-3 h-full rounded-2xl bg-white/60 border border-white/80 translate-y-2 pointer-events-none" />
+                <div className="absolute inset-x-8 top-1.5 h-full rounded-2xl bg-white/80 border border-white shadow-sm translate-y-1 pointer-events-none" />
 
                 <div className="relative flex items-center gap-2 sm:gap-3">
                   <button
                     type="button"
                     aria-label="Previous page"
-                    onClick={() => go(-1)}
-                    className="shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-600 hover:text-primary hover:border-primary/30 transition-colors z-10"
+                    onClick={() => goTo(page - 1)}
+                    disabled={!!flip}
+                    className="shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-600 hover:text-primary hover:border-primary/30 transition-colors z-10 disabled:opacity-40"
                   >
                     <ChevronLeft className="w-5 h-5" />
                   </button>
 
-                  <div className="relative flex-1 aspect-[3/4] max-h-[520px] rounded-2xl shadow-xl shadow-primary/10 overflow-hidden border border-white">
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={page}
-                        initial={{ opacity: 0, x: 24 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -24 }}
-                        transition={{ duration: 0.28 }}
-                        className="absolute inset-0"
-                      >
-                        {pages[page].render()}
-                      </motion.div>
-                    </AnimatePresence>
+                  <div
+                    className="sample-ephr-flip relative flex-1 aspect-[3/4] max-h-[520px] z-[1]"
+                    style={{ perspective: '1800px' }}
+                  >
+                    <div className="sr-book">
+                      <div className="sr-leaf sr-leaf-base">
+                        {flip ? pages[flip.to].render() : pages[page].render()}
+                      </div>
+                      {flip && (
+                        <div className={`sr-leaf sr-leaf-flip sr-flip-${flip.dir}`}>
+                          <div className="sr-leaf-face sr-leaf-front">
+                            {pages[flip.from].render()}
+                          </div>
+                          <div className="sr-leaf-face sr-leaf-back">
+                            <div className="sr-leaf-back-brand">recoup HEALTH</div>
+                          </div>
+                        </div>
+                      )}
+                      <div className="sr-book-shadow" />
+                    </div>
                   </div>
 
                   <button
                     type="button"
                     aria-label="Next page"
-                    onClick={() => go(1)}
-                    className="shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-600 hover:text-primary hover:border-primary/30 transition-colors z-10"
+                    onClick={() => goTo(page + 1)}
+                    disabled={!!flip}
+                    className="shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-600 hover:text-primary hover:border-primary/30 transition-colors z-10 disabled:opacity-40"
                   >
                     <ChevronRight className="w-5 h-5" />
                   </button>
@@ -449,9 +478,10 @@ const SampleReportSection = () => {
                         key={i}
                         type="button"
                         aria-label={`Go to page ${i + 1}`}
-                        onClick={() => setPage(i)}
+                        onClick={() => goTo(i)}
+                        disabled={!!flip}
                         className={cn(
-                          'h-1.5 rounded-full transition-all',
+                          'h-1.5 rounded-full transition-all disabled:pointer-events-none',
                           i === page
                             ? 'w-5 bg-primary'
                             : 'w-1.5 bg-slate-300 hover:bg-slate-400',

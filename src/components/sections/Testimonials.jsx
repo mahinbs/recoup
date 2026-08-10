@@ -35,7 +35,7 @@ const Testimonials = () => {
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   return (
-    <Section className="bg-slate-50 relative overflow-hidden py-24" id="testimonials">
+    <Section className="bg-slate-50 relative overflow-hidden py-14 sm:py-20 md:py-24" id="testimonials">
       <div ref={sectionRef}>
         <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none text-primary-dark overflow-hidden">
           <Quote size={400} className="translate-x-1/3 -translate-y-1/3" />
@@ -50,7 +50,7 @@ const Testimonials = () => {
             <span className="text-primary-light font-semibold tracking-wide uppercase text-sm mb-4 block">
               Patient Stories
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary-dark leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-primary-dark leading-tight">
               Recoup <span className="text-primary italic font-serif">Success Stories</span>
             </h2>
             <p className="text-gray-600 text-lg">
@@ -67,7 +67,7 @@ const Testimonials = () => {
               initial={{ opacity: 0, y: 24 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
               transition={{ duration: 0.55, delay: 0.15 + index * 0.1 }}
-              className="relative min-h-[420px] rounded-3xl overflow-hidden group shadow-lg"
+              className="relative min-h-[320px] sm:min-h-[380px] md:min-h-[420px] rounded-3xl overflow-hidden group shadow-lg"
             >
               <img
                 src={item.image}

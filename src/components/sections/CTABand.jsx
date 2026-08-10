@@ -12,7 +12,7 @@ const WhatsAppIcon = ({ className }) => (
 
 const CTABand = () => {
   return (
-    <section className="w-full relative z-10 pb-12 md:pb-16 px-4 sm:px-6 lg:px-8">
+    <section className="w-full relative z-10 pb-20 md:pb-16 px-4 sm:px-6 lg:px-8">
       <div className="mx-auto w-full max-w-6xl">
         <div className="relative overflow-hidden isolate rounded-[2rem] md:rounded-[2.5rem]">
           <div className="absolute inset-0 z-0">
@@ -37,7 +37,7 @@ const CTABand = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              <h2 className="text-3xl md:text-5xl lg:text-[3.25rem] font-bold text-white mb-6 leading-tight text-center">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-[3.25rem] font-bold text-white mb-6 leading-tight text-center">
                 The Ultimate Destination for Long-Lasting Health
               </h2>
               <p className="text-lg md:text-xl text-white/85 mb-10 max-w-2xl mx-auto leading-relaxed font-light text-center">
@@ -45,11 +45,11 @@ const CTABand = () => {
                 helping you heal, recover, and thrive for life.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link to="/contact">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center w-full">
+                <Link to="/contact" className="w-full sm:w-auto">
                   <Button
                     size="lg"
-                    className="bg-white text-primary-dark hover:bg-slate-50 hover:scale-105 transition-all duration-300 font-bold px-8 h-14 text-lg shadow-lg"
+                    className="bg-white text-primary-dark hover:bg-slate-50 hover:scale-105 transition-all duration-300 font-bold px-8 h-14 text-lg shadow-lg w-full sm:w-auto"
                   >
                     <Calendar className="mr-2 h-5 w-5" /> Book Consultation
                   </Button>
@@ -58,7 +58,7 @@ const CTABand = () => {
                   href="https://wa.me/919845155449"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 h-14 px-8 rounded-xl text-lg font-bold text-white bg-[#25D366] hover:bg-[#20BD5A] transition-colors shadow-lg"
+                  className="inline-flex items-center justify-center gap-2 h-14 px-8 rounded-xl text-lg font-bold text-white bg-[#25D366] hover:bg-[#20BD5A] transition-colors shadow-lg w-full sm:w-auto"
                 >
                   <WhatsAppIcon className="w-5 h-5" />
                   WhatsApp Us
