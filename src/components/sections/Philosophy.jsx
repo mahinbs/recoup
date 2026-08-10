@@ -1,228 +1,280 @@
-import React, { useCallback, useState } from 'react';
-import { ChevronLeft, ChevronRight, Share2, Award } from 'lucide-react';
-import { cn } from '../../lib/utils';
-import teamImg from '../../assets/new-images/Images_Dr.DeepakSharan/award-ceremony-3.png';
-import drImg from '../../assets/new-images/Images_Dr.DeepakSharan/dr-deepak-sharan-2.jpg';
+import React, { useEffect, useRef, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import useReveal from '../../hooks/useReveal'
+import drPhoto from '../../assets/preview/home-drphoto.jpg'
 
-const approachCards = [
-  {
-    id: 'why-choose',
-    sectionEyebrow: 'Our Approach',
-    sectionTitle: 'Why Choose Recoup Health?',
-    variant: 'light',
-    title: 'Experts Working Together',
-    icon: Share2,
-    bullets: [
-      'Doctors and specialists work as one team.',
-      'One personalized care plan.',
-      'Support from multiple health experts.',
-      "We're with you throughout your recovery.",
-    ],
-    image: teamImg,
-    imageAlt: 'Recoup Health care specialists',
-  },
-  {
-    id: 'led-by',
-    sectionEyebrow: 'Medical Leadership',
-    sectionTitle: 'Led by Dr. Deepak Sharan',
-    variant: 'dark',
-    title: 'Recognized Around the World',
-    icon: Award,
-    bullets: [
-      'President, International MYOPAIN Society.',
-      'Global leader in pain rehabilitation.',
-      'Works with leading international organizations.',
-      'Helping shape the future of rehabilitation.',
-    ],
-    image: drImg,
-    imageAlt: 'Dr. Deepak Sharan',
-  },
-];
+const leftBg =
+  'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&q=75&auto=format&fit=crop'
 
-const LightCard = ({ item }) => {
-  const Icon = item.icon;
+const Icon = {
+  target: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="8" />
+      <circle cx="12" cy="12" r="4.2" />
+      <circle cx="12" cy="12" r="0.6" fill="currentColor" stroke="none" />
+    </svg>
+  ),
+  shieldCheck: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" />
+      <path d="M9 12l2 2 4-4.2" />
+    </svg>
+  ),
+  network: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="6" cy="7" r="2.2" /><circle cx="18" cy="7" r="2.2" /><circle cx="12" cy="18" r="2.2" />
+      <path d="M7.8 8.6L10.5 16M16.2 8.6L13.5 16M8.2 7h7.6" />
+    </svg>
+  ),
+  pulseHeart: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 12h4l2-4 3 8 2-6 1.5 2H21" />
+      <path d="M12 20s-6.5-4.2-8.5-8.4C2.2 8.6 3.6 5.5 6.7 5c2-.3 3.7.9 5.3 2.7C13.6 5.9 15.3 4.7 17.3 5c3.1.5 4.5 3.6 3.2 6.6C18.5 15.8 12 20 12 20z" opacity="0.35" />
+    </svg>
+  ),
+  globe: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="8.5" />
+      <path d="M3.5 12h17M12 3.5c2.6 2.4 4 5.3 4 8.5s-1.4 6.1-4 8.5c-2.6-2.4-4-5.3-4-8.5s1.4-6.1 4-8.5z" />
+    </svg>
+  ),
+  book: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 5.5C4 4.7 4.7 4 5.5 4H12v16H5.5c-.8 0-1.5-.7-1.5-1.5v-13z" />
+      <path d="M20 5.5c0-.8-.7-1.5-1.5-1.5H12v16h6.5c.8 0 1.5-.7 1.5-1.5v-13z" />
+      <path d="M14.2 8h3.3M14.2 11h3.3M14.2 14h3.3" />
+    </svg>
+  ),
+  medal: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="14.5" r="5.5" />
+      <path d="M9.5 3l2.5 6 2.5-6M12 11v3.5" />
+      <path d="M12 12.7l1.6 1-.6 1.9h-2l-.6-1.9z" />
+    </svg>
+  ),
+  trophy: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M7 4h10v4a5 5 0 01-10 0V4z" />
+      <path d="M7 5H4.5a2 2 0 000 4H7M17 5h2.5a2 2 0 010 4H17" />
+      <path d="M12 13v3M9 20h6M9.5 20c0-2 .8-3 2.5-3s2.5 1 2.5 3" />
+    </svg>
+  ),
+}
+
+const leftCards = [
+  { icon: 'target', title: 'We Find the Real Cause', points: [
+    'We look beyond your symptoms.',
+    "We identify what's causing your health problem.",
+    'Every treatment is personalized for you.',
+    'Our goal is lasting healing, not temporary relief.',
+  ]},
+  { icon: 'shieldCheck', title: 'Care You Can Trust', points: [
+    'Treatments backed by medical research.',
+    'Thorough health assessments.',
+    'Decisions based on evidence, not guesswork.',
+    'We measure your progress every step of the way.',
+  ]},
+  { icon: 'network', title: 'Experts Working Together', points: [
+    'Doctors and specialists work as one team.',
+    'One personalized care plan.',
+    'Support from multiple health experts.',
+    "We're with you throughout your recovery.",
+  ]},
+  { icon: 'pulseHeart', title: 'Better Health for Life', points: [
+    'Personalized care based on your needs.',
+    'Advanced diagnostics for accurate treatment.',
+    'Functional medicine and rehabilitation together.',
+    'Helping you stay healthy at every stage of life.',
+  ]},
+]
+
+const rightCards = [
+  { icon: 'globe', title: 'Trusted by Patients Worldwide', points: [
+    'Over 35 years of clinical experience.',
+    'More than 1 million patients treated.',
+    'Patients from over 45 countries.',
+    'A leader in chronic pain and rehabilitation.',
+  ]},
+  { icon: 'book', title: 'Backed by Research', points: [
+    '500+ scientific publications.',
+    'International speaker and educator.',
+    'Developed innovative treatment methods.',
+    'Committed to evidence-based care.',
+  ]},
+  { icon: 'medal', title: 'Recognized Around the World', points: [
+    'President, International MYOPAIN Society.',
+    'Global leader in pain rehabilitation.',
+    'Works with leading international organizations.',
+    'Helping shape the future of rehabilitation.',
+  ]},
+  { icon: 'trophy', title: 'Award-Winning Excellence', points: [
+    'National and international award recipient.',
+    'Honored for innovation in patient care.',
+    'Recognized for advancing rehabilitation medicine.',
+    'Bringing world-class expertise to every patient.',
+  ]},
+]
+
+const slideEase = [0.22, 1, 0.36, 1]
+
+const panelVariants = {
+  enter: (dir) => ({ x: dir > 0 ? 64 : -64, opacity: 0 }),
+  center: { x: 0, opacity: 1 },
+  exit: (dir) => ({ x: dir > 0 ? -64 : 64, opacity: 0 }),
+}
+
+const listVariants = {
+  enter: {},
+  center: { transition: { staggerChildren: 0.07, delayChildren: 0.1 } },
+  exit: {},
+}
+
+const itemVariants = {
+  enter: (dir) => ({ x: dir > 0 ? 18 : -18, opacity: 0 }),
+  center: { x: 0, opacity: 1 },
+  exit: { opacity: 0 },
+}
+
+function WhyCard({ card, index, dir, photo, photoAlt, tone }) {
   return (
-    <div className="flex flex-col h-full">
-      <div className="mb-5 md:mb-6 px-1">
-        <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-2 block">
-          {item.sectionEyebrow}
-        </span>
-        <h2 className="text-2xl md:text-3xl lg:text-[2rem] font-bold text-primary-dark leading-tight">
-          {item.sectionTitle}
-        </h2>
-      </div>
+    <div className={`wc-stage-col wc-card-${tone}`}>
+      <img className="wc-card-photo" src={photo} alt={photoAlt} />
+      <span className="glass-ghost-num" aria-hidden="true">
+        {String(index + 1).padStart(2, '0')}
+      </span>
+      <div className="glass-fill" aria-hidden="true">{Icon[card.icon]}</div>
 
-      <div className="relative flex-1 overflow-hidden rounded-[2rem] md:rounded-[2.5rem] min-h-[520px] bg-gradient-to-b from-slate-100 to-white border border-slate-100 shadow-sm">
-        <span
-          className="absolute top-4 right-6 md:top-6 md:right-8 text-[4.5rem] md:text-[6rem] font-bold leading-none select-none pointer-events-none z-0 text-slate-200/80"
-          aria-hidden
-        >
-          03
-        </span>
-        <Icon
-          className="absolute bottom-6 right-6 w-28 h-28 text-primary/5 pointer-events-none z-0"
-          strokeWidth={1}
-          aria-hidden
-        />
-
-        <div className="relative z-[1] h-[230px] md:h-[250px] overflow-hidden">
-          <img
-            src={item.image}
-            alt={item.imageAlt}
-            className="w-full h-full object-cover object-top"
-          />
-          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white via-white/85 to-transparent pointer-events-none" />
-        </div>
-
-        <div className="relative z-[2] px-7 md:px-9 pb-9 md:pb-10 -mt-6">
-          <div className="w-11 h-11 rounded-full bg-primary text-white flex items-center justify-center mb-5 shadow-md shadow-primary/25">
-            <Icon className="w-5 h-5" />
-          </div>
-          <h3 className="text-xl md:text-2xl font-bold text-primary-dark tracking-tight mb-5">
-            {item.title}
-          </h3>
-          <ul className="space-y-3.5">
-            {item.bullets.map((bullet) => (
-              <li key={bullet} className="flex items-start gap-3">
-                <span className="mt-2 w-2 h-2 rounded-full bg-primary shrink-0" />
-                <span className="text-[15px] md:text-base leading-relaxed text-slate-600">
-                  {bullet}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
+      <div className="wc-card-body">
+        <AnimatePresence mode="wait" custom={dir}>
+          <motion.div
+            key={card.title}
+            className="wc-slide"
+            custom={dir}
+            variants={panelVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.42, ease: slideEase }}
+          >
+            <div className="glass-icon-orb">{Icon[card.icon]}</div>
+            <h4>{card.title}</h4>
+            <motion.ul
+              className="glass-timeline"
+              custom={dir}
+              variants={listVariants}
+              initial="enter"
+              animate="center"
+            >
+              {card.points.map((p) => (
+                <motion.li key={p} custom={dir} variants={itemVariants} transition={{ duration: 0.35, ease: slideEase }}>
+                  {p}
+                </motion.li>
+              ))}
+            </motion.ul>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </div>
-  );
-};
+  )
+}
 
-const DarkCard = ({ item }) => {
-  const Icon = item.icon;
-  return (
-    <div className="flex flex-col h-full">
-      <div className="mb-5 md:mb-6 px-1">
-        <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-2 block">
-          {item.sectionEyebrow}
-        </span>
-        <h2 className="text-2xl md:text-3xl lg:text-[2rem] font-bold text-primary-dark leading-tight">
-          {item.sectionTitle}
-        </h2>
-      </div>
+function useSyncedStep(length, autoPlayMs = 4500) {
+  const [index, setIndex] = useState(0)
+  const [dir, setDir] = useState(1)
+  const reducedRef = useRef(false)
+  const pausedRef = useRef(false)
 
-      <div className="relative flex-1 overflow-hidden rounded-[2rem] md:rounded-[2.5rem] min-h-[520px] bg-gradient-to-br from-[#5B2A9E] via-primary to-primary-dark text-white">
-        <span
-          className="absolute top-4 right-6 md:top-6 md:right-8 text-[4.5rem] md:text-[6rem] font-bold leading-none select-none pointer-events-none z-0 text-white/10"
-          aria-hidden
-        >
-          03
-        </span>
-        <Icon
-          className="absolute bottom-6 right-6 w-28 h-28 text-white/5 pointer-events-none z-0"
-          strokeWidth={1}
-          aria-hidden
-        />
+  useEffect(() => {
+    reducedRef.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  }, [])
 
-        {/* Image anchored top-right with headroom + soft fade */}
-        <div className="absolute top-0 right-0 w-[55%] h-[55%] z-[1] pointer-events-none">
-          <img
-            src={item.image}
-            alt={item.imageAlt}
-            className="w-full h-full object-cover object-[center_12%]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#5B2A9E]/25 to-[#5B2A9E]" />
-          <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#5B2A9E] via-[#5B2A9E]/70 to-transparent" />
-        </div>
+  const goTo = (next) => {
+    const target = ((next % length) + length) % length
+    if (target === index) return
+    setDir(next >= index ? 1 : -1)
+    setIndex(target)
+  }
 
-        <div className="relative z-[2] flex flex-col justify-end h-full min-h-[520px] px-7 md:px-9 pb-9 md:pb-10 pt-8">
-          <div className="w-11 h-11 rounded-full bg-primary text-white flex items-center justify-center mb-5 shadow-md border border-white/20">
-            <Icon className="w-5 h-5" />
-          </div>
-          <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight mb-5 max-w-[90%]">
-            {item.title}
-          </h3>
-          <ul className="relative space-y-4 max-w-md">
-            <span
-              className="absolute left-[5px] top-2 bottom-2 w-px bg-primary-light/40"
-              aria-hidden
-            />
-            {item.bullets.map((bullet) => (
-              <li key={bullet} className="relative flex items-start gap-3.5">
-                <span className="relative z-[1] mt-1.5 w-2.5 h-2.5 rounded-full bg-primary-light shrink-0 ring-4 ring-white/10" />
-                <span className="text-[15px] md:text-base leading-relaxed text-white/90">
-                  {bullet}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </div>
-  );
-};
+  useEffect(() => {
+    const t = setInterval(() => {
+      if (!pausedRef.current) goTo(index + 1)
+    }, autoPlayMs)
+    return () => clearInterval(t)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [index])
+
+  return { index, dir, goTo, pausedRef }
+}
 
 const Philosophy = () => {
-  const [mobileIndex, setMobileIndex] = useState(0);
-
-  const prev = useCallback(() => {
-    setMobileIndex((i) => (i === 0 ? approachCards.length - 1 : i - 1));
-  }, []);
-
-  const next = useCallback(() => {
-    setMobileIndex((i) => (i === approachCards.length - 1 ? 0 : i + 1));
-  }, []);
-
-  const renderCard = (item) =>
-    item.variant === 'dark' ? (
-      <DarkCard key={item.id} item={item} />
-    ) : (
-      <LightCard key={item.id} item={item} />
-    );
+  const ref = useReveal()
+  const { index, dir, goTo, pausedRef } = useSyncedStep(leftCards.length)
 
   return (
-    <section id="philosophy" className="relative bg-white py-16 md:py-24 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="hidden md:grid md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
-          {approachCards.map(renderCard)}
+    <section ref={ref} className="reveal wc-section">
+      <div className="wc-blob wc-blob-1" aria-hidden="true" />
+      <div className="wc-blob wc-blob-2" aria-hidden="true" />
+      <div className="hp-wrap">
+        <div className="wc-columns">
+          <div className="wc-col">
+            <span className="kicker">Our Approach</span>
+            <h2 className="section-title">Why Choose Recoup Health?</h2>
+          </div>
+          <div className="wc-col">
+            <span className="kicker">Medical Leadership</span>
+            <h2 className="section-title">Led by Dr. Deepak Sharan</h2>
+          </div>
         </div>
 
-        <div className="md:hidden">{renderCard(approachCards[mobileIndex])}</div>
+        <div
+          className="wc-stage"
+          onMouseEnter={() => { pausedRef.current = true }}
+          onMouseLeave={() => { pausedRef.current = false }}
+          onFocus={() => { pausedRef.current = true }}
+          onBlur={() => { pausedRef.current = false }}
+        >
+          <WhyCard
+            card={leftCards[index]}
+            index={index}
+            dir={dir}
+            photo={leftBg}
+            photoAlt=""
+            tone="light"
+          />
+          <WhyCard
+            card={rightCards[index]}
+            index={index}
+            dir={dir}
+            photo={drPhoto}
+            photoAlt="Dr. Deepak Sharan"
+            tone="dark"
+          />
+        </div>
 
-        <div className="flex items-center justify-center gap-5 mt-10 md:mt-12">
-          <button
-            type="button"
-            onClick={prev}
-            aria-label="Previous"
-            className="w-11 h-11 rounded-full border border-slate-200 bg-slate-50 text-primary hover:bg-primary hover:text-white hover:border-primary transition-colors flex items-center justify-center"
-          >
-            <ChevronLeft className="w-5 h-5" />
+        <div className="wc-nav" role="group" aria-label="Browse reasons to choose Recoup Health">
+          <button type="button" className="wc-arrow" onClick={() => goTo(index - 1)} aria-label="Previous">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
           </button>
-          <div className="flex items-center gap-2">
-            {approachCards.map((c, i) => (
+          <div className="wc-dots" role="tablist" aria-label="Card position">
+            {leftCards.map((_, i) => (
               <button
-                key={c.id}
+                key={i}
+                role="tab"
                 type="button"
-                aria-label={`Go to slide ${i + 1}`}
-                onClick={() => setMobileIndex(i)}
-                className={cn(
-                  'h-2 rounded-full transition-all',
-                  i === mobileIndex ? 'w-8 bg-primary' : 'w-2 bg-slate-300 hover:bg-slate-400'
-                )}
+                aria-selected={i === index}
+                aria-label={`Go to card ${i + 1} of ${leftCards.length}`}
+                className={`wc-dot ${i === index ? 'active' : ''}`}
+                onClick={() => goTo(i)}
               />
             ))}
           </div>
-          <button
-            type="button"
-            onClick={next}
-            aria-label="Next"
-            className="w-11 h-11 rounded-full border border-slate-200 bg-slate-50 text-primary hover:bg-primary hover:text-white hover:border-primary transition-colors flex items-center justify-center"
-          >
-            <ChevronRight className="w-5 h-5" />
+          <button type="button" className="wc-arrow" onClick={() => goTo(index + 1)} aria-label="Next">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg>
           </button>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Philosophy;
+export default Philosophy
