@@ -22,7 +22,9 @@ const Navbar = () => {
         { name: 'Services', href: '/services' },
         { name: 'Programs', href: '/conditions' },
         { name: 'EPHR', href: '/ephr' },
-        {name : "Academy", href: "/academy"},
+        // { name: 'Hypermobility', href: '/hypermobility' },
+        { name: 'Nutrition', href: '/functional-nutrition' },
+        { name: 'Academy', href: '/academy' },
         { name: 'Second Bell', href: '/second-bell' },
         { name: 'Blog', href: '/blog' },
         { name: 'Contact', href: '/contact' },
@@ -42,12 +44,12 @@ const Navbar = () => {
                 </a>
 
                 {/* Desktop Nav */}
-                <div className="hidden lg:flex items-center gap-6 xl:gap-8">
+                <div className="hidden lg:flex items-center gap-3 xl:gap-5">
                     {navLinks.map((link) => (
                         <Link
                             key={link.name}
                             to={link.href}
-                            className={`text-sm font-medium ${isScrolled ? 'text-gray-800' : 'text-gray-900'} hover:text-primary transition-colors`}
+                            className={`text-[13px] xl:text-sm font-medium whitespace-nowrap ${isScrolled ? 'text-gray-800' : 'text-gray-900'} hover:text-primary transition-colors`}
                         >
                             {link.name}
                         </Link>

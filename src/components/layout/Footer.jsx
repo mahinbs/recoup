@@ -47,6 +47,8 @@ const Footer = () => {
                             <li><Link to="/services" className="hover:text-primary-light transition-colors">Services</Link></li>
                             <li><Link to="/conditions" className="hover:text-primary-light transition-colors">Programs</Link></li>
                             <li><Link to="/ephr" className="hover:text-primary-light transition-colors">EPHR</Link></li>
+                            {/* <li><Link to="/hypermobility" className="hover:text-primary-light transition-colors">Hypermobility</Link></li> */}
+                            <li><Link to="/functional-nutrition" className="hover:text-primary-light transition-colors">Functional Nutrition</Link></li>
                             <li><Link to="/academy" className="hover:text-primary-light transition-colors">Academy</Link></li>
                             <li><Link to="/contact?from=footer&section=links" className="hover:text-primary-light transition-colors">Contact</Link></li>
                             <li><Link to="/blog" className="hover:text-primary-light transition-colors">Blog</Link></li>
