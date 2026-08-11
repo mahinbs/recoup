@@ -22,6 +22,8 @@ import Layout from './pages/second-bell/Layout';
 import Conditions from './pages/Conditions';
 import ConditionDetail from './pages/ConditionDetail';
 import EphrPage from './pages/EphrPage';
+import HypermobilityPage from './pages/HypermobilityPage';
+import FunctionalNutritionPage from './pages/FunctionalNutritionPage';
 import Academy from './pages/Academy';
 import Services from './pages/Services';
 
@@ -58,6 +60,16 @@ function App() {
         {/* EPHR Route */}
         <Route path='/ephr' element={<Layout />}>
           <Route index element={<EphrPage />} />
+        </Route>
+
+        {/* Hypermobility */}
+        {/* <Route path='/hypermobility' element={<Layout />}>
+          <Route index element={<HypermobilityPage />} />
+        </Route> */}
+
+        {/* Functional Nutrition */}
+        <Route path='/functional-nutrition' element={<Layout />}>
+          <Route index element={<FunctionalNutritionPage />} />
         </Route>
 
         {/* Academy Route */}

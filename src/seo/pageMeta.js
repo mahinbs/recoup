@@ -212,6 +212,16 @@ export const pageMetaByPath = {
     description:
       'EPHR is a panoptic health scorecard providing a complete view of your well-being through 200+ data points, lifestyle factors, and lab results in Bangalore.',
   },
+  '/hypermobility': {
+    title: 'Hypermobility & EDS Care | Recoup Health Bangalore',
+    description:
+      'Specialized diagnosis and treatment for Hypermobility Spectrum Disorders (HSD) and Ehlers-Danlos Syndrome (EDS). Root-cause care led by Dr. Deepak Sharan in Bangalore.',
+  },
+  '/functional-nutrition': {
+    title: 'Functional Nutrition | Recoup Health Bangalore',
+    description:
+      'Personalized Functional Nutrition at Recoup Health — nutrition strategies designed around your body, lifestyle, and goals, integrated with Functional and Lifestyle Medicine.',
+  },
   '/second-bell': {
     title: 'Second Bell | Child & Adolescent Mental Health | Recoup',
     description:
