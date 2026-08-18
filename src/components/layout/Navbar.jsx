@@ -40,7 +40,7 @@ const Navbar = () => {
             <div className="container px-4 md:px-6 flex items-center justify-between">
                 {/* Logo */}
                 <a href="/" className="">
-                    <img src="/logo.png" alt="Recoup" className='w-[6rem] h-auto object-contain' />
+                    <img src="/logo.png" alt="RECOUP" className='w-[6rem] h-auto object-contain' />
                 </a>
 
                 {/* Desktop Nav */}

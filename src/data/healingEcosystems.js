@@ -1,3 +1,9 @@
+import gutHealthImg from '../assets/new-images/Our-Healing-Ecosystem/2.Integrative_Gut_Health.jpg';
+import mindBodyImg from '../assets/new-images/Our-Healing-Ecosystem/3.Mind-Body Medicine.jpg';
+import precisionImg from '../assets/new-images/Our-Healing-Ecosystem/4.Precision_Diagnostics.jpg';
+import ayurvedaImg from '../assets/new-images/Our-Healing-Ecosystem/5.Ayurveda&Integrative_Healing.jpg';
+import spineImg from '../assets/new-images/Our-Healing-Ecosystem/6.Spine_Foot&Ergonomic_Wellness.jpg';
+
 export const healingEcosystems = [
   {
     id: '01',
@@ -44,8 +50,7 @@ export const healingEcosystems = [
       'Food sensitivities',
       'Gut inflammation',
     ],
-    image:
-      'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1600&auto=format&fit=crop',
+    image: gutHealthImg,
   },
   {
     id: '03',
@@ -67,8 +72,7 @@ export const healingEcosystems = [
       'Sleep issues',
       'Emotional health',
     ],
-    image:
-      'https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1600&auto=format&fit=crop',
+    image: mindBodyImg,
   },
   {
     id: '04',
@@ -109,8 +113,7 @@ export const healingEcosystems = [
       'Functional Health Evaluation',
     ],
     bestFor: null,
-    image:
-      'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1600&auto=format&fit=crop',
+    image: precisionImg,
   },
   {
     id: '06',
@@ -143,8 +146,7 @@ export const healingEcosystems = [
       'Shirodhara',
     ],
     bestFor: null,
-    image:
-      'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1600&auto=format&fit=crop',
+    image: ayurvedaImg,
   },
   {
     id: '08',
@@ -159,8 +161,7 @@ export const healingEcosystems = [
       'Ergonomic Assessment',
     ],
     bestFor: null,
-    image:
-      'https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1600&auto=format&fit=crop',
+    image: spineImg,
   },
 ];
 

@@ -2,23 +2,23 @@ import React, { useRef } from 'react';
 import { Section } from '../ui/Section';
 import { Quote } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
-import ananyaImg from '../../assets/new-images/PatientStories-Images/ananya-iyer-1.jpg';
-import rajeshImg from '../../assets/new-images/PatientStories-Images/rajesh-kumar-1.jpg';
-import sunitaImg from '../../assets/new-images/PatientStories-Images/sunita-reddy-1.jpg';
+import ananyaImg from '../../assets/new-images/RECOUP-Success-Stories/1.Dr_Ananya_Iyer.jpg';
+import rajeshImg from '../../assets/new-images/RECOUP-Success-Stories/2.Rajesh_Kumar.jpg';
+import sunitaImg from '../../assets/new-images/RECOUP-Success-Stories/3.Sunita_Reddy.jpg';
 
 const testimonials = [
   {
     name: 'Dr. Ananya Iyer',
     role: 'Classical Dancer, Bangalore',
     content:
-      "My dancing career was almost over due to chronic ankle pain. Recoup's specialized biomechanical analysis and therapy brought me back to the stage stronger than I was before. I couldn't be more grateful.",
+      "My dancing career was almost over due to chronic ankle pain. RECOUP's specialized biomechanical analysis and therapy brought me back to the stage stronger than I was before. I couldn't be more grateful.",
     image: ananyaImg,
   },
   {
     name: 'Rajesh Kumar',
     role: 'IT Professional, Hyderabad',
     content:
-      "Years of sitting at a desk gave me severe RSI. The team at Recoup didn't just treat the pain; they taught me how to work and live without hurting my body again. Truly transformative care.",
+      "Years of sitting at a desk gave me severe RSI. The team at RECOUP didn't just treat the pain; they taught me how to work and live without hurting my body again. Truly transformative care.",
     image: rajeshImg,
   },
   {
@@ -35,7 +35,7 @@ const Testimonials = () => {
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   return (
-    <Section className="bg-slate-50 relative overflow-hidden py-14 sm:py-20 md:py-24" id="testimonials">
+    <Section className="bg-white relative overflow-hidden py-14 sm:py-20 md:py-24" id="testimonials">
       <div ref={sectionRef}>
         <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none text-primary-dark overflow-hidden">
           <Quote size={400} className="translate-x-1/3 -translate-y-1/3" />
@@ -50,12 +50,12 @@ const Testimonials = () => {
             <span className="text-primary-light font-semibold tracking-wide uppercase text-sm mb-4 block">
               Patient Stories
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-primary-dark leading-tight">
-              Recoup <span className="text-primary italic font-serif">Success Stories</span>
+            <h2 className="text-3xl sm:text-4xl md:text-[2.4rem] font-bold mb-6 text-primary-dark leading-tight">
+              RECOUP <span className="text-primary italic">Success Stories</span>
             </h2>
             <p className="text-gray-600 text-lg">
               Real patients, real healing. Hear from those who have successfully regained their
-              health and vitality with Recoup.
+              health and vitality with RECOUP.
             </p>
           </motion.div>
         </div>

@@ -12,7 +12,7 @@ const Footer = () => {
                     {/* Brand Column */}
                     <div className="space-y-4 lg:col-span-2">
                         <h3 className="text-2xl font-bold tracking-tighter flex items-center gap-2 text-white">
-                            Recoup Health
+                            RECOUP Health
                         </h3>
                         <p className="text-gray-300 text-sm leading-relaxed max-w-md">
                             Transforming healthcare through holistic, patient-centered care for lasting wellness.
@@ -74,7 +74,7 @@ const Footer = () => {
                     <div className="md:w-1/2">
                         <h4 className="text-xl font-semibold mb-3">Our Clinics in Bangalore</h4>
                         <p className="text-sm text-gray-300">
-                            Visit our clinics across Bangalore. Head over to our <a href="/contact?from=footer&section=text" className="text-primary-light hover:underline font-medium">Contact</a> page for detailed addresses and directions to all our locations including Bellandur, Anjanapura, and Jayanagar.
+                            Visit our clinics across Bangalore. Head over to our <a href="/contact?from=footer&section=text" className="text-primary-light hover:underline font-medium">Contact</a> page for detailed addresses and directions to our locations including Bellandur and Jayanagar.
                         </p>
                     </div>
                     <div className="w-full md:w-1/2 h-40 rounded-xl overflow-hidden shadow-lg border border-white/10">
@@ -91,7 +91,7 @@ const Footer = () => {
                 </div>
 
                 <div className="border-t border-white/10 mt-8 pt-8 text-center text-sm text-gray-400">
-                    <p>© {new Date().getFullYear()} Recoup Health. All rights reserved.</p>
+                    <p>© {new Date().getFullYear()} RECOUP Health. All rights reserved.</p>
                 </div>
             </div>
         </footer>

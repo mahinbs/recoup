@@ -19,7 +19,7 @@ const AITools = () => {
                     <span className="text-primary-light font-semibold tracking-wide uppercase text-sm mb-2 block">Technology Enabled Care</span>
                     <h2 className="text-3xl md:text-5xl font-bold text-primary-dark mb-6">Smart Wellness at Your Fingertips</h2>
                     <p className="text-gray-600 mb-8 leading-relaxed">
-                        Recoup integrates AI to personalize your recovery journey. Track progress, get instant answers, and understand your body type with our advanced digital tools.
+                        RECOUP integrates AI to personalize your recovery journey. Track progress, get instant answers, and understand your body type with our advanced digital tools.
                     </p>
                     <Button variant="primary" size="lg">Try AI Assistant <Sparkles className="ml-2 h-4 w-4" /></Button>
                 </motion.div>

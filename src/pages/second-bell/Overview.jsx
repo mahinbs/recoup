@@ -13,11 +13,11 @@ const Overview = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="bg-slate-50 min-h-screen pt-24">
+        <div className="bg-white min-h-screen pt-24">
             <SubNav />
 
             {/* 1. Hero Section */}
-            <Section className="py-12 md:py-20 lg:py-24">
+            <Section className="py-12 md:py-20 lg:py-24 section-tint">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
@@ -25,10 +25,10 @@ const Overview = () => {
                         transition={{ duration: 0.6 }}
                         className="space-y-6"
                     >
-                        <span className="text-primary font-semibold tracking-wide uppercase text-sm">Recoup Health Framework</span>
-                        <h1 className="text-4xl md:text-6xl font-bold text-primary-dark leading-tight">
+                        <span className="text-primary font-semibold tracking-wide uppercase text-sm">RECOUP Health Framework</span>
+                        <h1 className="font-bold text-primary-dark leading-tight">
                             Second Bell<br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light font-serif italic text-3xl md:text-5xl">The Health Side of Academic Performance</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light italic">The Health Side of Academic Performance</span>
                         </h1>
                         <p className="text-lg text-gray-600 leading-relaxed max-w-lg">
                             Schools today manage far more than just academics. A student's physiological and psychological wellbeing directly dictates their attention span, learning endurance, and ultimate academic performance.
@@ -85,7 +85,7 @@ const Overview = () => {
                     <span className="text-primary-light font-semibold tracking-widest uppercase text-sm mb-4 block">The Structural Gap</span>
                     <h2 className="text-3xl md:text-5xl font-bold mb-8 leading-tight text-white">
                         Teachers notice the symptoms. <br />
-                        <span className="font-serif italic text-white/80">But they cannot diagnose the cause.</span>
+                        <span className="italic text-white/80">But they cannot diagnose the cause.</span>
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left mt-12">
                         <div className="bg-white/5 p-8 rounded-2xl border border-white/10 backdrop-blur-sm">
@@ -105,7 +105,7 @@ const Overview = () => {
             </Section>
 
             {/* 4. Framework & 5. Program & 6. RSHS Previews (Quick visual links) */}
-            <Section className="bg-slate-50 py-16 md:py-24">
+            <Section className="section-tint py-16 md:py-24">
                 <div className="text-center max-w-3xl mx-auto mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold text-primary-dark mb-4">The Complete Ecosystem</h2>
                     <p className="text-gray-600 text-lg">Second Bell integrates structured observation, clinical interventions, and data-driven scoring to support schools proactively.</p>
@@ -136,7 +136,7 @@ const Overview = () => {
                             <span className="font-bold text-primary">85</span>
                         </div>
                         <h3 className="text-xl font-bold text-primary-dark mb-3">RSHS Score</h3>
-                        <p className="text-gray-500 text-sm mb-6 flex-grow">The Recoup School Health Score. A definitive benchmark converting abstract wellbeing into actionable data.</p>
+                        <p className="text-gray-500 text-sm mb-6 flex-grow">The RECOUP School Health Score. A definitive benchmark converting abstract wellbeing into actionable data.</p>
                         <span className="text-primary font-medium text-sm flex items-center">Understanding RSHS <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" /></span>
                     </div>
                 </div>
@@ -169,7 +169,7 @@ const Overview = () => {
             </Section>
 
             {/* CTA Section */}
-            <Section className="bg-slate-50 py-16 md:py-24">
+            <Section className="section-tint py-16 md:py-24">
                 <div className="bg-primary/5 rounded-[2rem] p-8 md:p-12 text-center max-w-4xl mx-auto border border-primary/10">
                     <h2 className="text-2xl md:text-4xl font-bold text-primary-dark mb-4">A conversation, not a decision.</h2>
                     <p className="text-gray-600 mb-8 max-w-2xl mx-auto text-lg">

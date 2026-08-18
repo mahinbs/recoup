@@ -122,7 +122,7 @@ export default function FunctionalNutritionContent() {
       <Section className="sp-hero">
         <div className="sp-wrap sp-hero-grid">
           <div>
-            <span className="kicker">Functional Nutrition at Recoup Health</span>
+            <span className="kicker">Functional Nutrition at RECOUP Health</span>
             <h1>
               Nourish Better. Live Better. <em>Feel Better.</em>
             </h1>
@@ -136,7 +136,7 @@ export default function FunctionalNutritionContent() {
               and recovers from daily stress.
             </p>
             <p className="sp-hero-support">
-              At Recoup Health, we combine Functional Nutrition, Functional
+              At RECOUP Health, we combine Functional Nutrition, Functional
               Medicine, and Lifestyle Medicine to understand your unique health
               needs and create personalized nutrition strategies that support
               lasting wellbeing.
@@ -286,7 +286,7 @@ export default function FunctionalNutritionContent() {
           </div>
           <p style={{ marginTop: 24 }}>
             That&rsquo;s exactly what Functional Nutrition is designed to do. At
-            Recoup Health, every recommendation begins with understanding you
+            RECOUP Health, every recommendation begins with understanding you
             before recommending what to eat.
           </p>
         </div>
@@ -363,7 +363,7 @@ export default function FunctionalNutritionContent() {
             important role.
           </p>
           <p className="section-sub" style={{ marginTop: 16 }}>
-            That&rsquo;s why Functional Nutrition at Recoup Health is integrated
+            That&rsquo;s why Functional Nutrition at RECOUP Health is integrated
             with:
           </p>
           <div className="sp-chips" style={{ justifyContent: 'center' }}>
@@ -437,15 +437,15 @@ export default function FunctionalNutritionContent() {
       <Section className="sp-trust">
         <div className="sp-wrap">
           <div className="sp-center">
-            <span className="kicker">Why Recoup Health</span>
+            <span className="kicker">Why RECOUP Health</span>
             <h2 className="section-title">
-              Why Choose Functional Nutrition at Recoup Health?
+              Why Choose Functional Nutrition at RECOUP Health?
             </h2>
             <p className="section-sub" style={{ fontWeight: 600, color: 'var(--ink)' }}>
               Personalized Care. Clinical Expertise. Lasting Health.
             </p>
             <p className="section-sub" style={{ marginTop: 14 }}>
-              At Recoup Health, Functional Nutrition is more than a nutrition
+              At RECOUP Health, Functional Nutrition is more than a nutrition
               consultation. It&rsquo;s part of our integrated Precision Healthcare
               approach.
             </p>

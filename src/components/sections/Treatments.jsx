@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import useReveal from '../../hooks/useReveal'
-import chronicPain from '../../assets/new-images/Images-Home-Page-Conditions/chronic-pain-care.jpg'
-import gutHealth from '../../assets/new-images/Images-Home-Page-Conditions/gut-health-digestive-care.jpg'
-import hormonal from '../../assets/new-images/Images-Home-Page-Conditions/hormonal-health-wellness-1.jpg'
-import metabolic from '../../assets/new-images/Images-Home-Page-Conditions/metabolic-health-weight-2.jpg'
-import neuro from '../../assets/new-images/Images-Home-Page-Conditions/neurological-rehabilitation.jpg'
-import cerebralPalsy from '../../assets/new-images/Images-Home-Page-Conditions/cerebral-palsy-1.jpg'
+import chronicPain from '../../assets/new-images/Our-areas-of-care-section/Chronic_Pain_Care.jpg'
+import gutHealth from '../../assets/new-images/Our-areas-of-care-section/Gut_Health_&_Digestive_Care.jpg'
+import hormonal from '../../assets/new-images/Our-areas-of-care-section/Hormonal_Health_&_Wellness.jpg'
+import metabolic from '../../assets/new-images/Our-areas-of-care-section/Metabolic_Health_&_Weight_Management.jpg'
+import neuro from '../../assets/new-images/Our-areas-of-care-section/Neurological_Rehabilitation.jpg'
+import cerebralPalsy from '../../assets/new-images/Our-areas-of-care-section/Cerebral_Palsy_Rehabilitation_for_Children.jpg'
 
 const panels = [
   {

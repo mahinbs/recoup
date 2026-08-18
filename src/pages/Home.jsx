@@ -23,7 +23,7 @@ import CTABand from '../components/sections/CTABand'
 
 const Home = () => {
     return (
-        <div className="home-preview min-h-screen bg-secondary flex flex-col text-gray-800 overflow-x-clip">
+        <div className="home-preview min-h-screen bg-white flex flex-col text-gray-800 overflow-x-clip">
             <Navbar />
             <main className="flex-grow pt-0">
                 <Hero />

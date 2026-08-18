@@ -101,7 +101,7 @@ const BlogPost = () => {
           <div className="not-prose bg-primary/5 rounded-2xl p-8 mt-12 mb-8 border border-primary/10">
             <h4 className="text-xl font-bold text-primary-dark mt-0">Ready to take control of your health?</h4>
             <p className="text-gray-600 mb-6 font-normal">
-              Our specialists at Recoup Health can design a personalized treatment plan tailored to your unique physiology and lifestyle.
+              Our specialists at RECOUP Health can design a personalized treatment plan tailored to your unique physiology and lifestyle.
             </p>
             <Link
               to="/contact"

@@ -70,7 +70,7 @@ export default function AcademyHero() {
 
             {/* H1 */}
             <motion.h1
-              className="font-serif text-slate-900 mb-6 text-4xl md:text-6xl lg:text-7xl"
+              className="font-sans text-slate-900 mb-6 text-3xl md:text-4xl lg:text-[2.6rem]"
               style={{ lineHeight: 1.08 }}
               variants={itemVariants}
             >

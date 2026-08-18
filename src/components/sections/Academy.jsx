@@ -16,7 +16,7 @@ const Academy = () => {
                     transition={{ duration: 0.5 }}
                 >
                     <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">For Professionals</span>
-                    <h2 className="text-3xl md:text-5xl font-bold text-primary-dark mt-4 mb-4">Recoup Academy</h2>
+                    <h2 className="text-3xl md:text-5xl font-bold text-primary-dark mt-4 mb-4">RECOUP Academy</h2>
                     <p className="text-gray-600 max-w-2xl mx-auto">
                         Empowering the next generation of healthcare providers with advanced training in ergonomics, rehabilitation, and hollow-care.
                     </p>

@@ -48,13 +48,13 @@ const Framework = () => {
     ];
 
     return (
-        <div className="bg-slate-50 min-h-screen pt-24">
+        <div className="bg-white min-h-screen pt-24">
             <SubNav />
 
-            <Section className="py-16 md:py-24 bg-white">
+            <Section className="py-16 md:py-24 section-tint">
                 <div className="max-w-3xl mx-auto text-center mb-16">
                     <span className="text-primary font-semibold tracking-wide uppercase text-sm mb-4 block">The Core Framework</span>
-                    <h1 className="text-4xl md:text-5xl font-bold text-primary-dark mb-6">6 Domains of Observation</h1>
+                    <h1 className="font-bold text-primary-dark mb-6">6 Domains of Observation</h1>
                     <p className="text-gray-600 text-lg">
                         The Second Bell framework categorizes student wellbeing into six interconnected domains. Challenges in one area—such as poor sleep—frequently cascade into others, like emotional dysregulation or reduced attention span. By standardizing these observations, schools can shift from reactive discipline to proactive health support.
                     </p>
@@ -78,7 +78,7 @@ const Framework = () => {
 
                             <div className="bg-white p-4 rounded-xl border border-gray-100 mt-auto">
                                 <span className="text-xs font-bold uppercase text-gray-400 mb-1 block">The Context</span>
-                                <p className="text-sm text-gray-600 italic font-serif">"{domain.example}"</p>
+                                <p className="text-sm text-gray-600 italic">"{domain.example}"</p>
                             </div>
                         </motion.div>
                     ))}
@@ -90,7 +90,7 @@ const Framework = () => {
                 <div className="max-w-2xl mx-auto">
                     <h2 className="text-3xl font-bold mb-6 text-white">How do we apply this framework?</h2>
                     <p className="text-gray-300 mb-8 max-w-xl mx-auto">
-                        Discover how Recoup Health translates these six clinical domains into actionable school programs.
+                        Discover how RECOUP Health translates these six clinical domains into actionable school programs.
                     </p>
                     <button onClick={() => navigate('/second-bell/program')} className="inline-flex items-center text-primary-light font-bold hover:text-white transition-colors">
                         View the School Program <ArrowRight className="ml-2 w-5 h-5" />

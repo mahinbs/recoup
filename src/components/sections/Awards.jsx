@@ -1,12 +1,15 @@
 import React from 'react'
 import useReveal from '../../hooks/useReveal'
+import sicotLogo from '../../assets/new-images/Awarding-Organization-Logos/sicot-logo.png'
+import ioaLogo from '../../assets/new-images/Awarding-Organization-Logos/ioa-logo.png'
+import govtLogo from '../../assets/new-images/Awarding-Organization-Logos/government-of-india.png'
 
 const awards = [
-  { year: '2008', title: 'National Disability Award', org: 'Government of India' },
-  { year: '2006', title: 'Henri Bensahel Award', org: 'SICOT' },
-  { year: '2019', title: 'Presidential Award – Dr. APJ Abdul Kalam', org: 'Government of India' },
-  { year: '2015', title: 'Indian Orthopaedic Association Recognition', org: 'Indian Orthopaedic Association' },
-  { year: '2012', title: 'SICOT Research Academy Grant', org: 'SICOT' },
+  { year: '2008', title: 'National Disability Award', org: 'Government of India', logo: govtLogo },
+  { year: '2006', title: 'Henri Bensahel Award', org: 'SICOT', logo: govtLogo },
+  { year: '2019', title: 'Presidential Award – Dr. APJ Abdul Kalam', org: 'Government of India', logo: govtLogo },
+  { year: '2015', title: 'Indian Orthopaedic Association Recognition', org: 'Indian Orthopaedic Association', logo: ioaLogo },
+  { year: '2012', title: 'SICOT Research Academy Grant', org: 'SICOT', logo: sicotLogo },
 ]
 
 const Awards = () => {
@@ -28,6 +31,7 @@ const Awards = () => {
         <div className="timeline-marquee-track">
           {loop.map((a, i) => (
             <div className="timeline-chip" key={a.year + a.title + i}>
+              <img className="timeline-chip-logo" src={a.logo} alt={a.org} />
               <span className="timeline-chip-year">{a.year}</span>
               <div className="timeline-chip-body">
                 <strong>{a.title}</strong>

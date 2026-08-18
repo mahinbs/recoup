@@ -7,8 +7,8 @@ const appointments = [
   { org: 'EPM International Ergonomics School, Milan', role: 'Founder Director', logo: 'https://deepaksharan.com/wp-content/uploads/EPM-International-Ergonomics-School.png', href: 'https://epmresearch.org/' },
   { org: 'Indian Myopain Society', role: 'Founder President', logo: 'https://deepaksharan.com/wp-content/uploads/Indian-Myopain-Society.png', href: 'https://www.ergonomicsindia.in' },
   { org: 'Myopain Seminars, USA', role: 'Senior Faculty & Director (India)', logo: 'https://deepaksharan.com/wp-content/uploads/Myopain-Seminars-USA.png', href: 'https://myopainseminars.com/' },
-  { org: 'RECOUP Academy', role: 'Director', logo: 'https://www.recoup.health/logo.png', href: 'http://recoup.academy/' },
-  { org: 'RECOUP Health Inc.', role: 'Founder & CEO', logo: 'https://www.recoup.health/logo.png', href: 'https://www.recoup.health/' },
+  { org: 'RECOUP Academy', role: 'Director', logo: 'https://www.recoup.health/logo.png', href: 'http://recoup.academy/', compact: true },
+  { org: 'RECOUP Health Inc.', role: 'Founder & CEO', logo: 'https://www.recoup.health/logo.png', href: 'https://www.recoup.health/', compact: true },
   { org: 'Ministry of Social Justice & Empowerment', role: 'Member, Expert Committee on Cerebral Palsy', logo: 'https://deepaksharan.com/wp-content/uploads/ministry-of-social-justice-and-empowerment.png', href: null },
   { org: 'Indian Ergonomics School', role: 'Founder & President', logo: 'https://deepaksharan.com/wp-content/uploads/indian_ergonomics_school-1.png', href: null },
   { org: 'Government of Karnataka', role: 'Chief Orthopaedic & Rehab Consultant to the Commissioner for PwD', logo: 'https://deepaksharan.com/wp-content/uploads/govt-of-karnataka.png', href: null },
@@ -17,7 +17,7 @@ const appointments = [
 function AppointmentCard({ a }) {
   const inner = (
     <>
-      <div className="appt-logo-wrap">
+      <div className={`appt-logo-wrap${a.compact ? ' appt-logo-sm' : ''}`}>
         <img src={a.logo} alt={a.org} loading="lazy" />
       </div>
       <strong>{a.org}</strong>

@@ -221,7 +221,7 @@ const OUTCOMES = [
 const STORIES = [
   {
     quote:
-      'For years, I was told my pain was normal because I was flexible. Recoup Health finally gave me answers and a treatment plan that actually worked.',
+      'For years, I was told my pain was normal because I was flexible. RECOUP Health finally gave me answers and a treatment plan that actually worked.',
     cite: 'Patient with Hypermobility Spectrum Disorder',
   },
   {
@@ -232,7 +232,7 @@ const STORIES = [
   {
     quote:
       'The team looked beyond my symptoms and explained my condition in a way no one ever had before. It completely changed my recovery journey.',
-    cite: 'Recoup Health Patient',
+    cite: 'RECOUP Health Patient',
   },
 ]
 
@@ -302,7 +302,7 @@ export default function HypermobilityContent() {
               symptoms, hypermobility could be the missing piece.
             </p>
             <p className="sp-hero-support">
-              At Recoup Health, we specialize in diagnosing and treating
+              At RECOUP Health, we specialize in diagnosing and treating
               Hypermobility Spectrum Disorders (HSD) and Ehlers-Danlos Syndrome
               (EDS). Through our personalized, root-cause approach, we help you
               understand your condition, improve joint stability, reduce pain,
@@ -330,10 +330,10 @@ export default function HypermobilityContent() {
       <Section className="sp-trust">
         <div className="sp-wrap">
           <div className="sp-center">
-            <span className="kicker">Why Patients Trust Recoup Health</span>
+            <span className="kicker">Why Patients Trust RECOUP Health</span>
             <h2 className="section-title">Specialized Hypermobility Care</h2>
             <p className="section-sub">
-              Recoup Health is internationally recognized for its expertise in
+              RECOUP Health is internationally recognized for its expertise in
               hypermobility and EDS, with patients traveling from across India and
               around the world to receive advanced and personalized care.
             </p>
@@ -479,7 +479,7 @@ export default function HypermobilityContent() {
             recognizing the underlying connective tissue disorder.
           </p>
           <p>
-            At Recoup Health, we take a different approach. We connect the dots
+            At RECOUP Health, we take a different approach. We connect the dots
             to understand how these seemingly unrelated symptoms may be
             connected—helping you receive the right diagnosis and a precise
             treatment plan.
@@ -546,7 +546,7 @@ export default function HypermobilityContent() {
               tissue condition often goes unrecognized.
             </p>
             <p>
-              At Recoup Health, we take a different approach. Instead of focusing
+              At RECOUP Health, we take a different approach. Instead of focusing
               on isolated symptoms, we assess how your entire body functions to
               identify the root cause.
             </p>
@@ -583,7 +583,7 @@ export default function HypermobilityContent() {
             treatment should never follow a one-size-fits-all approach.
           </p>
           <p className="section-sub" style={{ marginTop: 14 }}>
-            At Recoup Health, we begin by understanding how hypermobility affects
+            At RECOUP Health, we begin by understanding how hypermobility affects
             your body, lifestyle, and overall health. This helps us create a
             precise treatment plan designed specifically for you.
           </p>
@@ -648,7 +648,7 @@ export default function HypermobilityContent() {
       <Section className="sp-journey">
         <div className="sp-wrap">
           <div className="sp-center">
-            <span className="kicker">The Recoup Healing Journey</span>
+            <span className="kicker">The RECOUP Healing Journey</span>
             <h2 className="section-title">Your Path From Assessment to Long-Term Wellness</h2>
           </div>
           <div className="sp-journey-track">
@@ -677,7 +677,7 @@ export default function HypermobilityContent() {
             Many treatment approaches focus on managing symptoms as they appear.
           </p>
           <p className="section-sub" style={{ marginTop: 14 }}>
-            At Recoup Health, we focus on understanding why those symptoms are
+            At RECOUP Health, we focus on understanding why those symptoms are
             happening in the first place. By combining specialist expertise,
             comprehensive assessment, and interdisciplinary care, we aim to help you:
           </p>
@@ -717,7 +717,7 @@ export default function HypermobilityContent() {
             </p>
             <p>
               Today, the DEEPAK SHARAN Protocol forms the foundation of
-              hypermobility care at Recoup Health. Every treatment plan is
+              hypermobility care at RECOUP Health. Every treatment plan is
               personalized, combining specialist expertise with a multidisciplinary
               approach to improve stability, restore movement, reduce pain, and
               support long-term recovery.

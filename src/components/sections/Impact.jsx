@@ -161,7 +161,7 @@ const Impact = () => {
                 />
                 <div className="relative z-10 px-6 py-12 md:py-16 max-w-7xl mx-auto">
                     <p className="text-center text-primary-light font-bold tracking-[0.2em] uppercase text-xs mb-10">
-                        Recoup Health by the Numbers
+                        RECOUP Health by the Numbers
                     </p>
                     <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-4">
                         {[

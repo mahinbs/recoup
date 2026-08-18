@@ -26,7 +26,7 @@ export default function AcademyCTA() {
         </motion.span>
         
         <motion.h2 
-          className="font-serif text-4xl md:text-5xl lg:text-7xl text-slate-900 mb-8 max-w-3xl leading-tight"
+          className="font-sans text-3xl md:text-4xl lg:text-5xl text-slate-900 mb-8 max-w-3xl leading-tight"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}

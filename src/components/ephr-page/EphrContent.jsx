@@ -2,13 +2,28 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import moleculeSrc from '../../assets/preview/ephr-molecule_src.png'
 import ephrBodySrc from '../../assets/preview/ephr-ephr_body_src.jpg'
-import skeletonBodySrc from '../../assets/new-images/human-skeleton-body.png'
 import doctorVideo from '../../assets/new-images/doctor-video.mp4'
+import modelVideo from '../../assets/new-images/3D-Model-video.mp4'
+import journeyStep1 from '../../assets/new-images/Illustrations-EPHR-for-process-flow/Step 1_ Appointment Confirmed Healthcare Booking Illustration.png'
+import journeyStep2 from '../../assets/new-images/Illustrations-EPHR-for-process-flow/Step 2_ Complete Your Health Assessment.png'
+import journeyStep3 from '../../assets/new-images/Illustrations-EPHR-for-process-flow/Step 3_ Clinical Analysis by Our Experts.png'
+import journeyStep4 from '../../assets/new-images/Illustrations-EPHR-for-process-flow/Step 4_ Receive Your Entire Person Health Report.png'
+import journeyStep5 from '../../assets/new-images/Illustrations-EPHR-for-process-flow/Step 5_ Review Your Report with Your Physician.png'
 import biomarkerSrc from '../../assets/preview/ephr-biomarker_src.jpg'
+import metabolicIcon from '../../assets/new-images/What-Your-EPHR-Reveals/Metabolic_Health_Icon.png'
+import heartIcon from '../../assets/new-images/What-Your-EPHR-Reveals/Heart-Health2.png'
+import hormonalIcon from '../../assets/new-images/What-Your-EPHR-Reveals/Hormonal-Health-Icon2.png'
+import gutIcon from '../../assets/new-images/What-Your-EPHR-Reveals/Gut-Health-Icon.png'
+import nutritionIcon from '../../assets/new-images/What-Your-EPHR-Reveals/Nutritional_Status.png'
+import inflammationIcon from '../../assets/new-images/What-Your-EPHR-Reveals/Chronic_Inflammation.png'
+import stressIcon from '../../assets/new-images/What-Your-EPHR-Reveals/Stress&Recovery.png'
+import bodyCompIcon from '../../assets/new-images/What-Your-EPHR-Reveals/Body_Composition2.png'
+import bioAgeIcon from '../../assets/new-images/What-Your-EPHR-Reveals/Biological_Age1.png'
+import lifestyleIcon from '../../assets/new-images/What-Your-EPHR-Reveals/Lifestyle_Risk_Factors2.png'
+import functionalIcon from '../../assets/new-images/What-Your-EPHR-Reveals/Functional-Health Assessment-2.png'
 
 const MOLECULE_SRC = moleculeSrc
 const EPHR_BODY_SRC = ephrBodySrc
-const HUMAN2_SRC = skeletonBodySrc
 const BIOMARKER_SRC = biomarkerSrc
 
 function HudCorners() {
@@ -294,7 +309,7 @@ function PageCover() {
     <div className="sr-page sr-page-cover">
       <div className="sr-cover-topbar">
         <span className="sr-cover-title">Entire Person Health Report</span>
-        <span className="sr-cover-brand">recoup HEALTH</span>
+        <span className="sr-cover-brand">RECOUP Health</span>
       </div>
       <div className="sr-cover-body">
         <p className="sr-cover-name">{PATIENT.name}</p>
@@ -471,7 +486,7 @@ function SampleReportBook() {
               <FromPage />
             </div>
             <div className="sr-leaf-face sr-leaf-back">
-              <div className="sr-leaf-back-brand">recoup HEALTH</div>
+              <div className="sr-leaf-back-brand">RECOUP Health</div>
             </div>
           </div>
         )}
@@ -617,6 +632,32 @@ const Icon = {
       <path d="M19 12v1" />
     </svg>
   ),
+  dna: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M7 3c6 5 4 13 10 18M17 3c-6 5-4 13-10 18" />
+      <path d="M8.5 7.5h7M8.5 12h7M8.5 16.5h7" />
+    </svg>
+  ),
+  scan: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 8V5a1 1 0 0 1 1-1h3M20 8V5a1 1 0 0 0-1-1h-3M4 16v3a1 1 0 0 0 1 1h3M20 16v3a1 1 0 0 1-1 1h-3" />
+      <circle cx="12" cy="12" r="3.2" />
+    </svg>
+  ),
+  walk: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="13" cy="5" r="2" />
+      <path d="M8 21l2.5-6 3 2 2.5 4M10.5 15l-2-3 4-3 3 1" />
+    </svg>
+  ),
+  people: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="9" cy="8" r="2.6" />
+      <path d="M3.5 19c.6-3 2.8-4.6 5.5-4.6S14 16 14.5 19" />
+      <circle cx="16.5" cy="9" r="2.2" />
+      <path d="M16.5 14.4c2.2 0 4.1 1.3 4.8 3.6" />
+    </svg>
+  ),
   check: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M4.5 12.5l5 5 10-11" />
@@ -697,53 +738,12 @@ function BiomarkerIcon({ kind }) {
 
 /* Small illustration panels for the journey accordion — composed from the
    existing outline icon set so they match the rest of the page. */
-function JourneyIllustration({ kind }) {
-  const scenes = {
-    booking: (
-      <>
-        <span className="ephr-illus-icon ephr-illus-icon-lg">{Icon.calendar}</span>
-        <span className="ephr-illus-icon ephr-illus-icon-sm ephr-illus-pos-br">
-          {Icon.user}
-        </span>
-      </>
-    ),
-    assessment: (
-      <>
-        <span className="ephr-illus-icon ephr-illus-icon-lg">{Icon.clipboard}</span>
-        <span className="ephr-illus-icon ephr-illus-icon-sm ephr-illus-pos-br">
-          <BiomarkerIcon kind="drop" />
-        </span>
-      </>
-    ),
-    analysis: (
-      <>
-        <span className="ephr-illus-icon ephr-illus-icon-lg">{Icon.microscope}</span>
-        <span className="ephr-illus-icon ephr-illus-icon-sm ephr-illus-pos-tr">
-          <BiomarkerIcon kind="atom" />
-        </span>
-        <span className="ephr-illus-icon ephr-illus-icon-sm ephr-illus-pos-br">
-          {Icon.stethoscope}
-        </span>
-      </>
-    ),
-    report: (
-      <>
-        <span className="ephr-illus-icon ephr-illus-icon-lg">{Icon.file}</span>
-        <span className="ephr-illus-icon ephr-illus-icon-sm ephr-illus-pos-br">
-          <BiomarkerIcon kind="pulse" />
-        </span>
-      </>
-    ),
-    consultation: (
-      <>
-        <span className="ephr-illus-icon ephr-illus-icon-lg">{Icon.stethoscope}</span>
-        <span className="ephr-illus-icon ephr-illus-icon-sm ephr-illus-pos-br">
-          {Icon.user}
-        </span>
-      </>
-    ),
-  }
-  return <div className="ephr-illustration-panel">{scenes[kind]}</div>
+function JourneyIllustration({ src, title }) {
+  return (
+    <div className="ephr-illustration-panel">
+      <img src={src} alt={title} />
+    </div>
+  )
 }
 
 /* ------------------------------------------------------------------ */
@@ -761,17 +761,17 @@ const COMPARISON = [
 ]
 
 const HEALTH_AREAS = [
-  { label: 'Metabolic Health', icon: 'activity', desc: 'Blood sugar, insulin response & energy metabolism' },
-  { label: 'Heart Health', icon: 'heart', desc: 'Cardiovascular risk markers & lipid profile' },
-  { label: 'Hormonal Health', icon: 'flask', desc: 'Thyroid, cortisol & key hormone balance' },
-  { label: 'Gut Health', icon: 'leaf', desc: 'Digestion, absorption & gut-related symptoms' },
-  { label: 'Nutritional Status', icon: 'apple', desc: 'Vitamins, minerals & nutritional deficiencies' },
-  { label: 'Chronic Inflammation', icon: 'flame', desc: 'Hidden inflammation markers linked to disease' },
-  { label: 'Stress & Recovery', icon: 'moon', desc: 'Sleep quality, stress load & recovery capacity' },
-  { label: 'Body Composition', icon: 'scale', desc: 'Muscle, fat distribution & body metrics' },
-  { label: 'Biological Age', icon: 'hourglass', desc: 'How old your body really is vs. your birthdate' },
-  { label: 'Lifestyle Risk Factors', icon: 'alert', desc: 'Habits & exposures shaping long-term health' },
-  { label: 'Functional Health Assessment', icon: 'clipboard', desc: 'How well your body systems work together' },
+  { label: 'Metabolic Health', image: metabolicIcon, desc: 'Blood sugar, insulin response & energy metabolism' },
+  { label: 'Heart Health', image: heartIcon, desc: 'Cardiovascular risk markers & lipid profile' },
+  { label: 'Hormonal Health', image: hormonalIcon, desc: 'Thyroid, cortisol & key hormone balance' },
+  { label: 'Gut Health', image: gutIcon, desc: 'Digestion, absorption & gut-related symptoms' },
+  { label: 'Nutritional Status', image: nutritionIcon, desc: 'Vitamins, minerals & nutritional deficiencies' },
+  { label: 'Chronic Inflammation', image: inflammationIcon, desc: 'Hidden inflammation markers linked to disease' },
+  { label: 'Stress & Recovery', image: stressIcon, desc: 'Sleep quality, stress load & recovery capacity' },
+  { label: 'Body Composition', image: bodyCompIcon, desc: 'Muscle, fat distribution & body metrics' },
+  { label: 'Biological Age', image: bioAgeIcon, desc: 'How old your body really is vs. your birthdate' },
+  { label: 'Lifestyle Risk Factors', image: lifestyleIcon, desc: 'Habits & exposures shaping long-term health' },
+  { label: 'Functional Health Assessment', image: functionalIcon, desc: 'How well your body systems work together' },
   { label: 'Personalized Health Priorities', icon: 'target', desc: 'The areas that matter most for you right now' },
 ]
 
@@ -806,41 +806,41 @@ const JOURNEY = [
     title: 'Book Your EPHR Assessment',
     text: 'Schedule your assessment online or connect with our healthcare team to choose a convenient appointment.',
     icon: 'calendar',
-    illustration: 'booking',
+    image: journeyStep1,
   },
   {
     title: 'Complete Your Health Assessment',
     text: 'Answer a comprehensive health questionnaire and complete the recommended laboratory investigations.',
     icon: 'clipboard',
-    illustration: 'assessment',
+    image: journeyStep2,
   },
   {
     title: 'Clinical Analysis by Our Experts',
     text: 'Our multidisciplinary team carefully reviews your symptoms, medical history, lifestyle, and biomarkers to identify health patterns and potential root causes.',
     icon: 'microscope',
-    illustration: 'analysis',
+    image: journeyStep3,
   },
   {
     title: 'Receive Your Entire Person Health Report',
     text: 'Get a personalized report that explains your health status, early warning signs, biological age, health priorities, and recommended next steps.',
     icon: 'file',
-    illustration: 'report',
+    image: journeyStep4,
   },
   {
     title: 'Review Your Report with Your Physician',
     text: 'Meet with your physician to understand your report and receive a personalized action plan designed for your long-term health.',
     icon: 'user',
-    illustration: 'consultation',
+    image: journeyStep5,
   },
 ]
 
 const PILLARS = [
-  'Functional Medicine',
-  'Precision Diagnostics',
-  'Lifestyle Medicine',
-  'Nutrition Science',
-  'Rehabilitation Medicine',
-  'Whole-Person Health',
+  { label: 'Functional Medicine', icon: 'dna' },
+  { label: 'Precision Diagnostics', icon: 'scan' },
+  { label: 'Lifestyle Medicine', icon: 'leaf' },
+  { label: 'Nutrition Science', icon: 'apple' },
+  { label: 'Rehabilitation Medicine', icon: 'walk' },
+  { label: 'Whole-Person Health', icon: 'people' },
 ]
 
 const FAQS = [
@@ -926,7 +926,6 @@ export function EphrIntro() {
 
       {/* Healthy doesn't always mean healthy */}
       <section className="ephr-statement">
-        <img className="ephr-dna-strand ephr-dna-2" src={MOLECULE_SRC} alt="" aria-hidden="true" />
         <div className="ephr-wrap ephr-statement-grid">
           <div className="ephr-statement-text">
             <h2 className="section-title">The Silent Changes Within Your Body You&rsquo;re Unaware Of</h2>
@@ -981,6 +980,14 @@ export function EphrIntro() {
 
       {/* What you'll discover — circular infographic */}
       <section className="ephr-discover">
+        <svg width="0" height="0" aria-hidden="true" focusable="false" className="ephr-icon-filter">
+          <filter id="ephr-knockout-black" colorInterpolationFilters="sRGB">
+            <feColorMatrix
+              type="matrix"
+              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  1 1 1 0 0"
+            />
+          </filter>
+        </svg>
         <span className="ephr-biomarker ephr-biomarker-1"><BiomarkerIcon kind="tube" /></span>
         <span className="ephr-biomarker ephr-biomarker-2"><BiomarkerIcon kind="atom" /></span>
         <div className="ephr-wrap">
@@ -1005,28 +1012,24 @@ export function EphrIntro() {
             <div className={`ephr-orbit-hub ${activeArea !== null ? 'active' : ''}`}>
               <div className="ephr-halo" aria-hidden="true" />
               <div className="ephr-orbit-hub-spin">
-                <img
-                  src={HUMAN2_SRC}
-                  alt="Whole-person anatomical visualization"
-                  className="ephr-orbit-hub-img"
+                <video
+                  src={modelVideo}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  className="ephr-orbit-hub-img ephr-orbit-hub-video"
+                  aria-label="3D model of connected whole-person health"
                 />
               </div>
               <div className="ephr-pedestal" aria-hidden="true" />
               <div className="ephr-pedestal ephr-pedestal-2" aria-hidden="true" />
             </div>
 
-            {activeArea !== null && (
-              <div className="ephr-hub-caption-outer">
-                <div className="ephr-hub-detail-text">
-                  <strong>{HEALTH_AREAS[activeArea].label}</strong>
-                  <span>{HEALTH_AREAS[activeArea].desc}</span>
-                </div>
-              </div>
-            )}
-
             {/* Orbiting items */}
             <div className="ephr-orbit-rotor" aria-hidden="true">
-              {HEALTH_AREAS.map(({ label, icon }, i) => {
+              {HEALTH_AREAS.map(({ label, icon, image }, i) => {
                 const angle = (i / HEALTH_AREAS.length) * 2 * Math.PI - Math.PI / 2
                 const x = 460 + 380 * Math.cos(angle)
                 const y = 460 + 380 * Math.sin(angle)
@@ -1038,7 +1041,9 @@ export function EphrIntro() {
                     onMouseEnter={() => setActiveArea(i)}
                     onMouseLeave={() => setActiveArea(null)}
                   >
-                    <span className="ephr-orbit-icon">{Icon[icon]}</span>
+                    <span className={`ephr-orbit-icon${image ? ' ephr-orbit-icon-img' : ''}`}>
+                      {image ? <img src={image} alt="" /> : Icon[icon]}
+                    </span>
                     <span className="ephr-orbit-label">{label}</span>
                   </div>
                 )
@@ -1046,11 +1051,24 @@ export function EphrIntro() {
             </div>
           </div>
 
+          <div className="ephr-orbit-caption" aria-live="polite">
+            {activeArea !== null ? (
+              <div className="ephr-hub-detail-text">
+                <strong>{HEALTH_AREAS[activeArea].label}</strong>
+                <span>{HEALTH_AREAS[activeArea].desc}</span>
+              </div>
+            ) : (
+              <p className="ephr-orbit-caption-hint">Hover an icon to explore each health area</p>
+            )}
+          </div>
+
           {/* Mobile / tablet: card grid */}
           <div className="ephr-areas-grid">
-            {HEALTH_AREAS.map(({ label, icon, desc }) => (
+            {HEALTH_AREAS.map(({ label, icon, image, desc }) => (
               <div className="ephr-area-card" key={label}>
-                <span className="ephr-area-icon">{Icon[icon]}</span>
+                <span className={`ephr-area-icon${image ? ' ephr-orbit-icon-img' : ''}`}>
+                  {image ? <img src={image} alt="" /> : Icon[icon]}
+                </span>
                 <span>{label}</span>
                 <small>{desc}</small>
               </div>
@@ -1071,10 +1089,9 @@ export function EphrClosing() {
     <>
       {/* What's included */}
       <section className="ephr-included">
-        <img className="ephr-dna-strand ephr-dna-3" src={MOLECULE_SRC} alt="" aria-hidden="true" />
         <div className="ephr-wrap">
           <div className="ephr-center">
-            <span className="kicker ephr-kicker-light">
+            <span className="kicker">
               Everything You Receive with Your EPHR
             </span>
             <h2 className="section-title">
@@ -1085,7 +1102,7 @@ export function EphrClosing() {
           <ul className="ephr-check-list ephr-included-list">
             {WHATS_INCLUDED.map((item) => (
               <li key={item}>
-                <span className="ephr-check ephr-check-gold">{Icon.check}</span>
+                <span className="ephr-check">{Icon.check}</span>
                 {item}
               </li>
             ))}
@@ -1145,7 +1162,7 @@ export function EphrClosing() {
 
             {/* Right: accordion cards */}
             <div className="ephr-journey-accordion">
-              {JOURNEY.map(({ title, text, icon, illustration }, i) => {
+              {JOURNEY.map(({ title, text, icon, image }, i) => {
                 const open = i === activeStep
                 return (
                   <div
@@ -1178,7 +1195,7 @@ export function EphrClosing() {
                     >
                       <div className="ephr-journey-card-body">
                         <p>{text}</p>
-                        <JourneyIllustration kind={illustration} />
+                        <JourneyIllustration src={image} title={title} />
                       </div>
                     </div>
                   </div>
@@ -1189,22 +1206,22 @@ export function EphrClosing() {
         </div>
       </section>
 
-      {/* Why Recoup Health */}
+      {/* Why RECOUP Health */}
       <section className="ephr-why">
         <img className="ephr-biomarker-photo" src={BIOMARKER_SRC} alt="" aria-hidden="true" />
         <div className="ephr-wrap ephr-center">
-          <span className="kicker">Why Choose Recoup Health?</span>
+          <span className="kicker">Why Choose RECOUP Health?</span>
           <h2 className="section-title">Healthcare That Looks Beyond Symptoms</h2>
           <p className="section-sub ephr-center-sub">
-            At Recoup Health, we believe lasting health starts with
+            At RECOUP Health, we believe lasting health starts with
             understanding the whole person. The Entire Person Health Report
             combines:
           </p>
           <div className="ephr-pillars">
             {PILLARS.map((p) => (
-              <span className="ephr-pill" key={p}>
-                <span className="ephr-pill-icon">{Icon.stethoscope}</span>
-                {p}
+              <span className="ephr-pill" key={p.label}>
+                <span className="ephr-pill-icon">{Icon[p.icon]}</span>
+                {p.label}
               </span>
             ))}
           </div>

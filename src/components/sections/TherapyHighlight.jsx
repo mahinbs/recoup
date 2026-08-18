@@ -11,7 +11,7 @@ const steps = [
 const TherapyHighlight = () => {
   const ref = useReveal()
   return (
-    <section ref={ref} className="reveal">
+    <section ref={ref} className="reveal fourr-section">
       <div className="hp-wrap">
         <span className="kicker">Our Methodology</span>
         <h2 className="section-title">The 4R Healing Framework</h2>

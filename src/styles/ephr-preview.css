@@ -1278,10 +1278,11 @@
   align-items: center;
 }
 .ephr-preview .ephr-hero h1 {
-  font-size: clamp(2.1rem, 4.4vw, 3.1rem);
+  font-size: clamp(1.85rem, 3.6vw, 2.55rem);
   color: #111827;
   font-weight: 700;
   margin-bottom: 20px;
+  line-height: 1.15;
 }
 .ephr-preview .ephr-hero h1 em {
   font-style: normal;
@@ -1328,7 +1329,7 @@
 }
 
 /* Statement — text left, animated figure right */
-.ephr-preview .ephr-statement { position: relative; overflow: hidden; }
+.ephr-preview .ephr-statement { position: relative; overflow: hidden; background: #fff; }
 .ephr-preview .ephr-statement-grid {
   position: relative;
   z-index: 1;
@@ -1394,7 +1395,7 @@
 }
 
 /* Comparison */
-.ephr-preview .ephr-compare-section { background: var(--bg); }
+.ephr-preview .ephr-compare-section { background: linear-gradient(180deg, #faf7ff 0%, #f5eefc 100%); }
 .ephr-preview .ephr-compare-section .section-title { max-width: 720px; margin: 0 auto 12px; }
 .ephr-preview .ephr-compare {
   margin-top: 40px;
@@ -1426,7 +1427,7 @@
   font-size: 1.05rem;
 }
 
-.ephr-preview .ephr-discover { position: relative; overflow: hidden; padding: 100px 0 110px; }
+.ephr-preview .ephr-discover { position: relative; overflow: hidden; padding: 100px 0 110px; background: #fff; }
 .ephr-preview .ephr-discover .ephr-wrap { position: relative; z-index: 1; }
 
 /* Discover — living orbit */
@@ -1513,12 +1514,6 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  transform-style: preserve-3d;
-  animation: ephr-hub-spin 13s linear infinite;
-}
-@keyframes ephr-hub-spin {
-  from { transform: rotateY(0deg); }
-  to { transform: rotateY(360deg); }
 }
 
 .ephr-preview .ephr-orbit-hub-img {
@@ -1529,11 +1524,18 @@
   width: auto;
   max-width: none;
   object-fit: contain;
-  mix-blend-mode: screen;
   -webkit-mask-image: radial-gradient(ellipse 70% 86% at 50% 46%, #000 62%, transparent 100%);
   mask-image: radial-gradient(ellipse 70% 86% at 50% 46%, #000 62%, transparent 100%);
   filter: drop-shadow(0 22px 34px rgba(56, 18, 109, 0.22));
   transition: filter 0.3s ease;
+}
+.ephr-preview .ephr-orbit-hub-video {
+  mix-blend-mode: normal;
+  border-radius: 18px;
+  max-width: 280px;
+  height: auto;
+  width: 78%;
+  bottom: 12%;
 }
 .ephr-preview .ephr-orbit-hub.active .ephr-orbit-hub-img {
   filter: drop-shadow(0 22px 34px rgba(56, 18, 214, 0.28)) drop-shadow(0 0 30px rgba(134, 44, 214, 0.35));
@@ -1566,14 +1568,23 @@
   .ephr-preview .ephr-pedestal, .ephr-preview .ephr-pedestal-2 { animation: none; }
 }
 
-/* Caption sits below the pedestal, clear of the figure entirely */
-.ephr-preview .ephr-hub-caption-outer {
-  position: absolute;
-  left: 50%; top: 50%;
-  transform: translate(-50%, 300px);
-  width: 340px;
+/* Caption sits below the orbit so it never overlaps icons */
+.ephr-preview .ephr-orbit-caption {
+  min-height: 76px;
+  max-width: 520px;
+  margin: 8px auto 0;
   text-align: center;
-  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ephr-preview .ephr-orbit-caption-hint {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0;
+}
+.ephr-preview .ephr-hub-caption-outer {
+  display: none;
 }
 .ephr-preview .ephr-hub-caption-text {
   font-family: var(--font-display);
@@ -1638,14 +1649,43 @@
   color: var(--green-600);
   transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
 }
+.ephr-preview .ephr-orbit-icon-img,
+.ephr-preview .ephr-area-icon.ephr-orbit-icon-img {
+  width: 72px;
+  height: 72px;
+}
 .ephr-preview .ephr-orbit-item.active .ephr-orbit-icon {
-  background: var(--green-600);
-  color: #fff;
+  background: #fff;
+  color: var(--green-600);
   transform: scale(1.22);
   box-shadow: 0 10px 28px rgba(134, 44, 214, 0.45);
 }
+.ephr-preview .ephr-orbit-item.active .ephr-orbit-icon-img {
+  background: #fff;
+}
 .ephr-preview .ephr-orbit-item.active .ephr-orbit-label { color: var(--green-600); }
 .ephr-preview .ephr-orbit-icon svg, .ephr-preview .ephr-area-icon svg { width: 28px; height: 28px; }
+.ephr-preview .ephr-orbit-icon-img,
+.ephr-preview .ephr-area-icon.ephr-orbit-icon-img {
+  background: #fff;
+  overflow: hidden;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.ephr-preview .ephr-orbit-icon-img img,
+.ephr-preview .ephr-area-icon.ephr-orbit-icon-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: url(#ephr-knockout-black);
+}
+.ephr-preview .ephr-icon-filter {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
 
 /* Discover — grid fallback */
 .ephr-preview .ephr-areas-grid {
@@ -1744,21 +1784,22 @@
 .ephr-preview .ephr-included {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--green-800), var(--green-900));
-  color: #fff;
+  background: #fff;
+  color: var(--ink);
 }
 .ephr-preview .ephr-included .ephr-wrap { position: relative; z-index: 1; }
-.ephr-preview .ephr-included .section-title { color: #fff; }
+.ephr-preview .ephr-included .section-title { color: var(--ink); }
 .ephr-preview .ephr-included-list {
+  display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 14px 40px;
   max-width: 800px;
   margin: 40px auto 0;
-  color: #f1e8fa;
+  color: var(--ink);
 }
 
 /* Who */
-.ephr-preview .ephr-who { position: relative; overflow: hidden; }
+.ephr-preview .ephr-who { position: relative; overflow: hidden; background: linear-gradient(180deg, #faf7ff 0%, #f5eefc 100%); }
 .ephr-preview .ephr-who .ephr-wrap { position: relative; z-index: 1; }
 .ephr-preview .ephr-who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 36px; }
 .ephr-preview .ephr-who-item {
@@ -1769,7 +1810,7 @@
 }
 
 /* Journey — timeline + accordion */
-.ephr-preview .ephr-journey-section { background: var(--bg); }
+.ephr-preview .ephr-journey-section { background: #fff; }
 
 .ephr-preview .ephr-journey-layout {
   display: grid;
@@ -1908,12 +1949,20 @@
 /* Illustration panel */
 .ephr-preview .ephr-illustration-panel {
   position: relative;
-  width: 132px;
-  height: 108px;
+  width: 168px;
+  height: 132px;
   flex-shrink: 0;
   border-radius: 14px;
   background: #fff;
-  border: 1px solid rgba(134, 44, 214, 0.15);
+  border: 1px solid rgba(134, 44, 214, 0.12);
+  overflow: hidden;
+  padding: 8px;
+}
+.ephr-preview .ephr-illustration-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 .ephr-preview .ephr-illus-icon {
   position: absolute;
@@ -1956,7 +2005,7 @@
   padding: 10px 20px;
   border-radius: 999px;
 }
-.ephr-preview .ephr-pill-icon { width: 16px; height: 16px; display: inline-flex; }
+.ephr-preview .ephr-pill-icon { width: 18px; height: 18px; display: inline-flex; flex-shrink: 0; }
 .ephr-preview .ephr-pill-icon svg { width: 100%; height: 100%; }
 .ephr-preview .ephr-why-note {
   margin-top: 26px;
@@ -1964,7 +2013,7 @@
   font-weight: 700;
   font-style: italic;
 }
-.ephr-preview .ephr-why { position: relative; overflow: hidden; }
+.ephr-preview .ephr-why { position: relative; overflow: hidden; background: linear-gradient(180deg, #faf7ff 0%, #f5eefc 100%); }
 .ephr-preview .ephr-why .ephr-wrap { position: relative; z-index: 1; }
 
 /* Real biomarker photo, tinted purple-blue and kept just as subtle as the DNA strands */
@@ -1992,7 +2041,7 @@
 }
 
 /* FAQ */
-.ephr-preview .ephr-faq-section { background: var(--bg); }
+.ephr-preview .ephr-faq-section { background: #fff; }
 .ephr-preview .ephr-faq { max-width: 720px; margin: 36px auto 0; }
 .ephr-preview .ephr-faq-item { border-bottom: 1px solid rgba(134, 44, 214, 0.12); }
 .ephr-preview .ephr-faq-item button {

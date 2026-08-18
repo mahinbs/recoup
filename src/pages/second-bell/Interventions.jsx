@@ -42,14 +42,14 @@ const Interventions = () => {
     ];
 
     return (
-        <div className="bg-slate-50 min-h-screen pt-24">
+        <div className="bg-white min-h-screen pt-24">
             <SubNav />
 
             {/* Header */}
-            <Section className="pt-16 md:pt-24 pb-12 bg-white text-center">
+            <Section className="pt-16 md:pt-24 pb-12 section-tint text-center">
                 <div className="max-w-3xl mx-auto">
                     <span className="text-primary font-semibold tracking-wide uppercase text-sm mb-4 block">Targeted Care</span>
-                    <h1 className="text-4xl md:text-5xl font-bold text-primary-dark mb-6">Intervention Programs</h1>
+                    <h1 className="font-bold text-primary-dark mb-6">Intervention Programs</h1>
                     <p className="text-gray-600 text-lg">
                         When screening highlights a risk, our clinical interventions provide the bridge to recovery. These specific support programs are tailored to the precise physiological and psychological needs of the student.
                     </p>
@@ -83,7 +83,7 @@ const Interventions = () => {
             </Section>
 
             {/* Next Steps CTA */}
-            <Section className="py-16 bg-slate-50 text-center">
+            <Section className="py-16 section-tint text-center">
                 <div className="max-w-2xl mx-auto">
                     <h2 className="text-2xl font-bold text-primary-dark mb-4">Implementation Protocol</h2>
                     <p className="text-gray-600 mb-8">

@@ -51,7 +51,7 @@ const steps = [
   {
     title: 'Review Your Report with Your Physician',
     description:
-      'Walk through your findings with your Recoup physician and build a personalized care plan focused on root-cause healing and long-term prevention.',
+      'Walk through your findings with your RECOUP physician and build a personalized care plan focused on root-cause healing and long-term prevention.',
     icon: Stethoscope,
     image:
       'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1200&auto=format&fit=crop',

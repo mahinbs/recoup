@@ -80,7 +80,7 @@ export const conditions = [
   },
   {
     title: "Alzheimer's and Cognitive Decline",
-    fullTitle: "Recoup Integrative Root-Cause Rehabilitation Program for Alzheimer's Disease (AD) and Cognitive Decline",
+    fullTitle: "RECOUP Integrative Root-Cause Rehabilitation Program for Alzheimer's Disease (AD) and Cognitive Decline",
     desc: "Alzheimer's Disease (AD) is the most common cause of dementia worldwide, accounting for 60–80% of all cases. It currently affects over 55 million people globally, with one new case developing every 3 seconds (WHO, 2023; Alzheimer's Disease International, 2022).",
     slug: "alzheimers-cognitive-decline",
     cover: coverAlzheimersCognitiveDecline,
@@ -296,8 +296,8 @@ export const conditions = [
   },
   {
     title: "School Health",
-    fullTitle: "The Recoup Health School Program",
-    desc: "The Recoup Health School Program aims to revolutionize student wellness in India through a pioneering, holistic approach to school-based healthcare.",
+    fullTitle: "The RECOUP Health School Program",
+    desc: "The RECOUP Health School Program aims to revolutionize student wellness in India through a pioneering, holistic approach to school-based healthcare.",
     slug: "school-health",
     cover: coverSchoolHealth,
     category: "Specialized Care",
@@ -341,7 +341,7 @@ export const conditions = [
   },
   {
     title: "Stroke Rehabilitation",
-    fullTitle: "Recoup Integrative Root-Cause Rehabilitation Program for Stroke (CVA)",
+    fullTitle: "RECOUP Integrative Root-Cause Rehabilitation Program for Stroke (CVA)",
     desc: "Stroke or cerebrovascular accident (CVA), is a major global public health challenge and a leading cause of long-term disability, cognitive decline, and dependency.",
     slug: "stroke-rehabilitation",
     cover: coverStrokeRehabilitation,
@@ -350,7 +350,7 @@ export const conditions = [
   },
   {
     title: "Traumatic Brain Injury",
-    fullTitle: "Recoup's Integrative Root-Cause Rehabilitation Program for Traumatic Brain Injury (TBI)",
+    fullTitle: "RECOUP's Integrative Root-Cause Rehabilitation Program for Traumatic Brain Injury (TBI)",
     desc: "Traumatic Brain Injury (TBI) is a highly prevalent, debilitating, and often under-recognized public health crisis.",
     slug: "traumatic-brain-injury",
     cover: coverTraumaticBrainInjury,

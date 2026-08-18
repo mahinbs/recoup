@@ -102,10 +102,11 @@
   box-shadow: 0 2px 10px rgba(134,44,214,0.08);
 }
 .home-preview .hero h1 {
-  font-size: clamp(2.1rem, 4.4vw, 3.2rem);
+  font-size: clamp(1.85rem, 3.6vw, 2.55rem);
   color: #111827;
   font-weight: 700;
   margin-bottom: 22px;
+  line-height: 1.15;
 }
 .home-preview .hero h1 em {
   font-style: normal;
@@ -172,11 +173,13 @@
 }
 .home-preview .float-badge strong { display: block; font-size: 0.78rem; color: var(--green-800); line-height: 1.25; }
 .home-preview .float-badge span { font-size: 0.68rem; color: var(--muted); }
-.home-preview .b-tl { top: 4%; left: -6%; }
+.home-preview .float-badge.nowrap { max-width: none; }
+.home-preview .float-badge.nowrap strong { white-space: nowrap; }
+.home-preview .b-tl { top: 4%; left: 2%; }
 .home-preview .b-tr { top: 10%; right: -4%; }
-.home-preview .b-ml { top: 40%; left: -10%; }
+.home-preview .b-ml { top: 40%; left: -2%; }
 .home-preview .b-mr { top: 48%; right: -8%; }
-.home-preview .b-bl { bottom: 8%; left: -4%; }
+.home-preview .b-bl { bottom: 8%; left: 4%; }
 .home-preview .b-br { bottom: 3%; right: -2%; }
 
 @media (max-width: 900px) {
@@ -187,7 +190,7 @@
 
 @media (max-width: 560px) {
   .home-preview .hero-figure { max-width: 100%; }
-  .home-preview .float-badge { position: static; display: inline-block; margin: 4px; max-width: none; }
+  .home-preview .float-badge { position: static; display: inline-block; margin: 4px; max-width: none; white-space: normal; }
   .home-preview .hero-figure { text-align: center; }
 }
 
@@ -216,10 +219,21 @@
 @media (max-width: 900px) {
   .home-preview .stats-grid { grid-template-columns: repeat(2, 1fr); }
 }
-.home-preview .stat-value { font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 3.2rem); color: var(--gold); }
+.home-preview .stat-value {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  color: var(--gold);
+  line-height: 1.05;
+  white-space: nowrap;
+}
+.home-preview .stat-value.stat-million {
+  font-size: clamp(1.55rem, 2.5vw, 2.15rem);
+  letter-spacing: -0.02em;
+}
 .home-preview .stat-label { color: rgba(255,255,255,0.75); font-size: 0.95rem; margin-top: 6px; }
 
 /* FourR */
+.home-preview .fourr-section { background: #fff; }
 .home-preview .fourr-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 40px; }
 .home-preview .fourr-step {
   position: relative;
@@ -668,20 +682,19 @@
 .home-preview .wc-arrow:hover { transform: translateY(-2px); background: #fff; box-shadow: 0 10px 22px rgba(134,44,214,0.22); }
 .home-preview .wc-arrow:active { transform: translateY(0) scale(0.94); }
 
-.home-preview .wc-dots { display: flex; gap: 8px; }
+.home-preview .wc-dots { display: flex; gap: 6px; align-items: center; }
 .home-preview .wc-dot {
-  width: 9px; height: 9px;
-  border-radius: 50%;
+  width: 22px; height: 5px;
+  border-radius: 999px;
   border: none;
   padding: 0;
-  background: rgba(134,44,214,0.25);
+  background: rgba(134,44,214,0.22);
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.home-preview .wc-dot:hover { background: rgba(134,44,214,0.45); }
+.home-preview .wc-dot:hover { background: rgba(134,44,214,0.4); }
 .home-preview .wc-dot.active {
-  width: 26px;
-  border-radius: 6px;
+  width: 48px;
   background: linear-gradient(90deg, #862cd6, #a665e4);
 }
 
@@ -698,7 +711,7 @@
 }
 
 /* ============ Our Areas of Care — expanding image accordion ============ */
-.home-preview .treat-section { padding: 88px 0; }
+.home-preview .treat-section { padding: 88px 0; background: #fff; }
 .home-preview .treat-header {
   display: flex;
   align-items: baseline;
@@ -841,7 +854,7 @@
   position: relative;
   padding: 96px 0 108px;
   overflow: hidden;
-  background: linear-gradient(180deg, #efe3fb 0%, #f6effc 100%);
+  background: #fff;
 }
 
 .home-preview .timeline-marquee {
@@ -875,6 +888,14 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .home-preview .timeline-chip:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(134,44,214,0.18); }
+.home-preview .timeline-chip-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: #fff;
+}
 .home-preview .timeline-chip-year {
   font-family: var(--font-display);
   font-weight: 700;
@@ -936,6 +957,12 @@
   max-width: 100%;
   object-fit: contain;
 }
+.home-preview .appt-logo-wrap.appt-logo-sm {
+  height: 28px;
+}
+.home-preview .appt-logo-wrap.appt-logo-sm img {
+  max-height: 28px;
+}
 .home-preview .appt-card strong { display: block; font-size: 0.85rem; color: #211435; line-height: 1.3; margin-bottom: 4px; }
 .home-preview .appt-card span { font-size: 0.74rem; color: var(--muted); line-height: 1.4; }
 
@@ -947,7 +974,7 @@
 }
 
 /* ============ 5-Step Healing Journey ============ */
-.home-preview .journey-section { padding: 96px 0 88px; }
+.home-preview .journey-section { padding: 96px 0 88px; background: linear-gradient(180deg, #faf7ff 0%, #f5eefc 100%); }
 .home-preview .journey-track {
   position: relative;
   display: flex;
@@ -1040,7 +1067,7 @@
 }
 
 /* ============ The Recoup Advantage ============ */
-.home-preview .advantage-section { padding: 88px 0; background: var(--green-100); }
+.home-preview .advantage-section { padding: 88px 0; background: #fff; }
 .home-preview .advantage-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1061,14 +1088,22 @@
 }
 .home-preview .advantage-card:hover { transform: translateY(-6px); box-shadow: 0 18px 38px rgba(134,44,214,0.2); }
 .home-preview .advantage-icon {
-  width: 52px; height: 52px;
+  width: 64px; height: 64px;
   border-radius: 14px;
-  background: linear-gradient(150deg, var(--green-100), #fff);
+  background: #fff;
   display: flex; align-items: center; justify-content: center;
   color: var(--green-800);
   margin-bottom: 16px;
+  padding: 0;
+  overflow: hidden;
 }
 .home-preview .advantage-icon svg { width: 24px; height: 24px; }
+.home-preview .advantage-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
 .home-preview .advantage-card strong { display: block; font-size: 1rem; color: #211435; margin-bottom: 8px; }
 .home-preview .advantage-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
 
@@ -1175,7 +1210,7 @@
 
 @media (max-width: 640px) {
   .home-preview .section-title { font-size: clamp(1.45rem, 6.2vw, 2rem); }
-  .home-preview .hero h1 { font-size: clamp(1.7rem, 7.4vw, 2.2rem); }
+  .home-preview .hero h1 { font-size: clamp(1.65rem, 6.8vw, 2.1rem); }
   .home-preview .hero-sub { font-size: 0.95rem; }
   .home-preview .hero-support { font-size: 0.88rem; margin-bottom: 24px; }
   .home-preview .trustbar { padding: 18px 0; }

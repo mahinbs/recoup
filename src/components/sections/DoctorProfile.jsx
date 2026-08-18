@@ -58,7 +58,7 @@ const DoctorProfile = () => {
               relief, rehabilitation, and human performance.
             </p>
             <p>
-              As the Founder &amp; CEO of Recoup Health, he has pioneered a root-cause approach to
+              As the Founder &amp; CEO of RECOUP Health, he has pioneered a root-cause approach to
               treating chronic pain and musculoskeletal disorders. He also serves as President of
               the International Myopain Society, Chairperson of the Scientific Committee on
               Musculoskeletal Disorders, International Commission on Occupational Health, and

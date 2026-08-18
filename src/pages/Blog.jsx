@@ -10,18 +10,18 @@ const Blog = () => {
   const { blogs } = useSiteContent();
 
   return (
-    <div className="bg-slate-50 min-h-screen pt-20">
-      <Section className="pt-16 md:pt-24 pb-12 bg-white text-center">
+    <div className="bg-white min-h-screen pt-20">
+      <Section className="pt-16 md:pt-24 pb-12 section-tint text-center">
         <div className="max-w-3xl mx-auto">
           <span className="text-primary font-semibold tracking-wide uppercase text-sm mb-4 block">Our Blog</span>
-          <h1 className="text-4xl md:text-5xl font-bold text-primary-dark mb-6">Latest Insights & Articles</h1>
+          <h1 className="font-bold text-primary-dark mb-6">Latest Insights & Articles</h1>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             Expert insights on lifestyle medicine, chronic disease management, and preventive health from our team of specialists.
           </p>
         </div>
       </Section>
 
-      <Section className="py-12 bg-slate-50">
+      <Section className="py-12 section-white">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {blogs.map((post, idx) => (
             <motion.div

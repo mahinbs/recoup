@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 
 const STATS = [
   { value: 35, suffix: '+', label: 'Years of Excellence' },
-  { value: 1000000, suffix: '+', label: 'Patients Treated', format: true },
+  { value: 1, suffix: 'Million+', label: 'Patients Treated' },
   { value: 45, suffix: '+', label: 'Countries Reached' },
   { value: 20, suffix: '+', label: 'International Awards' },
   { value: 600, suffix: '+', label: 'Scientific Publications' },
@@ -31,12 +31,13 @@ function useCountUp(target, start) {
   return value
 }
 
-function Stat({ value, suffix, label, format, start }) {
+function Stat({ value, suffix, unit, label, start }) {
   const n = useCountUp(value, start)
-  const display = format ? n.toLocaleString('en-IN') : n
   return (
     <div>
-      <div className="stat-value">{display}{suffix}</div>
+      <div className={unit ? 'stat-value stat-million' : 'stat-value'}>
+        {n}{suffix}{unit ? `\u00A0${unit}` : ''}
+      </div>
       <div className="stat-label">{label}</div>
     </div>
   )

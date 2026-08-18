@@ -25,9 +25,9 @@ export const defaultBlogPosts = [
     readTime: '5 min read',
     image:
       'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2072&auto=format&fit=crop',
-    metaTitle: 'Understanding RSI: Causes, Symptoms & Treatment | Recoup',
+    metaTitle: 'Understanding RSI: Causes, Symptoms & Treatment | RECOUP',
     metaDescription:
-      "Learn what causes repetitive strain injury (RSI), how to spot symptoms early, and how Recoup's integrative approach helps you recover and prevent recurrence in Bangalore.",
+      "Learn what causes repetitive strain injury (RSI), how to spot symptoms early, and how RECOUP's integrative approach helps you recover and prevent recurrence in Bangalore.",
     bodyHtml: defaultArticleBodyHtml,
   },
   {
@@ -40,9 +40,9 @@ export const defaultBlogPosts = [
     readTime: '4 min read',
     image:
       'https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=2053&auto=format&fit=crop',
-    metaTitle: 'Anti-Inflammatory Diet Guide for Chronic Pain | Recoup Health',
+    metaTitle: 'Anti-Inflammatory Diet Guide for Chronic Pain | RECOUP Health',
     metaDescription:
-      'Discover how an anti-inflammatory diet can reduce chronic pain, improve gut health & support autoimmune recovery. Expert nutrition advice from Recoup Health, Bangalore.',
+      'Discover how an anti-inflammatory diet can reduce chronic pain, improve gut health & support autoimmune recovery. Expert nutrition advice from RECOUP Health, Bangalore.',
     bodyHtml: defaultArticleBodyHtml,
   },
   {
@@ -57,7 +57,7 @@ export const defaultBlogPosts = [
       'https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1999&auto=format&fit=crop',
     metaTitle: 'The Mind-Body Connection: How Stress Affects Your Health',
     metaDescription:
-      "Explore the science behind the mind-body connection and learn how chronic stress drives physical illness. Insights from Recoup Health's integrative medicine specialists.",
+      "Explore the science behind the mind-body connection and learn how chronic stress drives physical illness. Insights from RECOUP Health's integrative medicine specialists.",
     bodyHtml: defaultArticleBodyHtml,
   },
   {
@@ -70,9 +70,9 @@ export const defaultBlogPosts = [
     readTime: '7 min read',
     image:
       'https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2070&auto=format&fit=crop',
-    metaTitle: 'Posture & Ergonomics: Fix Pain at the Source | Recoup Health',
+    metaTitle: 'Posture & Ergonomics: Fix Pain at the Source | RECOUP Health',
     metaDescription:
-      "Poor posture and bad ergonomics are leading causes of chronic pain. Learn how Recoup's ergonomic assessments and posture correction therapy help you heal in Bangalore.",
+      "Poor posture and bad ergonomics are leading causes of chronic pain. Learn how RECOUP's ergonomic assessments and posture correction therapy help you heal in Bangalore.",
     bodyHtml: defaultArticleBodyHtml,
   },
 ];

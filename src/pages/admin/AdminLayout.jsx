@@ -33,7 +33,7 @@ export default function AdminLayout() {
           <Menu className="h-6 w-6" strokeWidth={2} />
         </Button>
         <Link to="/admin/blogs" className="text-center" onClick={closeMobileNav}>
-          <span className="block text-[10px] font-bold uppercase tracking-widest text-primary">Recoup</span>
+          <span className="block text-[10px] font-bold uppercase tracking-widest text-primary">RECOUP</span>
           <span className="text-base font-bold text-primary-dark leading-none">Admin</span>
         </Link>
         <span className="w-10" aria-hidden />
@@ -59,7 +59,7 @@ export default function AdminLayout() {
       >
         <div className="flex items-center justify-between border-b border-slate-100 p-6 md:block">
           <Link to="/admin/blogs" className="block min-w-0 flex-1" onClick={closeMobileNav}>
-            <span className="text-xs font-bold uppercase tracking-widest text-primary">Recoup</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-primary">RECOUP</span>
             <span className="block text-lg font-bold text-primary-dark leading-tight">Admin</span>
           </Link>
           <Button

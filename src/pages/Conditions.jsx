@@ -74,16 +74,16 @@ const Conditions = () => {
   }, [selectedCategory, searchTerm]);
 
   return (
-    <div className="bg-slate-50 min-h-screen pt-20">
+    <div className="bg-white min-h-screen pt-20">
       {/* Hero Section */}
-      <Section className="pt-16 md:pt-24 pb-4 bg-white text-center border-b border-slate-100">
+      <Section className="pt-16 md:pt-24 pb-4 section-tint text-center border-b border-slate-100">
         <div className="max-w-4xl mx-auto px-4">
           <span className="text-secondary-light font-bold tracking-widest uppercase text-xs mb-3 block">
             Integrative Health Programs
           </span>
-          <h1 className="text-4xl md:text-6xl font-extrabold text-primary-dark mb-6 tracking-tight">
+          <h1 className="font-extrabold text-primary-dark mb-6 tracking-tight">
             Precision Care,{" "}
-            <span className="text-primary italic font-serif">Personalized</span>
+            <span className="text-primary italic">Personalized</span>
           </h1>
           <p className="text-slate-500 text-lg max-w-2xl mx-auto leading-relaxed">
             Explore our 34+ specialized programs designed to target the root
@@ -136,7 +136,7 @@ const Conditions = () => {
       </Section>
 
       {/* Results Grid */}
-      <Section className="py-16 bg-slate-50 min-h-[600px]">
+      <Section className="py-16 section-white min-h-[600px]">
         <div className="max-w-7xl mx-auto px-4">
           <AnimatePresence mode="wait">
             {filteredConditions.length === 0 ? (

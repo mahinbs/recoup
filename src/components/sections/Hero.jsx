@@ -4,7 +4,7 @@ import { Phone } from 'lucide-react'
 import drPhoto from '../../assets/preview/home-drphoto.jpg'
 
 const achievements = [
-  { text: '2008 Presidential Award', sub: 'Govt. of India', pos: 'b-tl' },
+  { text: '2008 Presidential Award', sub: 'Govt. of India', pos: 'b-tl', nowrap: true },
   { text: 'Henri Bensahel Award', sub: 'Paediatric Orthopaedics', pos: 'b-tr' },
   { text: '500+ Publications', sub: 'Ergonomics & Pain Science', pos: 'b-ml' },
   { text: '1 Million+ Patients', sub: 'Treated Worldwide', pos: 'b-mr' },
@@ -52,7 +52,7 @@ const Hero = () => {
         <div className="hero-figure">
           <img src={drPhoto} alt="Dr. Deepak Sharan in white coat" />
           {achievements.map((a) => (
-            <div key={a.text} className={`float-badge ${a.pos}`}>
+            <div key={a.text} className={`float-badge ${a.pos}${a.nowrap ? ' nowrap' : ''}`}>
               <strong>{a.text}</strong>
               <span>{a.sub}</span>
             </div>

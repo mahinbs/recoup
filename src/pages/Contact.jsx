@@ -89,14 +89,14 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-slate-50 min-h-screen pt-20 text-left">
+    <div className="bg-white min-h-screen pt-20 text-left">
       {/* Header */}
-      <Section className="pt-16 md:pt-24 pb-12 bg-white text-center">
+      <Section className="pt-16 md:pt-24 pb-12 section-tint text-center">
         <div className="max-w-3xl mx-auto">
           <span className="text-primary font-semibold tracking-wide uppercase text-sm mb-4 block">
             {eyebrow}
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-primary-dark mb-6">
+          <h1 className="font-bold text-primary-dark mb-6">
             A conversation, not a decision.
           </h1>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
@@ -264,31 +264,6 @@ const Contact = () => {
                       >
                         <Phone size={14} />
                         +91 98451 55449
-                      </a>
-                    </div>
-                  </div>
-
-                  {/* Anjanapura */}
-                  <div className="flex items-start gap-4 text-gray-600 pt-2">
-                    <div className="w-10 h-10 bg-primary/10 text-primary rounded-xl flex items-center justify-center shrink-0 mt-1">
-                      <MapPin size={18} />
-                    </div>
-                    <div>
-                      <span className="font-bold text-gray-900 block mb-1">
-                        Anjanapura
-                      </span>
-                      <span className="text-sm leading-relaxed block mb-2">
-                        312, 10th Block, Further Extension of Anjanapura Layout,
-                        80 Feet Road
-                        <br />
-                        LB Shastri Nagar, Bangalore, Karnataka 560062
-                      </span>
-                      <a
-                        href="tel:+917676499396"
-                        className="flex items-center gap-2 text-sm text-primary hover:text-primary-dark transition-colors font-medium"
-                      >
-                        <Phone size={14} />
-                        +91 76764 99396
                       </a>
                     </div>
                   </div>

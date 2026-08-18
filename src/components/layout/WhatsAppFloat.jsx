@@ -6,7 +6,7 @@ const WhatsAppFloat = () => (
     href="https://wa.me/919845155449"
     target="_blank"
     rel="noreferrer"
-    aria-label="Chat with Recoup Health on WhatsApp"
+    aria-label="Chat with RECOUP Health on WhatsApp"
   >
     ✆
   </a>

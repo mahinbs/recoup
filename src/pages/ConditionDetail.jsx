@@ -35,7 +35,7 @@ const ConditionDetail = () => {
     }
 
     return (
-        <article className="bg-slate-50 min-h-screen pt-32 pb-20">
+        <article className="bg-white min-h-screen pt-32 pb-20">
             <header className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
                 <Link
                     to="/conditions"
@@ -46,11 +46,11 @@ const ConditionDetail = () => {
 
                 <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500 font-medium mb-6">
                     <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-                        Recoup Program
+                        RECOUP Program
                     </span>
                 </div>
 
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-dark leading-tight mb-6">
+                <h1 className="font-bold text-primary-dark leading-tight mb-6">
                     {condition.fullTitle}
                 </h1>
 

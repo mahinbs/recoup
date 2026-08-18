@@ -9,14 +9,14 @@ const RSHS = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="bg-slate-50 min-h-screen pt-24 text-left">
+        <div className="bg-white min-h-screen pt-24 text-left">
             <SubNav />
 
             {/* Intro */}
-            <Section className="py-16 md:py-24 bg-white">
+            <Section className="py-16 md:py-24 section-tint">
                 <div className="max-w-4xl mx-auto text-center">
                     <span className="text-primary font-semibold tracking-wide uppercase text-sm mb-4 block">Quantifying Wellbeing</span>
-                    <h1 className="text-4xl md:text-5xl font-bold text-primary-dark mb-6 leading-tight">Recoup School Health Score</h1>
+                    <h1 className="font-bold text-primary-dark mb-6 leading-tight">RECOUP School Health Score</h1>
                     <p className="text-gray-600 text-lg leading-relaxed mb-12">
                         Abstract concerns cannot be effectively managed. The RSHS synthesizes multi-layered clinical observations from our screenings into a definitive, actionable score.
                     </p>
@@ -34,7 +34,7 @@ const RSHS = () => {
             </Section>
 
             {/* Deliverables Section */}
-            <Section className="py-16 md:py-24 bg-white border-t border-slate-100">
+            <Section className="py-16 md:py-24 section-white border-t border-slate-100">
                 <div className="max-w-5xl mx-auto">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl font-bold text-primary-dark mb-4">Post-Assessment Deliverables</h2>
@@ -83,7 +83,7 @@ const RSHS = () => {
             </Section>
 
             {/* Score Bands */}
-            <Section className="py-16 md:py-24 bg-slate-50 border-t border-slate-100">
+            <Section className="py-16 md:py-24 section-tint border-t border-slate-100">
                 <div className="max-w-4xl mx-auto">
                     <h2 className="text-3xl font-bold text-primary-dark mb-12 text-center">Understanding the Scoring Bands</h2>
 

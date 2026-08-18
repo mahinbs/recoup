@@ -37,15 +37,15 @@ const SchoolProgram = () => {
     ];
 
     return (
-        <div className="bg-slate-50 min-h-screen pt-24">
+        <div className="bg-white min-h-screen pt-24">
             <SubNav />
 
             {/* Intro Section */}
-            <Section className="py-16 md:py-24">
+            <Section className="py-16 md:py-24 section-tint">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div className="max-w-xl">
                         <span className="text-primary font-semibold tracking-wide uppercase text-sm mb-4 block">The Offering</span>
-                        <h1 className="text-4xl md:text-5xl font-bold text-primary-dark mb-6 leading-tight">Recoup School Health Program</h1>
+                        <h1 className="font-bold text-primary-dark mb-6 leading-tight">RECOUP School Health Program</h1>
                         <p className="text-gray-600 text-lg leading-relaxed mb-6">
                             We bring the clinic to the classroom. Our comprehensive program integrates world-class preventive healthcare directly into your school's existing ecosystem, ensuring every student has the physiological foundation required to succeed.
                         </p>
@@ -88,7 +88,7 @@ const SchoolProgram = () => {
             </Section>
 
             {/* Next Steps CTA */}
-            <Section className="py-16 bg-slate-50 text-center">
+            <Section className="py-16 section-tint text-center">
                 <div className="max-w-2xl mx-auto">
                     <h2 className="text-2xl font-bold text-primary-dark mb-4">View Specific Interventions</h2>
                     <p className="text-gray-600 mb-8">

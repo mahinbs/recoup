@@ -11,7 +11,7 @@ const ServicesHero = () => {
       <div className="absolute inset-0 z-0">
         <img
           src={heroImage}
-          alt="Recoup Health integrated care"
+          alt="RECOUP Health integrated care"
           className="w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/40" />
@@ -26,16 +26,16 @@ const ServicesHero = () => {
           className="max-w-3xl"
         >
           <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-5 block">
-            Services at Recoup Health
+            Services at RECOUP Health
           </span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-dark leading-[1.1] tracking-tight mb-6">
+          <h1 className="font-bold text-primary-dark leading-[1.15] tracking-tight mb-6">
             A Complete Healing Ecosystem,{' '}
-            <span className="text-primary italic font-serif font-medium">
+            <span className="text-primary italic font-medium">
               Designed Around You
             </span>
           </h1>
           <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl mb-10">
-            At Recoup Health, every service is part of an integrated,
+            At RECOUP Health, every service is part of an integrated,
             physician-led care plan. We combine functional medicine,
             rehabilitation, diagnostics, nutrition, regenerative medicine, and
             lifestyle therapies to help you heal at the root cause, not just

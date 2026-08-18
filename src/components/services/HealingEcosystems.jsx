@@ -17,7 +17,7 @@ const EcosystemBlock = ({ ecosystem, index }) => {
       transition={{ duration: 0.7, ease: 'easeOut' }}
       className={cn(
         'grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-0 min-h-[520px]',
-        index % 2 === 0 ? 'bg-white' : 'bg-slate-50/80',
+        index % 2 === 0 ? 'section-white' : 'section-tint',
       )}
     >
       {/* Image */}
@@ -34,7 +34,7 @@ const EcosystemBlock = ({ ecosystem, index }) => {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/40 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-primary-dark/10" />
         <div className="absolute top-6 left-6 lg:top-10 lg:left-10">
-          <span className="font-serif text-5xl md:text-6xl font-light text-white/90 drop-shadow-lg">
+          <span className="font-sans text-5xl md:text-6xl font-light text-white/90 drop-shadow-lg">
             {ecosystem.id}
           </span>
         </div>
@@ -53,7 +53,7 @@ const EcosystemBlock = ({ ecosystem, index }) => {
         <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary-dark leading-tight mb-3">
           {ecosystem.title}
         </h3>
-        <p className="text-lg md:text-xl text-primary italic font-serif mb-5">
+        <p className="text-lg md:text-xl text-primary italic mb-5">
           {ecosystem.tagline}
         </p>
         <p className="text-gray-600 leading-relaxed mb-8 max-w-lg">
@@ -118,40 +118,13 @@ const EcosystemBlock = ({ ecosystem, index }) => {
 const HealingEcosystems = () => {
   return (
     <section id="healing-ecosystems" className="w-full">
-      {/* Intro strip */}
-      <div className="bg-primary-dark text-white py-16 md:py-20">
-        <div className="container px-4 md:px-6 text-center max-w-3xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <p className="text-primary-light font-medium text-sm tracking-wide mb-3">
-              Then comes the exciting part...
-            </p>
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
-              Instead of &ldquo;Departments&rdquo;
-              <br />
-              <span className="italic font-serif font-medium text-white/95">
-                Create Healing Ecosystems
-              </span>
-            </h2>
-            <p className="text-white/70 text-lg">
-              Every ecosystem becomes a premium block — integrated therapies
-              designed around how you actually heal.
-            </p>
-          </motion.div>
-        </div>
-      </div>
-
-      <div className="bg-white py-12 md:py-16 border-b border-slate-100">
+      <div className="section-tint py-16 md:py-20">
         <div className="container px-4 md:px-6 text-center">
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-bold text-primary-dark"
+            className="font-bold text-primary-dark"
           >
             Our Healing Ecosystem
           </motion.h2>

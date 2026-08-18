@@ -20,7 +20,7 @@ const HowItWorks = () => {
             num: "02",
             title: "Baseline Screening",
             subtitle: "Phase 2",
-            desc: "Our clinical team conducts structured, non-invasive health screenings on-campus. We gather baseline data on posture, biomechanics, developmental markers, and overall student readiness, formulating the initial Recoup School Health Score (RSHS)."
+            desc: "Our clinical team conducts structured, non-invasive health screenings on-campus. We gather baseline data on posture, biomechanics, developmental markers, and overall student readiness, formulating the initial RECOUP School Health Score (RSHS)."
         },
         {
             num: "03",
@@ -31,14 +31,14 @@ const HowItWorks = () => {
     ];
 
     return (
-        <div className="bg-slate-50 min-h-screen pt-24 text-left">
+        <div className="bg-white min-h-screen pt-24 text-left">
             <SubNav />
 
-            <Section className="py-16 md:py-24 bg-white">
+            <Section className="py-16 md:py-24 section-tint">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div className="max-w-xl">
                         <span className="text-primary font-semibold tracking-wide uppercase text-sm mb-4 block">The Process</span>
-                        <h1 className="text-4xl md:text-5xl font-bold text-primary-dark mb-6 leading-tight">Seamless Integration</h1>
+                        <h1 className="font-bold text-primary-dark mb-6 leading-tight">Seamless Integration</h1>
                         <p className="text-gray-600 text-lg leading-relaxed mb-8">
                             We understand that schools are highly structured environments. The Second Bell framework is designed specifically to integrate quietly—providing maximum clinical value without disrupting the daily syllabus.
                         </p>
@@ -64,7 +64,7 @@ const HowItWorks = () => {
             </Section>
 
             {/* Timeline phase */}
-            <Section className="py-16 bg-slate-50">
+            <Section className="py-16 section-white">
                 <div className="max-w-4xl mx-auto">
                     <div className="space-y-12">
                         {phases.map((phase, idx) => (
@@ -96,7 +96,7 @@ const HowItWorks = () => {
                 <div className="max-w-2xl mx-auto">
                     <h2 className="text-2xl font-bold text-primary-dark mb-4">Understand the Outcomes</h2>
                     <p className="text-gray-600 mb-8">
-                        Learn how we quantify student wellbeing through the Recoup School Health Score (RSHS).
+                        Learn how we quantify student wellbeing through the RECOUP School Health Score (RSHS).
                     </p>
                     <button onClick={() => navigate('/second-bell/rshs')} className="inline-flex items-center text-primary font-bold hover:text-primary-dark transition-colors">
                         View the RSHS System <ArrowRight className="ml-2 w-5 h-5" />
