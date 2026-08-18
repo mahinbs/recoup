@@ -2,9 +2,9 @@ import React, { useRef } from 'react';
 import { Section } from '../ui/Section';
 import { Quote } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
-import ananyaImg from '../../assets/new-images/RECOUP-Success-Stories/1.Dr_Ananya_Iyer.jpg';
-import rajeshImg from '../../assets/new-images/RECOUP-Success-Stories/2.Rajesh_Kumar.jpg';
-import sunitaImg from '../../assets/new-images/RECOUP-Success-Stories/3.Sunita_Reddy.jpg';
+import ananyaImg from '../../assets/new-images/Recoup-Success-Stories/1.Dr_Ananya_Iyer.jpg';
+import rajeshImg from '../../assets/new-images/Recoup-Success-Stories/2.Rajesh_Kumar.jpg';
+import sunitaImg from '../../assets/new-images/Recoup-Success-Stories/3.Sunita_Reddy.jpg';
 
 const testimonials = [
   {
