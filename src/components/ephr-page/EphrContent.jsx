@@ -668,6 +668,17 @@ const Icon = {
       <path d="M6 9l6 6 6-6" />
     </svg>
   ),
+  minus: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+      <path d="M6 12h12" />
+    </svg>
+  ),
+  shield: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 3l8 3.5v6c0 4.5-3.2 7.6-8 8.5-4.8-.9-8-4-8-8.5v-6L12 3z" />
+      <path d="M9 12l2 2 4-4" />
+    </svg>
+  ),
 }
 
 /* Floating biomarker glyphs — purple-to-blue gradient, same subtle treatment as the DNA strands */
@@ -736,11 +747,10 @@ function BiomarkerIcon({ kind }) {
   )
 }
 
-/* Small illustration panels for the journey accordion — composed from the
-   existing outline icon set so they match the rest of the page. */
+/* Small illustration panels for the journey accordion. */
 function JourneyIllustration({ src, title }) {
   return (
-    <div className="ephr-illustration-panel">
+    <div className="ephr-journey-visual">
       <img src={src} alt={title} />
     </div>
   )
@@ -1136,73 +1146,63 @@ export function EphrClosing() {
       <section className="ephr-journey-section">
         <div className="ephr-wrap">
           <div className="ephr-center">
-            <span className="kicker">Your EPHR Journey</span>
+            <div className="ephr-kicker-row">
+              <span className="ephr-kicker-line" aria-hidden="true" />
+              <span className="kicker">Your EPHR Journey</span>
+              <span className="ephr-kicker-line" aria-hidden="true" />
+            </div>
             <h2 className="section-title">
               Your Journey to Better Health in 5 Simple Steps
             </h2>
+            <p className="section-sub ephr-center-sub">
+              A seamless, guided process to help you understand your health deeply
+              and take the right steps forward.
+            </p>
           </div>
 
-          <div className="ephr-journey-layout">
-            {/* Left: vertical timeline */}
-            <div className="ephr-journey-timeline" aria-hidden="true">
-              {JOURNEY.map((_, i) => (
-                <div
-                  key={i}
-                  className={`ephr-timeline-node ${
-                    i === activeStep ? 'active' : ''
-                  } ${i < activeStep ? 'done' : ''}`}
-                >
-                  <span className="ephr-timeline-dot">{i + 1}</span>
-                  {i < JOURNEY.length - 1 && (
-                    <span className="ephr-timeline-line" />
-                  )}
-                </div>
-              ))}
-            </div>
+          <div className="ephr-journey-list">
+            {JOURNEY.map(({ title, text, icon, image }, i) => {
+              const open = i === activeStep
+              const last = i === JOURNEY.length - 1
+              return (
+                <div className="ephr-journey-row" key={title}>
+                  <div className="ephr-journey-rail" aria-hidden="true">
+                    <span className={`ephr-journey-dot ${open ? 'active' : ''}`}>
+                      {i + 1}
+                    </span>
+                    {!last && <span className="ephr-journey-dash" />}
+                  </div>
 
-            {/* Right: accordion cards */}
-            <div className="ephr-journey-accordion">
-              {JOURNEY.map(({ title, text, icon, image }, i) => {
-                const open = i === activeStep
-                return (
-                  <div
-                    key={title}
+                  <button
+                    type="button"
                     className={`ephr-journey-card ${open ? 'active' : ''}`}
+                    onClick={() => setActiveStep(i)}
+                    aria-expanded={open}
                   >
-                    <button
-                      className="ephr-journey-card-header"
-                      onClick={() => setActiveStep(i)}
-                      aria-expanded={open}
-                    >
-                      <span className="ephr-journey-card-icon">
-                        {Icon[icon]}
+                    <div className="ephr-journey-card-top">
+                      <span className="ephr-journey-card-icon">{Icon[icon]}</span>
+                      <span className="ephr-journey-card-title">{title}</span>
+                      <span className={`ephr-journey-toggle ${open ? 'open' : ''}`}>
+                        {open ? Icon.minus : Icon.chevron}
                       </span>
-                      <span className="ephr-journey-card-title">
-                        {title}
-                      </span>
-                      <span
-                        className={`ephr-journey-chevron ${
-                          open ? 'open' : ''
-                        }`}
-                      >
-                        {Icon.chevron}
-                      </span>
-                    </button>
-                    <div
-                      className={`ephr-journey-card-body-wrap ${
-                        open ? 'open' : ''
-                      }`}
-                    >
+                    </div>
+
+                    <div className={`ephr-journey-card-body-wrap ${open ? 'open' : ''}`}>
                       <div className="ephr-journey-card-body">
                         <p>{text}</p>
                         <JourneyIllustration src={image} title={title} />
                       </div>
                     </div>
-                  </div>
-                )
-              })}
-            </div>
+                  </button>
+                </div>
+              )
+            })}
           </div>
+
+          <p className="ephr-journey-note">
+            <span className="ephr-journey-note-icon">{Icon.shield}</span>
+            Your health. Our priority. Safe, secure and 100% confidential at every step.
+          </p>
         </div>
       </section>
 
