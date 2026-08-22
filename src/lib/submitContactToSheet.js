@@ -1,4 +1,6 @@
-const SHEET_WEBAPP_URL = import.meta.env.VITE_GOOGLE_SHEETS_WEBAPP_URL;
+const SHEET_WEBAPP_URL =
+  import.meta.env.VITE_GOOGLE_SHEETS_WEBAPP_URL ||
+  'https://script.google.com/macros/s/AKfycbzhSqyL3gTdVTO8rid8p_BTHz_9cyDAaMj448Mf9v_0IN5VkDvqRBhxANFCjqw5FrJ7_g/exec';
 
 export async function submitContactToSheet(payload) {
   if (!SHEET_WEBAPP_URL) {
