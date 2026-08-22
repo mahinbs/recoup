@@ -46,7 +46,7 @@ const CTABand = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center w-full">
-                <Link to="/contact" className="w-full sm:w-auto">
+                <Link to="/contact?from=home&section=cta_band" className="w-full sm:w-auto">
                   <Button
                     size="lg"
                     className="bg-white text-primary-dark hover:bg-slate-50 hover:scale-105 transition-all duration-300 font-bold px-8 h-14 text-lg shadow-lg w-full sm:w-auto"

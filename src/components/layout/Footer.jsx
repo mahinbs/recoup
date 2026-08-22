@@ -1,9 +1,17 @@
 import React from 'react';
-import { Button } from '../ui/Button';
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MessageCircle } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { ContactInquiryForm } from '../contact/ContactInquiryForm';
+
+function sourceFromPath(pathname) {
+    if (!pathname || pathname === '/') return 'home';
+    return pathname.replace(/^\//, '').replace(/\/$/, '') || 'home';
+}
 
 const Footer = () => {
+    const location = useLocation();
+    const isContactPage = location.pathname === '/contact' || location.pathname.startsWith('/contact/');
+
     return (
         <footer className="bg-primary-dark text-white py-10 md:py-16 border-t border-white/10">
             <div className="container px-4 md:px-6">
@@ -68,6 +76,20 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
+
+                {!isContactPage && (
+                    <div className="border-t border-white/10 pt-8 mt-2 mb-8">
+                        <ContactInquiryForm
+                            from={sourceFromPath(location.pathname)}
+                            section="footer_form"
+                            idPrefix="footer-contact"
+                            heading="Let's Connect"
+                            variant="dark"
+                            compact
+                            showOrganization={false}
+                        />
+                    </div>
+                )}
 
                 {/* Location Map Section */}
                 <div className="border-t border-white/10 pt-8 mt-4 flex flex-col md:flex-row items-center justify-between gap-6">

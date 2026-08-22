@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { ContactInquiryForm } from '../contact/ContactInquiryForm';
 
 export default function AcademyCTA() {
   return (
@@ -58,6 +59,21 @@ export default function AcademyCTA() {
           <a href="/conditions" className="px-8 py-4 rounded-full bg-transparent border border-primary/30 text-primary font-sans font-medium hover:bg-primary/5 transition-colors">
             Explore All Programs
           </a>
+        </motion.div>
+
+        <motion.div
+          className="w-full max-w-3xl mx-auto mb-20 text-left bg-white p-8 md:p-10 rounded-[2rem] border border-slate-100 shadow-sm"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.35 }}
+        >
+          <ContactInquiryForm
+            from="academy"
+            section="cta_form"
+            idPrefix="academy-contact"
+            heading="Let's Connect"
+          />
         </motion.div>
 
         {/* Contact Block */}
