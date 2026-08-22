@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, Clock, Share2, Facebook, Twitter, Linkedin } fro
 import { motion } from 'framer-motion';
 import { useSiteContent } from '../context/SiteContentContext';
 import { defaultArticleBodyHtml } from '../data/defaultBlogPosts';
+import { ContactInquiryForm } from '../components/contact/ContactInquiryForm';
 
 const BlogPost = () => {
   const { id } = useParams();
@@ -104,11 +105,19 @@ const BlogPost = () => {
               Our specialists at RECOUP Health can design a personalized treatment plan tailored to your unique physiology and lifestyle.
             </p>
             <Link
-              to="/contact"
+              to="/contact?from=blog_post&section=cta"
               className="inline-block bg-primary text-white font-bold px-6 py-3 rounded-xl hover:bg-primary-dark transition-colors shadow-md shadow-primary/20 no-underline"
             >
               Book a Consultation Today
             </Link>
+            <div className="mt-8">
+              <ContactInquiryForm
+                from="blog_post"
+                section="cta_form"
+                idPrefix="blog-contact"
+                heading="Let's Connect"
+              />
+            </div>
           </div>
         </div>
       </div>

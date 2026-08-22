@@ -7,6 +7,7 @@ import { ArrowRight, Brain, Activity, MonitorOff, UserCheck, HeartPulse, ShieldA
 import heroImg from '../../assets/second-bell/hero.png';
 import teacherImg from '../../assets/second-bell/teacher.png';
 import collabImg from '../../assets/second-bell/collaboration.png';
+import { ContactInquiryForm } from '../../components/contact/ContactInquiryForm';
 import { useNavigate } from 'react-router-dom';
 
 const Overview = () => {
@@ -33,7 +34,7 @@ const Overview = () => {
                         <p className="text-lg text-gray-600 leading-relaxed max-w-lg">
                             Schools today manage far more than just academics. A student's physiological and psychological wellbeing directly dictates their attention span, learning endurance, and ultimate academic performance.
                         </p>
-                        <Button size="lg" onClick={() => navigate('/contact')}>
+                        <Button size="lg" onClick={() => navigate('/contact?from=second_bell&section=hero')}>
                             Discuss Our Program <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
                     </motion.div>
@@ -170,14 +171,17 @@ const Overview = () => {
 
             {/* CTA Section */}
             <Section className="section-tint py-16 md:py-24">
-                <div className="bg-primary/5 rounded-[2rem] p-8 md:p-12 text-center max-w-4xl mx-auto border border-primary/10">
-                    <h2 className="text-2xl md:text-4xl font-bold text-primary-dark mb-4">A conversation, not a decision.</h2>
-                    <p className="text-gray-600 mb-8 max-w-2xl mx-auto text-lg">
+                <div className="bg-primary/5 rounded-[2rem] p-8 md:p-12 max-w-4xl mx-auto border border-primary/10">
+                    <h2 className="text-2xl md:text-4xl font-bold text-primary-dark mb-4 text-center">A conversation, not a decision.</h2>
+                    <p className="text-gray-600 mb-8 max-w-2xl mx-auto text-lg text-center">
                         Implementing a health framework requires alignment. Let's discuss how Second Bell can integrate with your school's unique culture and routines.
                     </p>
-                    <div className="flex flex-col sm:flex-row justify-center gap-4">
-                        <Button size="lg" onClick={() => navigate('/contact')}>Book a Consultation</Button>
-                    </div>
+                    <ContactInquiryForm
+                        from="second_bell"
+                        section="overview_cta"
+                        idPrefix="second-bell-contact"
+                        heading="Let's Connect"
+                    />
                 </div>
             </Section>
 

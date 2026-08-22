@@ -27,7 +27,7 @@ const Navbar = () => {
         { name: 'Academy', href: '/academy' },
         { name: 'Second Bell', href: '/second-bell' },
         { name: 'Blog', href: '/blog' },
-        { name: 'Contact', href: '/contact' },
+        { name: 'Contact', href: '/contact?from=navbar&section=nav_link' },
     ];
 
     return (

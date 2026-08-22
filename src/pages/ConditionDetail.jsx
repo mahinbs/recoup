@@ -2,6 +2,7 @@ import React, { useEffect, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { conditions } from '../conditions/conditions';
+import { ContactInquiryForm } from '../components/contact/ContactInquiryForm';
 
 const ConditionDetail = () => {
     const { slug } = useParams();
@@ -71,6 +72,15 @@ const ConditionDetail = () => {
                 className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 [&_a]:text-primary [&_a:hover]:text-primary-light [&_a]:font-semibold"
                 dangerouslySetInnerHTML={{ __html: condition.html }}
             />
+
+            <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 bg-slate-50 p-8 md:p-12 rounded-[2rem] border border-slate-100 shadow-sm">
+                <ContactInquiryForm
+                    from="conditions"
+                    section={condition.slug}
+                    idPrefix="program-contact"
+                    heading="Let's Connect"
+                />
+            </div>
         </article>
     );
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '../ui/Button';
+import { ContactInquiryForm } from '../contact/ContactInquiryForm';
 import symptomsIcon from '../../assets/new-images/How-We-Build-Your-Treatment-Plan-icons/1.Symptoms_ECG_Pulse.png';
 import assessmentsIcon from '../../assets/new-images/How-We-Build-Your-Treatment-Plan-icons/2.Advanced_Assessments_Medical_Report.png';
 import rootCauseIcon from '../../assets/new-images/How-We-Build-Your-Treatment-Plan-icons/3.Root_Cause Analysis_Magnifying_Glass.png';
@@ -89,6 +90,14 @@ const TreatmentPlan = () => {
               Start Your Healing Journey
             </Button>
           </Link>
+          <div className="mt-10 max-w-3xl mx-auto text-left bg-slate-50 p-8 md:p-10 rounded-[2rem] border border-slate-100 shadow-sm">
+            <ContactInquiryForm
+              from="services"
+              section="treatment_plan_form"
+              idPrefix="services-contact"
+              heading="Let's Connect"
+            />
+          </div>
         </motion.div>
       </div>
     </section>

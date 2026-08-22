@@ -5,6 +5,7 @@ import {
   Check,
   Utensils,
 } from 'lucide-react'
+import { ContactInquiryForm } from '../contact/ContactInquiryForm'
 import useReveal from '../../hooks/useReveal'
 
 const SYMPTOMS = [
@@ -536,6 +537,14 @@ export default function FunctionalNutritionContent() {
               >
                 Book Your Functional Nutrition Consultation
               </Link>
+            </div>
+            <div className="mt-8 text-left">
+              <ContactInquiryForm
+                from="functional-nutrition"
+                section="final_cta_form"
+                idPrefix="fn-contact"
+                heading="Let's Connect"
+              />
             </div>
           </div>
         </div>

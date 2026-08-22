@@ -2,12 +2,10 @@ import React from 'react';
 import SubNav from '../../components/second-bell/SubNav';
 import { Section } from '../../components/ui/Section';
 import CircularScore from '../../components/second-bell/CircularScore';
-import { ArrowRight, CheckCircle2, AlertCircle, AlertTriangle, LayoutDashboard, Target, Zap, FileText } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { CheckCircle2, AlertCircle, AlertTriangle, LayoutDashboard, Target, Zap, FileText } from 'lucide-react';
+import { ContactInquiryForm } from '../../components/contact/ContactInquiryForm';
 
 const RSHS = () => {
-    const navigate = useNavigate();
-
     return (
         <div className="bg-white min-h-screen pt-24 text-left">
             <SubNav />
@@ -135,14 +133,17 @@ const RSHS = () => {
 
             {/* Next Steps CTA */}
             <Section className="py-16 bg-white text-center">
-                <div className="max-w-2xl mx-auto">
-                    <h2 className="text-2xl font-bold text-primary-dark mb-4">Ready to start the conversation?</h2>
-                    <p className="text-gray-600 mb-8">
+                <div className="max-w-3xl mx-auto text-left">
+                    <h2 className="text-2xl font-bold text-primary-dark mb-4 text-center">Ready to start the conversation?</h2>
+                    <p className="text-gray-600 mb-8 text-center">
                         Connect with our program directors to discuss bringing Second Bell to your school.
                     </p>
-                    <button onClick={() => navigate('/contact')} className="inline-flex items-center justify-center bg-primary text-white font-bold py-3 px-8 rounded-lg hover:bg-primary-dark transition-colors">
-                        Contact Our Team <ArrowRight className="ml-2 w-5 h-5" />
-                    </button>
+                    <ContactInquiryForm
+                        from="second_bell"
+                        section="rshs_form"
+                        idPrefix="rshs-contact"
+                        heading="Let's Connect"
+                    />
                 </div>
             </Section>
         </div>

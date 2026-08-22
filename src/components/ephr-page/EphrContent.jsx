@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { ContactInquiryForm } from '../contact/ContactInquiryForm'
 import moleculeSrc from '../../assets/preview/ephr-molecule_src.png'
 import ephrBodySrc from '../../assets/preview/ephr-ephr_body_src.jpg'
 import doctorVideo from '../../assets/new-images/doctor-video.mp4'
@@ -1284,6 +1285,14 @@ export function EphrClosing() {
             <Link className="btn btn-primary ephr-final-btn" to="/contact?from=ephr&section=final_cta_primary">
               Book Your EPHR Assessment
             </Link>
+            <div className="mt-8 text-left">
+              <ContactInquiryForm
+                from="ephr"
+                section="final_cta_form"
+                idPrefix="ephr-contact"
+                heading="Let's Connect"
+              />
+            </div>
           </div>
         </div>
       </section>
