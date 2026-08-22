@@ -1,4 +1,5 @@
-import React, { useSearchParams } from "react";
+import React from "react";
+import { useSearchParams } from "react-router-dom";
 import { Section } from "../components/ui/Section";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
