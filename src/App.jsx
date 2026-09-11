@@ -63,9 +63,9 @@ function App() {
         </Route>
 
         {/* Hypermobility */}
-        {/* <Route path='/hypermobility' element={<Layout />}>
+        <Route path='/hypermobility' element={<Layout />}>
           <Route index element={<HypermobilityPage />} />
-        </Route> */}
+        </Route>
 
         {/* Functional Nutrition */}
         <Route path='/functional-nutrition' element={<Layout />}>

@@ -933,3 +933,775 @@
   .hm-preview .sp-cta-row,
   .fn-preview .sp-cta-row { flex-direction: column; }
 }
+
+/* =====================================================================
+   Feedback round (Sep 2026): new components for the Functional Nutrition
+   and Hypermobility pages.
+   ===================================================================== */
+
+/* ---- Moving focus-area band (FN) ---- */
+.fn-preview section.sp-marquee {
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+  background: linear-gradient(90deg, #38126d, #5b21b6 50%, #38126d);
+  color: #fff;
+  overflow: hidden;
+  opacity: 1;
+  transform: none;
+}
+.fn-preview .sp-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: sp-marquee 42s linear infinite;
+}
+.fn-preview .sp-marquee:hover .sp-marquee-track { animation-play-state: paused; }
+.fn-preview .sp-marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0 20px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  color: #fff;
+}
+.fn-preview .sp-marquee-item::after {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+@keyframes sp-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ---- Symptom carousel (FN section 2) ---- */
+.fn-preview .sp-symptom-carousel {
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid rgba(134, 44, 214, 0.12);
+  box-shadow: var(--shadow);
+  padding: 22px;
+}
+.fn-preview .sp-symptom-carousel h3 {
+  font-size: 1.05rem;
+  color: var(--green-800);
+  margin-bottom: 14px;
+}
+.fn-preview .sp-symptom-viewport { overflow: hidden; border-radius: 12px; }
+.fn-preview .sp-symptom-track { display: flex; transition: transform 0.55s ease; }
+.fn-preview .sp-symptom-slide { flex: 0 0 100%; margin: 0; }
+.fn-preview .sp-symptom-slide img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.fn-preview .sp-symptom-caption {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 16px;
+}
+.fn-preview .sp-symptom-index {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--green-600);
+}
+.fn-preview .sp-symptom-caption strong { font-size: 1.2rem; color: var(--ink); }
+.fn-preview .sp-symptom-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+}
+.fn-preview .sp-symptom-dots { display: flex; gap: 6px; }
+.fn-preview .sp-symptom-dots button {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: none;
+  padding: 0;
+  background: rgba(134, 44, 214, 0.22);
+  cursor: pointer;
+  transition: width 0.25s ease, background 0.25s ease;
+}
+.fn-preview .sp-symptom-dots button.active { width: 22px; background: var(--green-600); }
+.fn-preview .sp-symptom-arrows { display: flex; gap: 8px; }
+.fn-preview .sp-symptom-arrows button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(134, 44, 214, 0.2);
+  background: #fff;
+  color: var(--green-800);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.fn-preview .sp-symptom-arrows button:hover { background: var(--green-100); }
+.fn-preview .sp-symptom-arrows svg { width: 18px; height: 18px; }
+
+/* ---- Personalised by design infographic (FN section 3) ---- */
+.fn-preview .sp-pbd-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 48px;
+  align-items: center;
+}
+.fn-preview .sp-pbd-figure { margin: 0; }
+.fn-preview .sp-pbd-figure img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: 0 20px 50px rgba(134, 44, 214, 0.22);
+}
+.fn-preview .sp-pbd-outcomes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 20px;
+}
+.fn-preview .sp-pbd-outcome {
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px 16px;
+  border: 1px solid rgba(134, 44, 214, 0.12);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.fn-preview .sp-pbd-outcome .sp-card-icon { margin: 0; width: 40px; height: 40px; flex-shrink: 0; }
+.fn-preview .sp-pbd-outcome.is-good .sp-card-icon { background: #dcfce7; color: #15803d; }
+.fn-preview .sp-pbd-outcome.is-bad .sp-card-icon { background: #fee2e2; color: #b91c1c; }
+.fn-preview .sp-pbd-outcome strong { display: block; font-size: 0.9rem; color: var(--ink); }
+.fn-preview .sp-pbd-outcome span { font-size: 0.82rem; color: var(--muted); }
+.fn-preview .sp-pbd-factors { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.fn-preview .sp-pbd-factors span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--green-100);
+  color: var(--green-800);
+}
+.fn-preview .sp-statement-text .sp-pbd-quote { font-weight: 600; color: var(--green-800); }
+
+/* ---- 4-step journey path (FN section 7) ---- */
+.fn-preview .sp-path {
+  list-style: none;
+  padding: 0;
+  margin: 44px 0 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: relative;
+}
+.fn-preview .sp-path::before {
+  content: '';
+  position: absolute;
+  left: 12.5%;
+  right: 12.5%;
+  top: 80px;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, rgba(134, 44, 214, 0.15), rgba(134, 44, 214, 0.5), rgba(134, 44, 214, 0.15));
+}
+.fn-preview .sp-path-step { position: relative; text-align: center; padding: 0 14px; }
+.fn-preview .sp-path-photo {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+.fn-preview .sp-path-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  box-shadow: 0 12px 30px rgba(134, 44, 214, 0.2);
+}
+.fn-preview .sp-path-num {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--green-600);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(134, 44, 214, 0.3);
+  z-index: 2;
+}
+.fn-preview .sp-path-icon {
+  position: absolute;
+  bottom: -6px;
+  right: -6px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--green-800);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(134, 44, 214, 0.18);
+  z-index: 2;
+}
+.fn-preview .sp-path-icon svg { width: 22px; height: 22px; }
+.fn-preview .sp-path-arrow {
+  position: absolute;
+  top: 66px;
+  right: -14px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--green-600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(134, 44, 214, 0.18);
+  z-index: 2;
+}
+.fn-preview .sp-path-arrow svg { width: 16px; height: 16px; }
+.fn-preview .sp-path-step:last-child .sp-path-arrow { display: none; }
+.fn-preview .sp-path-step h3 { font-size: 1.15rem; margin: 22px 0 8px; }
+.fn-preview .sp-path-step p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+.fn-preview .sp-path-tag {
+  display: inline-block;
+  margin-top: 36px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: var(--green-100);
+  color: var(--green-800);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* ---- Outcome cards 4x2 (FN section 9) ---- */
+.fn-preview .sp-outcomes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 36px;
+}
+.fn-preview .sp-outcome {
+  background: #fff;
+  border-radius: var(--radius);
+  border: 1px solid rgba(134, 44, 214, 0.12);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.fn-preview .sp-outcome:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(134, 44, 214, 0.16); }
+.fn-preview .sp-outcome-media { position: relative; }
+.fn-preview .sp-outcome-media img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.fn-preview .sp-outcome-icon {
+  position: absolute;
+  left: 16px;
+  bottom: -20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--green-600);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(134, 44, 214, 0.3);
+}
+.fn-preview .sp-outcome-icon svg { width: 20px; height: 20px; }
+.fn-preview .sp-outcome-body { padding: 30px 16px 18px; }
+.fn-preview .sp-outcome-body h3 { font-size: 1.05rem; margin-bottom: 6px; }
+.fn-preview .sp-outcome-body p { font-size: 0.88rem; color: var(--muted); margin: 0; }
+
+/* ---- The Shift with image (FN section 10) ---- */
+.fn-preview .sp-shift-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+.fn-preview .sp-shift-figure { margin: 0; }
+.fn-preview .sp-shift-figure img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 4px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+/* ---- Care team icons (FN section 12) ---- */
+.fn-preview .sp-team-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--green-100);
+  color: var(--green-800);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+}
+.fn-preview .sp-team-icon svg { width: 22px; height: 22px; stroke-width: 1.8; }
+.fn-preview .sp-team-item { padding: 20px 14px; }
+
+/* ---- Compact final CTA (FN section 13) ---- */
+.fn-preview .sp-final.sp-final-slim { padding-top: 56px; padding-bottom: 56px; }
+.fn-preview .sp-final-grid.sp-final-compact { grid-template-columns: 1fr 1.05fr; gap: 48px; }
+.fn-preview .sp-final-compact .sp-final-sub { font-size: 0.98rem; margin-top: 12px; }
+.fn-preview .sp-final-compact .btn-gold svg { color: var(--green-600); }
+.fn-preview .sp-final-card.sp-final-card-compact { padding: 24px; }
+.fn-preview .sp-final-card-head {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.fn-preview .sp-final-card-head .sp-card-icon { margin: 0; flex-shrink: 0; }
+.fn-preview .sp-final-card-head strong { display: block; font-size: 0.96rem; line-height: 1.35; }
+.fn-preview .sp-final-card-head span { font-size: 0.84rem; color: var(--muted); }
+.fn-preview .sp-final-card-compact form > * + * { margin-top: 12px !important; }
+.fn-preview .sp-final-card-compact form .grid { gap: 12px !important; }
+.fn-preview .sp-final-card-compact form h2 { font-size: 1.15rem; margin-bottom: 0; }
+.fn-preview .sp-final-card-compact form input,
+.fn-preview .sp-final-card-compact form textarea { padding: 10px 14px; }
+.fn-preview .sp-final-card-compact form textarea { min-height: 84px; }
+.fn-preview .sp-final-card-compact form .space-y-2 > * + * { margin-top: 4px; }
+
+/* ---- Trust pillars with central image (HM section 2) ---- */
+.hm-preview .sp-trust-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px 1fr;
+  gap: 24px;
+  align-items: center;
+  margin-top: 40px;
+}
+.hm-preview .sp-trust-col { display: flex; flex-direction: column; gap: 20px; }
+.hm-preview .sp-pillar-block {
+  background: linear-gradient(180deg, #faf7ff, #fff);
+  border: 1px solid rgba(134, 44, 214, 0.12);
+  border-radius: var(--radius);
+  padding: 22px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  box-shadow: var(--shadow);
+}
+.hm-preview .sp-pillar-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--green-100);
+  color: var(--green-800);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.hm-preview .sp-pillar-icon svg { width: 30px; height: 30px; stroke-width: 1.6; }
+.hm-preview .sp-pillar-block h3 { font-size: 1.08rem; margin-bottom: 6px; }
+.hm-preview .sp-pillar-block p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+.hm-preview .sp-pillar-proof {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--green-600);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.hm-preview .sp-trust-figure {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+.hm-preview .sp-trust-figure::before {
+  content: '';
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  border: 2px dashed rgba(134, 44, 214, 0.3);
+}
+.hm-preview .sp-trust-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  box-shadow: 0 18px 48px rgba(134, 44, 214, 0.22);
+}
+.hm-preview .sp-trust-figure-tag {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  color: var(--green-800);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+  white-space: nowrap;
+}
+
+/* ---- Healthy flexibility vs hypermobility panels (HM section 3) ---- */
+.hm-preview .sp-diff-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 40px;
+}
+.hm-preview .sp-diff-panel {
+  border-radius: var(--radius);
+  padding: 26px;
+  border: 1px solid rgba(134, 44, 214, 0.12);
+}
+.hm-preview .sp-diff-panel.is-healthy { background: #f0fdf6; border-color: rgba(21, 128, 61, 0.15); }
+.hm-preview .sp-diff-panel.is-hyper { background: #f7f2fd; }
+.hm-preview .sp-diff-tag {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.hm-preview .is-healthy .sp-diff-tag { background: #dcfce7; color: #166534; }
+.hm-preview .is-hyper .sp-diff-tag { background: var(--green-100); color: var(--green-800); }
+.hm-preview .sp-diff-panel h3 { font-size: 1.35rem; margin-bottom: 6px; }
+.hm-preview .sp-diff-panel > p { color: var(--muted); font-size: 0.95rem; margin-bottom: 14px; }
+.hm-preview .sp-diff-list { list-style: none; padding: 0; margin: 0; }
+.hm-preview .sp-diff-list li {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 12px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  font-size: 0.95rem;
+  color: #374151;
+}
+.hm-preview .sp-diff-list li:first-child { border-top: none; }
+.hm-preview .sp-diff-ico {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.hm-preview .is-healthy .sp-diff-ico { background: #dcfce7; color: #15803d; }
+.hm-preview .is-hyper .sp-diff-ico { background: var(--green-100); color: var(--green-800); }
+.hm-preview .sp-diff-ico svg { width: 20px; height: 20px; }
+
+/* ---- Takeaway banner (HM, reused) ---- */
+.hm-preview .sp-takeaway {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 22px;
+  border-radius: var(--radius);
+  background: var(--green-100);
+  border: 1px solid rgba(134, 44, 214, 0.15);
+}
+.hm-preview .sp-takeaway-ico {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--green-800);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.hm-preview .sp-takeaway-ico svg { width: 22px; height: 22px; }
+.hm-preview .sp-takeaway p { margin: 0; flex: 1; color: var(--ink); font-size: 0.98rem; }
+.hm-preview .sp-takeaway p strong { color: var(--green-800); }
+.hm-preview .sp-takeaway .btn { white-space: nowrap; }
+
+/* ---- Zebra split layout (HM) ---- */
+.hm-preview .sp-zebra-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 48px;
+  align-items: center;
+}
+.hm-preview .sp-zebra-figure { margin: 0; }
+.hm-preview .sp-zebra-figure img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+.hm-preview .sp-narrative .sp-lead { font-size: 1.15rem; color: #fff; font-weight: 500; margin-top: 6px; }
+.hm-preview .sp-narrative .sp-quote-box {
+  margin: 20px 0;
+  padding: 16px 20px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.hm-preview .sp-narrative .sp-quote-box p {
+  margin: 0;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--gold);
+}
+
+/* ---- Assessment cards 4x2 (HM) ---- */
+.hm-preview .sp-assess-section { background: var(--card); }
+.hm-preview .sp-assess-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 36px;
+}
+.hm-preview .sp-assess-card {
+  background: #faf7ff;
+  border: 1px solid rgba(134, 44, 214, 0.12);
+  border-radius: var(--radius);
+  padding: 22px 20px;
+  transition: transform 0.25s ease;
+}
+.hm-preview .sp-assess-card:hover { transform: translateY(-3px); }
+.hm-preview .sp-assess-card .sp-card-icon { width: 56px; height: 56px; background: #fff; box-shadow: var(--shadow); }
+.hm-preview .sp-assess-card .sp-card-icon svg { width: 26px; height: 26px; stroke-width: 1.6; }
+.hm-preview .sp-assess-card h3 { font-size: 1.02rem; margin-bottom: 6px; }
+.hm-preview .sp-assess-card p { font-size: 0.88rem; color: var(--muted); margin: 0; }
+
+/* ---- Horizontal 5-step healing journey (HM) ---- */
+.hm-preview .sp-hj {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-top: 44px;
+  position: relative;
+}
+.hm-preview .sp-hj::before {
+  content: '';
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 54px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(134, 44, 214, 0.1), rgba(134, 44, 214, 0.35), rgba(134, 44, 214, 0.1));
+}
+.hm-preview .sp-hj-step {
+  position: relative;
+  display: block;
+  align-self: start;
+  width: 100%;
+  text-align: center;
+  padding: 16px 10px 18px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
+  opacity: 0.78;
+  transition: opacity 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.hm-preview .sp-hj-step:hover { opacity: 1; }
+.hm-preview .sp-hj-ico {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  margin: 0 auto 14px;
+  background: var(--green-100);
+  color: var(--green-800);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+.hm-preview .sp-hj-ico svg { width: 32px; height: 32px; stroke-width: 1.6; }
+.hm-preview .sp-hj-body { display: block; }
+.hm-preview .sp-hj-num {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.hm-preview .sp-hj-step h3 { font-size: 1.02rem; margin-bottom: 6px; color: var(--ink); }
+.hm-preview .sp-hj-step p { font-size: 0.86rem; color: var(--muted); margin: 0; }
+.hm-preview .sp-hj-more {
+  display: none;
+  font-size: 0.84rem;
+  color: #4b5563;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(134, 44, 214, 0.25);
+  text-align: left;
+}
+.hm-preview .sp-hj-step.is-active {
+  opacity: 1;
+  background: #fff;
+  border-color: rgba(134, 44, 214, 0.2);
+  box-shadow: var(--shadow);
+}
+.hm-preview .sp-hj-step.is-active .sp-hj-ico {
+  background: var(--green-600);
+  color: #fff;
+  transform: scale(1.06);
+  box-shadow: 0 10px 24px rgba(134, 44, 214, 0.3);
+}
+.hm-preview .sp-hj-step.is-active .sp-hj-num { color: var(--green-600); }
+.hm-preview .sp-hj-step.is-active .sp-hj-more { display: block; }
+
+/* ---- Why our approach is different (HM) ---- */
+.hm-preview .sp-why-section { background: linear-gradient(180deg, #f7f2fd 0%, #fff 100%); }
+.hm-preview .sp-why-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 48px;
+  align-items: center;
+}
+.hm-preview .sp-why-copy p { color: #4b5563; margin-top: 14px; }
+.hm-preview .sp-why-note {
+  margin-top: 22px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 16px 18px;
+  border-radius: 12px;
+  background: var(--green-100);
+}
+.hm-preview .sp-why-note .sp-card-icon { margin: 0; background: #fff; flex-shrink: 0; }
+.hm-preview .sp-why-note p { margin: 0; color: var(--green-800); font-weight: 600; font-size: 0.95rem; }
+.hm-preview .sp-why-list {
+  list-style: none;
+  padding: 0 0 0 36px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+}
+.hm-preview .sp-why-list::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 24px;
+  bottom: 24px;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(134, 44, 214, 0.45), rgba(134, 44, 214, 0.1));
+}
+.hm-preview .sp-why-item {
+  position: relative;
+  background: #fff;
+  border: 1px solid rgba(134, 44, 214, 0.12);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  box-shadow: var(--shadow);
+}
+.hm-preview .sp-why-item::before {
+  content: attr(data-n);
+  position: absolute;
+  left: -36px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--green-600);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(134, 44, 214, 0.3);
+}
+.hm-preview .sp-why-item .sp-card-icon { margin: 0; flex-shrink: 0; }
+.hm-preview .sp-why-item strong { display: block; font-size: 0.98rem; color: var(--ink); }
+.hm-preview .sp-why-item span { font-size: 0.85rem; color: var(--muted); }
+
+/* ---- Responsive rules for the new components ---- */
+@media (prefers-reduced-motion: reduce) {
+  .fn-preview .sp-marquee-track { animation: none; flex-wrap: wrap; width: 100%; justify-content: center; }
+  .fn-preview .sp-marquee-item[aria-hidden='true'] { display: none; }
+}
+
+@media (max-width: 900px) {
+  .fn-preview .sp-pbd-grid,
+  .fn-preview .sp-shift-grid,
+  .fn-preview .sp-final-grid.sp-final-compact,
+  .hm-preview .sp-zebra-grid,
+  .hm-preview .sp-why-grid,
+  .hm-preview .sp-diff-panels,
+  .hm-preview .sp-trust-layout { grid-template-columns: 1fr; }
+  .hm-preview .sp-trust-figure { order: -1; }
+  .fn-preview .sp-outcomes,
+  .hm-preview .sp-assess-grid { grid-template-columns: 1fr 1fr; }
+  .fn-preview .sp-path { grid-template-columns: 1fr; gap: 36px; }
+  .fn-preview .sp-path::before,
+  .fn-preview .sp-path-arrow { display: none; }
+  .hm-preview .sp-takeaway { flex-direction: column; align-items: flex-start; }
+  .hm-preview .sp-takeaway .btn { width: 100%; }
+  .hm-preview .sp-hj { grid-template-columns: 1fr; gap: 10px; }
+  .hm-preview .sp-hj::before {
+    left: 47px;
+    right: auto;
+    top: 24px;
+    bottom: 24px;
+    width: 2px;
+    height: auto;
+    background: linear-gradient(180deg, rgba(134, 44, 214, 0.35), rgba(134, 44, 214, 0.1));
+  }
+  .hm-preview .sp-hj-step {
+    display: grid;
+    grid-template-columns: 76px 1fr;
+    gap: 16px;
+    text-align: left;
+    align-items: start;
+    padding: 12px;
+    opacity: 1;
+  }
+  .hm-preview .sp-hj-ico { margin: 0; }
+}
+
+@media (max-width: 640px) {
+  .fn-preview .sp-outcomes,
+  .hm-preview .sp-assess-grid,
+  .fn-preview .sp-pbd-outcomes { grid-template-columns: 1fr; }
+  .fn-preview .sp-path-photo { width: 140px; height: 140px; }
+  .hm-preview .sp-trust-figure { width: 220px; height: 220px; }
+}

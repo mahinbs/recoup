@@ -1,51 +1,89 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
+  Activity,
+  ArrowRight,
   Award,
+  BicepsFlexed,
   Bone,
   Brain,
+  CalendarDays,
   Check,
   ChevronDown,
+  ClipboardCheck,
+  ClipboardList,
   Droplets,
+  Dumbbell,
+  FileText,
+  Flame,
+  Flower2,
   HeartPulse,
   Layers,
+  Leaf,
+  Lightbulb,
+  Move,
+  PersonStanding,
   Search,
-  Stethoscope,
+  Shield,
+  ShieldCheck,
+  Sprout,
+  TestTube,
+  TrendingUp,
+  TriangleAlert,
+  Unlink,
   Users,
   Waves,
+  Zap,
 } from 'lucide-react'
 import useReveal from '../../hooks/useReveal'
 import drPhoto from '../../assets/preview/home-drphoto.jpg'
 
+const img = (id, w = 900) =>
+  `https://images.unsplash.com/photo-${id}?w=${w}&q=75&auto=format&fit=crop`
+
+const HERO_IMAGE = img('1568480119224-03b49bf7a8a9', 1200)
+const TRUST_IMAGE = img('1645005512968-0c1fe99f0093', 800)
+const ZEBRA_IMAGE = img('1641565765931-46e5529123f1', 1100)
+
 const TRUST = [
   {
     icon: Award,
-    title: 'Specialized Hypermobility Care',
-    text: 'We specialize in diagnosing and treating Hypermobility Spectrum Disorders (HSD), Ehlers-Danlos Syndrome (EDS), and related conditions. Our care is tailored to your unique symptoms, goals, and recovery journey.',
+    proof: 'Specialist HSD & EDS Care',
+    title: 'Specialist Expertise',
+    text: 'Dedicated expertise in hypermobility, HSD & EDS care.',
   },
   {
-    icon: Stethoscope,
-    title: '35+ Years of Clinical Experience',
-    text: 'Led by Dr. Deepak Sharan, our team brings over three decades of experience in orthopedic surgery, rehabilitation, pain management, regenerative medicine, and complex musculoskeletal care.',
+    icon: CalendarDays,
+    proof: '35+ Years',
+    title: '35+ Years of Experience',
+    text: 'Decades of experience across complex musculoskeletal and pain conditions.',
   },
   {
     icon: Search,
-    title: 'Root-Cause Assessment',
-    text: "We don't just treat where it hurts; we identify why it hurts. Our comprehensive assessments help uncover the underlying factors contributing to your symptoms.",
+    title: 'Root-Cause Approach',
+    text: 'We look beyond symptoms to understand what’s driving your condition.',
   },
   {
     icon: Users,
-    title: 'Personalized Interdisciplinary Care',
-    text: 'Your recovery is guided by an integrated team of specialists who work together to create a personalized treatment plan that supports long-term healing.',
+    title: 'Interdisciplinary Care',
+    text: 'Multiple specialists work together to create a personalised care plan.',
   },
 ]
 
-const COMPARISON = [
-  ['Joints move within a healthy range', 'Joints move beyond their normal range'],
-  ['Stable and controlled movement', 'Joint instability and excessive movement'],
-  ['Muscles provide normal support', 'Muscles work harder to stabilize joints'],
-  ['Lower risk of recurring injuries', 'Frequent sprains, strains, or dislocations'],
-  ['Supports physical activity', 'May lead to pain, fatigue, and recurring injuries'],
+const HEALTHY_POINTS = [
+  { icon: PersonStanding, text: 'Joints move within a healthy range' },
+  { icon: Shield, text: 'Stable and controlled movement' },
+  { icon: BicepsFlexed, text: 'Muscles provide normal support' },
+  { icon: ShieldCheck, text: 'Lower risk of recurring injuries' },
+  { icon: Activity, text: 'Supports physical activity' },
+]
+
+const HYPER_POINTS = [
+  { icon: Move, text: 'Joints move beyond their normal range' },
+  { icon: Unlink, text: 'Joint instability and excessive movement' },
+  { icon: Flame, text: 'Muscles work harder to stabilise joints' },
+  { icon: TriangleAlert, text: 'Frequent sprains, strains, or dislocations' },
+  { icon: Zap, text: 'May contribute to pain, fatigue, and recurring injuries' },
 ]
 
 const SYMPTOM_GROUPS = [
@@ -148,16 +186,15 @@ const DIAGNOSIS_BENEFITS = [
   'Improve movement, stability, and long-term quality of life.',
 ]
 
-const ASSESSMENT_ITEMS = [
-  'A detailed medical history and symptom review',
-  'Joint hypermobility assessment',
-  'Movement and posture analysis',
-  'Muscle strength and stability testing',
-  'Functional movement assessment',
-  'Pain and lifestyle evaluation',
-  'Review of previous investigations and imaging (if available)',
-  'Blood investigations',
-  'Imaging',
+const ASSESSMENT_CARDS = [
+  { icon: ClipboardList, title: 'Medical History & Symptoms', text: 'Your health history, symptoms & concerns' },
+  { icon: Bone, title: 'Joint Assessment', text: 'Joint range, flexibility & stability' },
+  { icon: PersonStanding, title: 'Movement & Posture', text: 'Movement patterns, posture & function' },
+  { icon: Dumbbell, title: 'Strength & Stability', text: 'Muscle strength and joint control' },
+  { icon: HeartPulse, title: 'Pain & Lifestyle', text: 'Pain patterns, activity & daily life' },
+  { icon: FileText, title: 'Previous Investigations', text: 'Relevant reports, tests & imaging' },
+  { icon: TestTube, title: 'Blood Investigations', text: 'Relevant laboratory assessments' },
+  { icon: Activity, title: 'Functional Assessment', text: 'How your body moves in everyday life' },
 ]
 
 const TREATMENTS = [
@@ -189,33 +226,48 @@ const TREATMENTS = [
 
 const JOURNEY = [
   {
-    title: 'Step 1 — Comprehensive Assessment',
-    text: 'We understand your symptoms, medical history, movement, and overall health.',
+    num: '01',
+    icon: ClipboardList,
+    title: 'Comprehensive Assessment',
+    text: 'Understand your symptoms, history, movement, and overall health.',
+    more: 'We take time to understand your symptoms, medical history, movement patterns, and overall health before drawing any conclusions.',
   },
   {
-    title: 'Step 2 — Root Cause Diagnosis',
-    text: 'We identify how hypermobility is affecting your body and what may be contributing to your symptoms.',
+    num: '02',
+    icon: Search,
+    title: 'Root-Cause Diagnosis',
+    text: 'Connect the dots to understand what may be driving your symptoms.',
+    more: 'We identify how hypermobility is affecting your body and what may be contributing to symptoms across different systems.',
   },
   {
-    title: 'Step 3 — Personalized Treatment Plan',
-    text: 'Your multidisciplinary team creates a treatment plan based on your goals and clinical findings.',
+    num: '03',
+    icon: ClipboardCheck,
+    title: 'Personalised Treatment Plan',
+    text: 'Build a care plan tailored to your needs and goals.',
+    more: 'Your multidisciplinary team creates a treatment plan based on your goals and clinical findings.',
   },
   {
-    title: 'Step 4 — Guided Rehabilitation',
-    text: 'Through targeted therapy, education, and ongoing support, we help you improve stability, movement, and confidence.',
+    num: '04',
+    icon: PersonStanding,
+    title: 'Guided Rehabilitation',
+    text: 'Improve strength, stability, movement and confidence.',
+    more: 'Through targeted therapy, education, and ongoing support, we help you improve stability, movement, and confidence.',
   },
   {
-    title: 'Step 5 — Long-Term Wellness',
-    text: "Our focus isn't just recovery—it's helping you stay active, independent, and resilient for years to come.",
+    num: '05',
+    icon: Leaf,
+    title: 'Long-Term Wellness',
+    text: 'Build sustainable habits and strategies for lasting health.',
+    more: 'Our focus isn’t just recovery—it’s helping you stay active, independent, and resilient for years to come.',
   },
 ]
 
 const OUTCOMES = [
-  'Improve joint stability and movement',
-  'Reduce pain and recurring injuries',
-  'Build strength and confidence',
-  'Return to the activities you enjoy',
-  'Achieve better long-term health and quality of life',
+  { icon: PersonStanding, title: 'Improve joint stability and movement', text: 'Build a stronger, more stable foundation for everyday movement.' },
+  { icon: HeartPulse, title: 'Reduce pain and recurring injuries', text: 'Address the underlying causes, not just the symptoms.' },
+  { icon: Dumbbell, title: 'Build strength and confidence', text: 'Support your body to move better and do more.' },
+  { icon: Flower2, title: 'Return to activities you enjoy', text: 'Get back to the things that matter most to you.' },
+  { icon: TrendingUp, title: 'Support long-term health and quality of life', text: 'Sustainable strategies for lasting wellbeing.' },
 ]
 
 const STORIES = [
@@ -284,6 +336,7 @@ function Section({ className = '', children }) {
 
 export default function HypermobilityContent() {
   const [openFaq, setOpenFaq] = useState(0)
+  const [activeStep, setActiveStep] = useState(0)
 
   return (
     <>
@@ -319,8 +372,9 @@ export default function HypermobilityContent() {
           </div>
           <figure className="sp-hero-figure">
             <img
-              src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&q=75&auto=format&fit=crop"
-              alt="Clinical assessment and movement care"
+              src={HERO_IMAGE}
+              alt="Woman stretching her arms behind her back"
+              fetchPriority="high"
             />
           </figure>
         </div>
@@ -330,91 +384,95 @@ export default function HypermobilityContent() {
       <Section className="sp-trust">
         <div className="sp-wrap">
           <div className="sp-center">
-            <span className="kicker">Why Patients Trust RECOUP Health</span>
-            <h2 className="section-title">Specialized Hypermobility Care</h2>
+            <span className="kicker">Why Patients Trust Us</span>
+            <h2 className="section-title">Why Patients Trust Recoup Health</h2>
             <p className="section-sub">
-              RECOUP Health is internationally recognized for its expertise in
-              hypermobility and EDS, with patients traveling from across India and
-              around the world to receive advanced and personalized care.
+              Specialist expertise. Root-cause thinking. Personalised care.
             </p>
           </div>
-          <div className="sp-card-grid">
-            {TRUST.map(({ icon: Icon, title, text }) => (
-              <div className="sp-card" key={title}>
-                <div className="sp-card-icon">
-                  <Icon />
+          <div className="sp-trust-layout">
+            <div className="sp-trust-col">
+              {TRUST.slice(0, 2).map(({ icon: Icon, proof, title, text }) => (
+                <div className="sp-pillar-block" key={title}>
+                  <div className="sp-pillar-icon"><Icon /></div>
+                  <div>
+                    {proof ? <span className="sp-pillar-proof">{proof}</span> : null}
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                  </div>
                 </div>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </div>
-            ))}
+              ))}
+            </div>
+            <div className="sp-trust-figure">
+              <img src={TRUST_IMAGE} alt="Clinician assessing a patient’s shoulder" loading="lazy" />
+              <span className="sp-trust-figure-tag">Move Better. Live Fuller.</span>
+            </div>
+            <div className="sp-trust-col">
+              {TRUST.slice(2).map(({ icon: Icon, proof, title, text }) => (
+                <div className="sp-pillar-block" key={title}>
+                  <div className="sp-pillar-icon"><Icon /></div>
+                  <div>
+                    {proof ? <span className="sp-pillar-proof">{proof}</span> : null}
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </Section>
 
-      {/* More flexible */}
-      <Section className="sp-statement">
-        <div className="sp-wrap sp-statement-grid">
-          <div className="sp-statement-text">
-            <span className="kicker">Understanding Flexibility</span>
-            <h2 className="section-title">
-              More Flexible Doesn&rsquo;t Always Mean Healthier
-            </h2>
-            <p>
-              Have you always been able to bend more than others, or have you been
-              told you&rsquo;re &ldquo;double-jointed&rdquo;?
-            </p>
-            <p>
-              Many people think flexibility is a sign of good health. While
-              flexibility can be beneficial, too much flexibility can sometimes
-              make your joints less stable rather than stronger.
-            </p>
-            <p>
-              When the connective tissues supporting your joints are weaker or
-              more elastic than they should be, your joints move beyond their
-              normal range. To compensate, your muscles have to work harder to
-              keep your body stable.
-            </p>
-            <p>
-              Over time, this can lead to recurring pain, frequent injuries,
-              muscle fatigue, and difficulty with everyday activities.
-            </p>
-            <p>
-              For some people, this is simply joint flexibility. For others, it
-              may be part of a connective tissue condition such as Hypermobility
-              Spectrum Disorder (HSD) or Ehlers-Danlos Syndrome (EDS).
-            </p>
-            <p>
-              <strong>Understanding the difference is the first step towards getting the right care.</strong>
-            </p>
-          </div>
-          <div className="sp-statement-figure">
-            <img
-              src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=900&q=75&auto=format&fit=crop"
-              alt="Movement and flexibility assessment"
-            />
-          </div>
-        </div>
-      </Section>
-
-      {/* Comparison */}
+      {/* Understanding the difference */}
       <Section className="sp-compare-section">
         <div className="sp-wrap">
           <div className="sp-center">
-            <span className="kicker">Know the Difference</span>
-            <h2 className="section-title">Healthy Flexibility vs. Hypermobility</h2>
+            <span className="kicker">Understanding the Difference</span>
+            <h2 className="section-title">
+              More Flexible Doesn’t Always Mean Healthier
+            </h2>
+            <p className="section-sub">
+              Flexibility can be beneficial, but when joints move beyond their
+              normal range, it can affect stability, strength, and everyday
+              movement.
+            </p>
           </div>
-          <div className="sp-compare">
-            <div className="sp-compare-head">
-              <div>Healthy Flexibility</div>
-              <div className="sp-compare-head-right">Hypermobility</div>
+          <div className="sp-diff-panels">
+            <div className="sp-diff-panel is-healthy">
+              <span className="sp-diff-tag">Healthy Flexibility</span>
+              <h3>Greater Range of Motion</h3>
+              <p>Joints move within a healthy range, with stability and control.</p>
+              <ul className="sp-diff-list">
+                {HEALTHY_POINTS.map(({ icon: Icon, text }) => (
+                  <li key={text}>
+                    <span className="sp-diff-ico" aria-hidden="true"><Icon /></span>
+                    <span>{text}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            {COMPARISON.map(([left, right]) => (
-              <div className="sp-compare-row" key={left}>
-                <div className="sp-compare-left">{left}</div>
-                <div className="sp-compare-right">{right}</div>
-              </div>
-            ))}
+            <div className="sp-diff-panel is-hyper">
+              <span className="sp-diff-tag">Hypermobility</span>
+              <h3>Increased Range, Greater Challenges</h3>
+              <p>Joints may move beyond their normal range, which can contribute to instability, pain, and fatigue.</p>
+              <ul className="sp-diff-list">
+                {HYPER_POINTS.map(({ icon: Icon, text }) => (
+                  <li key={text}>
+                    <span className="sp-diff-ico" aria-hidden="true"><Icon /></span>
+                    <span>{text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <div className="sp-takeaway">
+            <span className="sp-takeaway-ico" aria-hidden="true"><Lightbulb /></span>
+            <p>
+              <strong>It’s not just about how far you can move</strong> — it’s about how well you can move.
+            </p>
+            <Link className="btn btn-primary" to="/contact?from=hypermobility&section=difference_cta">
+              Book Your Consultation
+            </Link>
           </div>
         </div>
       </Section>
@@ -459,34 +517,35 @@ export default function HypermobilityContent() {
 
       {/* Zebra */}
       <Section className="sp-narrative">
-        <div className="sp-wrap">
-          <span className="kicker kicker-light">Think Zebra, Not Just Horses</span>
-          <h2 className="section-title">
-            Sometimes the Answer Isn&rsquo;t the Most Obvious One.
-          </h2>
-          <p className="sp-quote">
-            &ldquo;When you hear hoofbeats, think horses, not zebras.&rdquo;
-          </p>
-          <p>
-            It reminds healthcare professionals to look for the most common
-            explanation first. But when it comes to HSD and EDS, many people are
-            the zebra. Their symptoms don&rsquo;t always fit the usual pattern,
-            which is why these conditions are often overlooked or misdiagnosed.
-          </p>
-          <p>
-            Many people spend years treating recurring pain, injuries, fatigue,
-            digestive issues, or dizziness as separate problems, without anyone
-            recognizing the underlying connective tissue disorder.
-          </p>
-          <p>
-            At RECOUP Health, we take a different approach. We connect the dots
-            to understand how these seemingly unrelated symptoms may be
-            connected—helping you receive the right diagnosis and a precise
-            treatment plan.
-          </p>
-          <p>
-            <strong>Because hypermobility doesn&rsquo;t just affect your joints—it can affect your whole body.</strong>
-          </p>
+        <div className="sp-wrap sp-zebra-grid">
+          <figure className="sp-zebra-figure">
+            <img src={ZEBRA_IMAGE} alt="A zebra galloping across open grassland" loading="lazy" />
+          </figure>
+          <div>
+            <span className="kicker kicker-light">A Different Way of Thinking</span>
+            <h2 className="section-title">Think Zebra, Not Just Horses</h2>
+            <p className="sp-lead">Sometimes the answer isn’t the most obvious one.</p>
+            <div className="sp-quote-box">
+              <p>&ldquo;When you hear hoofbeats, think horses, not zebras.&rdquo;</p>
+            </div>
+            <p>
+              In healthcare, we often look for the most common explanation first.
+              But for people with HSD or EDS, symptoms may not follow the usual
+              pattern.
+            </p>
+            <p>
+              Recurring pain, injuries, fatigue, digestive issues, or dizziness may
+              be connected — not separate problems.
+            </p>
+            <p>
+              At RECOUP HEALTH, we look beyond individual symptoms to connect the
+              dots, understand the underlying factors, and guide you towards the
+              right diagnosis and care.
+            </p>
+            <p>
+              <strong>Because hypermobility doesn’t just affect your joints — it can affect your whole body.</strong>
+            </p>
+          </div>
         </div>
       </Section>
 
@@ -571,51 +630,35 @@ export default function HypermobilityContent() {
         </div>
       </Section>
 
-      {/* Path to better movement */}
-      <Section>
-        <div className="sp-wrap sp-center">
-          <span className="kicker">Your Path to Better Movement</span>
-          <h2 className="section-title">
-            Your Journey Starts with Understanding Your Body
-          </h2>
-          <p className="section-sub">
-            No two people experience hypermobility the same way. That&rsquo;s why
-            treatment should never follow a one-size-fits-all approach.
-          </p>
-          <p className="section-sub" style={{ marginTop: 14 }}>
-            At RECOUP Health, we begin by understanding how hypermobility affects
-            your body, lifestyle, and overall health. This helps us create a
-            precise treatment plan designed specifically for you.
-          </p>
-        </div>
-      </Section>
-
-      {/* Comprehensive assessment */}
-      <Section className="sp-band-dark">
+      {/* Your path to better movement: comprehensive assessment */}
+      <Section className="sp-assess-section">
         <div className="sp-wrap">
           <div className="sp-center">
-            <span className="kicker kicker-light">Assessment</span>
+            <span className="kicker">Your Path to Better Movement</span>
             <h2 className="section-title">Your Comprehensive Assessment</h2>
-            <p className="section-sub" style={{ color: 'rgba(255,255,255,0.85)' }}>
-              Your journey begins with a detailed evaluation that looks beyond your
-              joints to understand the complete picture of your health.
-            </p>
-            <p style={{ marginTop: 16, color: 'rgba(255,255,255,0.85)' }}>
-              Your assessment may include:
+            <p className="section-sub">
+              We look beyond your joints to understand the complete picture of
+              your health, movement, and symptoms.
             </p>
           </div>
-          <ul className="sp-included-list">
-            {ASSESSMENT_ITEMS.map((item) => (
-              <li key={item}>
-                <CheckIcon />
-                <span>{item}</span>
-              </li>
+          <div className="sp-assess-grid">
+            {ASSESSMENT_CARDS.map(({ icon: Icon, title, text }) => (
+              <div className="sp-assess-card" key={title}>
+                <div className="sp-card-icon"><Icon /></div>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </div>
             ))}
-          </ul>
-          <p className="sp-center" style={{ marginTop: 28 }}>
-            This comprehensive approach helps us identify the factors contributing
-            to your symptoms and guides the most appropriate treatment plan.
-          </p>
+          </div>
+          <div className="sp-takeaway">
+            <span className="sp-takeaway-ico" aria-hidden="true"><Sprout /></span>
+            <p>
+              <strong>A comprehensive assessment helps us connect the dots</strong> and build the right care plan for you.
+            </p>
+            <Link className="btn btn-primary" to="/contact?from=hypermobility&section=assessment_cta">
+              Book Your Consultation
+            </Link>
+          </div>
         </div>
       </Section>
 
@@ -648,47 +691,79 @@ export default function HypermobilityContent() {
       <Section className="sp-journey">
         <div className="sp-wrap">
           <div className="sp-center">
-            <span className="kicker">The RECOUP Healing Journey</span>
-            <h2 className="section-title">Your Path From Assessment to Long-Term Wellness</h2>
+            <span className="kicker">Your Roadmap</span>
+            <h2 className="section-title">The RECOUP Healing Journey</h2>
+            <p className="section-sub">
+              A structured, personalised approach to help you understand, treat
+              and manage hypermobility — and move towards a healthier, more
+              active future.
+            </p>
           </div>
-          <div className="sp-journey-track">
-            {JOURNEY.map((step, i) => (
-              <div className="sp-journey-step" key={step.title}>
-                <div className="sp-journey-rail">
-                  <div className="sp-journey-num">{i + 1}</div>
-                  <div className="sp-journey-line" aria-hidden="true" />
-                </div>
-                <div className="sp-journey-body">
-                  <h3>{step.title}</h3>
-                  <p>{step.text}</p>
-                </div>
-              </div>
+          <div className="sp-hj" role="list">
+            {JOURNEY.map(({ num, icon: Icon, title, text, more }, i) => (
+              <button
+                type="button"
+                role="listitem"
+                key={title}
+                className={`sp-hj-step ${activeStep === i ? 'is-active' : ''}`}
+                onClick={() => setActiveStep(i)}
+                onMouseEnter={() => setActiveStep(i)}
+                onFocus={() => setActiveStep(i)}
+                aria-expanded={activeStep === i}
+              >
+                <span className="sp-hj-ico" aria-hidden="true"><Icon /></span>
+                <span className="sp-hj-body">
+                  <span className="sp-hj-num">Step {num}</span>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                  <span className="sp-hj-more">{more}</span>
+                </span>
+              </button>
             ))}
+          </div>
+          <div className="sp-takeaway">
+            <span className="sp-takeaway-ico" aria-hidden="true"><Flower2 /></span>
+            <p>
+              <strong>It’s more than treatment — it’s a path to a healthier, more active you.</strong> We’re with you at every step.
+            </p>
+            <Link className="btn btn-primary" to="/contact?from=hypermobility&section=journey_cta">
+              Book Your Consultation
+            </Link>
           </div>
         </div>
       </Section>
 
       {/* Why different */}
-      <Section>
-        <div className="sp-wrap sp-center">
-          <span className="kicker">Why Our Approach Is Different</span>
-          <h2 className="section-title">We Focus on Why Symptoms Happen</h2>
-          <p className="section-sub">
-            Many treatment approaches focus on managing symptoms as they appear.
-          </p>
-          <p className="section-sub" style={{ marginTop: 14 }}>
-            At RECOUP Health, we focus on understanding why those symptoms are
-            happening in the first place. By combining specialist expertise,
-            comprehensive assessment, and interdisciplinary care, we aim to help you:
-          </p>
-          <ul className="sp-check-list" style={{ maxWidth: 520, margin: '32px auto 0', textAlign: 'left' }}>
-            {OUTCOMES.map((item) => (
-              <li key={item}>
-                <CheckIcon />
-                <span>{item}</span>
+      <Section className="sp-why-section">
+        <div className="sp-wrap sp-why-grid">
+          <div className="sp-why-copy">
+            <span className="kicker">Why Our Approach Is Different</span>
+            <h2 className="section-title">A Deeper Understanding for Better Outcomes</h2>
+            <p>
+              Many treatment approaches focus on managing symptoms as they appear.
+            </p>
+            <p>
+              At RECOUP Health, we look deeper — to understand why those
+              symptoms are happening in the first place. By combining specialist
+              expertise, comprehensive assessment, and interdisciplinary care, we
+              aim to help you:
+            </p>
+            <div className="sp-why-note">
+              <div className="sp-card-icon"><Sprout /></div>
+              <p>Not just symptom relief — but a stronger, healthier, more active you.</p>
+            </div>
+          </div>
+          <ol className="sp-why-list">
+            {OUTCOMES.map(({ icon: Icon, title, text }, i) => (
+              <li className="sp-why-item" key={title} data-n={i + 1}>
+                <div className="sp-card-icon"><Icon /></div>
+                <div>
+                  <strong>{title}</strong>
+                  <span>{text}</span>
+                </div>
               </li>
             ))}
-          </ul>
+          </ol>
         </div>
       </Section>
 
