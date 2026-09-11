@@ -1,5 +1,21 @@
 const STORAGE_KEY = 'recoup_admin_password_hash';
 
+/**
+ * Default admin credentials. They apply until a custom password is set from
+ * Admin → Settings (which stores a hash in this browser only).
+ */
+export const DEFAULT_ADMIN_EMAIL = 'admin@recoup.health';
+export const DEFAULT_ADMIN_PASSWORD = 'Recoup@Admin2026';
+
+export function isAdminEmail(email = '') {
+  return String(email).trim().toLowerCase() === DEFAULT_ADMIN_EMAIL;
+}
+
+/** Hash that a login attempt must match: the custom one if set, else the default. */
+export async function getEffectivePasswordHash() {
+  return getStoredPasswordHash() || (await sha256Hex(DEFAULT_ADMIN_PASSWORD));
+}
+
 export function getStoredPasswordHash() {
   if (typeof localStorage === 'undefined') return null;
   const v = localStorage.getItem(STORAGE_KEY);

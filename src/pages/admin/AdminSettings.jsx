@@ -29,7 +29,7 @@ export default function AdminSettings() {
     e.preventDefault();
     setError("");
     setMessage(null);
-    if (isPasswordProtected && !currentPassword.trim()) {
+    if (!currentPassword.trim()) {
       setError("Enter your current password.");
       return;
     }
@@ -66,7 +66,7 @@ export default function AdminSettings() {
   const runClearProtection = () => {
     clearPasswordProtection();
     setMessage(
-      "Password protection removed. Login accepts any password again.",
+      "Custom password removed. The default admin password applies again.",
     );
     resetForm();
     setClearConfirmOpen(false);
@@ -79,9 +79,9 @@ export default function AdminSettings() {
           Settings
         </h1>
         <p className="text-slate-500 mt-2 max-w-2xl">
-          Admin password is stored only in this browser (hashed). When a
-          password is set, sign-in requires it. Connect a backend for
-          production-grade auth.
+          Sign-in uses the default admin credentials until you set a custom
+          password here. A custom password is stored only in this browser
+          (hashed). Connect a backend for production-grade auth.
         </p>
       </div>
 
@@ -127,18 +127,13 @@ export default function AdminSettings() {
               value={currentPassword}
               onChange={(e) => setCurrentPassword(e.target.value)}
               autoComplete="current-password"
-              disabled={!isPasswordProtected}
-              required={isPasswordProtected}
-              placeholder={
-                isPasswordProtected
-                  ? "Enter your current password"
-                  : "No password on file yet"
-              }
+              required
+              placeholder="Enter your current password"
             />
             {!isPasswordProtected && (
               <p className="text-xs text-slate-400">
-                After you set a password, you’ll use this field when changing
-                it.
+                No custom password set yet — enter the default admin password
+                here.
               </p>
             )}
           </div>

@@ -5,7 +5,7 @@ import { Button } from '../../components/ui/Button';
 import { useAdminAuth } from '../../context/AdminAuthContext';
 
 export default function AdminLogin() {
-  const { authed, login, isPasswordProtected } = useAdminAuth();
+  const { authed, login } = useAdminAuth();
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -21,7 +21,7 @@ export default function AdminLogin() {
     setLoginError('');
     setBusy(true);
     try {
-      const result = await login(password);
+      const result = await login(password, email);
       if (!result.ok) {
         setLoginError(result.error || 'Sign-in failed.');
         return;
@@ -46,9 +46,9 @@ export default function AdminLogin() {
           </div>
           <h1 className="text-3xl font-bold text-primary-dark tracking-tight">Admin</h1>
           <p className="text-slate-500 mt-2 text-sm leading-relaxed">
-            {isPasswordProtected
-              ? 'Enter the admin password for this browser. Email is optional and not verified.'
-              : 'Sign in to manage blog content, homepage SEO, and robots.txt. Set a password under Admin → Settings anytime.'}
+            Sign in with your admin email and password to manage blog content,
+            homepage SEO, messages and site settings. You can change the password
+            under Admin → Settings.
           </p>
         </div>
 
@@ -66,8 +66,9 @@ export default function AdminLogin() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all text-slate-800 placeholder:text-slate-400"
-                  placeholder="you@example.com"
+                  placeholder="admin@recoup.health"
                   autoComplete="username"
+                  required
                 />
               </div>
             </div>
@@ -82,7 +83,7 @@ export default function AdminLogin() {
                   className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all text-slate-800 placeholder:text-slate-400"
                   placeholder="••••••••"
                   autoComplete="current-password"
-                  required={isPasswordProtected}
+                  required
                 />
               </div>
             </div>
