@@ -37,13 +37,15 @@ import {
 } from 'lucide-react'
 import useReveal from '../../hooks/useReveal'
 import drPhoto from '../../assets/preview/home-drphoto.jpg'
+import heroImage from '../../assets/hypermobility/hero.jpg'
+import zebraImage from '../../assets/hypermobility/zebra.jpg'
 
 const img = (id, w = 900) =>
   `https://images.unsplash.com/photo-${id}?w=${w}&q=75&auto=format&fit=crop`
 
-const HERO_IMAGE = img('1568480119224-03b49bf7a8a9', 1200)
+const HERO_IMAGE = heroImage
 const TRUST_IMAGE = img('1645005512968-0c1fe99f0093', 800)
-const ZEBRA_IMAGE = img('1641565765931-46e5529123f1', 1100)
+const ZEBRA_IMAGE = zebraImage
 
 const TRUST = [
   {
