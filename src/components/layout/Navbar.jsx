@@ -22,7 +22,7 @@ const Navbar = () => {
         { name: 'Services', href: '/services' },
         { name: 'Programs', href: '/conditions' },
         { name: 'EPHR', href: '/ephr' },
-        // { name: 'Hypermobility', href: '/hypermobility' },
+        { name: 'Hypermobility', href: '/hypermobility' },
         { name: 'Nutrition', href: '/functional-nutrition' },
         { name: 'Academy', href: '/academy' },
         { name: 'Second Bell', href: '/second-bell' },
