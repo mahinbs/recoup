@@ -22,6 +22,55 @@ export const pageMetaByPath = {
     description:
       "Get in touch with RECOUP Health's team of integrative medicine specialists in Bangalore. Book an in-person or online consultation for chronic pain, gut health, mental wellness & more.",
   },
+  '/book': {
+    title: 'Book a Consultation | RECOUP Health Bangalore',
+    description:
+      'Book an in-person or online consultation with RECOUP Health in Bangalore. Share a few details and we will take you to our booking page or call to confirm.',
+  },
+  '/testimonials': {
+    title: 'Patient Success Stories | RECOUP Health Bangalore',
+    description:
+      'Read and watch real recovery stories from RECOUP Health patients treated for chronic pain, hypermobility, arthritis, RSI and more in Bangalore.',
+  },
+  '/academy': {
+    title: 'RECOUP Academy | Fellowships for Integrative Healthcare Professionals',
+    description:
+      'RECOUP Academy offers fellowships, workshops and short-term programs in integrative, root-cause medicine for healthcare professionals.',
+  },
+  '/academy/courses': {
+    title: 'Courses and Fellowships | RECOUP Academy',
+    description:
+      'Browse RECOUP Academy fellowships, short-term programs and workshops. See syllabus, faculty, eligibility, fees and upcoming batches.',
+  },
+  '/shop': {
+    title: 'Health & Wellness Shop | RECOUP Health',
+    description: 'Shop health and wellness products recommended by the RECOUP Health team, with secure ordering and delivery tracking.',
+  },
+  '/cart': {
+    title: 'Your Cart | RECOUP Health Shop',
+    description: 'Review your cart and place your RECOUP Health order.',
+  },
+  '/order': {
+    title: 'Track Your Order | RECOUP Health Shop',
+    description: 'Track your RECOUP Health order and view your receipt.',
+  },
+  '/tools': {
+    title: 'Free Health Tools | Dosha Quiz, Metabolic Age, Fitness Check | RECOUP',
+    description:
+      'Try RECOUP free self-assessment tools: an Ayurveda dosha quiz, a metabolic age estimator and a fitness readiness check. For education, not diagnosis.',
+  },
+  '/tools/dosha-quiz': {
+    title: 'Dosha Quiz (Vata, Pitta, Kapha) | RECOUP Health',
+    description: 'Find out your dominant Ayurvedic dosha with this short quiz and get gentle lifestyle suggestions. For education only.',
+  },
+  '/tools/metabolic-age': {
+    title: 'Metabolic Age Estimator | RECOUP Health',
+    description: 'Estimate your metabolic age from simple measurements and get practical tips. An educational estimate, not a diagnosis.',
+  },
+  '/tools/fitness-readiness': {
+    title: 'Fitness Readiness Check | RECOUP Health',
+    description: 'Check whether you are ready to start or step up exercise, with a short safety screen and simple strength and balance tests.',
+  },
   '/blog': {
     title: 'Health & Wellness Blog | Expert Insights by RECOUP Health',
     description:

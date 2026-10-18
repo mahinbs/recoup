@@ -21,6 +21,8 @@ export function ContactInquiryForm({
   compact = false,
   variant = 'light',
   className = '',
+  kind = 'contact',
+  extra = {},
 }) {
   const [form, setForm] = useState(emptyForm);
   const [error, setError] = useState('');
@@ -75,7 +77,7 @@ export function ContactInquiryForm({
         message: form.message,
         from,
         section,
-      });
+      }, kind, extra);
       setForm(emptyForm);
       setSuccess(true);
     } catch {

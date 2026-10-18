@@ -56,8 +56,8 @@ export default function AcademyCTA() {
           <a href="/contact?from=academy&section=cta" className="px-8 py-4 rounded-full bg-primary text-white font-sans font-medium hover:bg-primary-dark transition-colors shadow-sm">
             Speak with Admissions
           </a>
-          <a href="/conditions" className="px-8 py-4 rounded-full bg-transparent border border-primary/30 text-primary font-sans font-medium hover:bg-primary/5 transition-colors">
-            Explore All Programs
+          <a href="/academy/courses" className="px-8 py-4 rounded-full bg-transparent border border-primary/30 text-primary font-sans font-medium hover:bg-primary/5 transition-colors">
+            Browse all courses
           </a>
         </motion.div>
 
@@ -73,6 +73,7 @@ export default function AcademyCTA() {
             section="cta_form"
             idPrefix="academy-contact"
             heading="Let's Connect"
+            kind="academy_inquiry"
           />
         </motion.div>
 

@@ -4,6 +4,7 @@ import { Menu, X } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import CartButton from '../shop/CartButton';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -24,6 +25,7 @@ const Navbar = () => {
         { name: 'EPHR', href: '/ephr' },
         { name: 'Hypermobility', href: '/hypermobility' },
         { name: 'Nutrition', href: '/functional-nutrition' },
+        { name: 'Shop', href: '/shop' },
         { name: 'Academy', href: '/academy' },
         { name: 'Second Bell', href: '/second-bell' },
         { name: 'Blog', href: '/blog' },
@@ -44,7 +46,7 @@ const Navbar = () => {
                 </a>
 
                 {/* Desktop Nav */}
-                <div className="hidden lg:flex items-center gap-3 xl:gap-5">
+                <div className="hidden xl:flex items-center gap-3 xl:gap-5">
                     {navLinks.map((link) => (
                         <Link
                             key={link.name}
@@ -54,18 +56,22 @@ const Navbar = () => {
                             {link.name}
                         </Link>
                     ))}
-                    <Link to="/contact?from=navbar&section=book_consultation">
+                    <CartButton />
+                    <Link to="/book?from=navbar">
                         <Button size="sm" variant="primary">Book Consultation</Button>
                     </Link>
                 </div>
 
-                {/* Mobile Menu Toggle */}
+                {/* Mobile cart + menu toggle */}
+                <div className="flex items-center gap-1 xl:hidden">
+                <CartButton />
                 <button
-                    className="lg:hidden text-primary-dark p-2 -mr-2" aria-label="Toggle menu"
+                    className="text-primary-dark p-2 -mr-2" aria-label="Toggle menu"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
                     {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
+                </div>
             </div>
 
             {/* Mobile Menu */}
@@ -75,7 +81,7 @@ const Navbar = () => {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="lg:hidden mt-3 bg-white border-t"
+                        className="xl:hidden mt-3 bg-white border-t"
                     >
                         <div className="container px-4 py-6 flex flex-col gap-4">
                             {navLinks.map((link) => (
@@ -88,7 +94,7 @@ const Navbar = () => {
                                     {link.name}
                                 </Link>
                             ))}
-                            <Link to="/contact?from=navbar_mobile&section=book_consultation">
+                            <Link to="/book?from=navbar_mobile">
                                 <Button className="w-full" variant="primary">Book Consultation</Button>
                             </Link>
                         </div>

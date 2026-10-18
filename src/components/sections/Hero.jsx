@@ -39,7 +39,7 @@ const Hero = () => {
             recovery and lifelong health.
           </p>
           <div className="hero-ctas">
-            <Link className="btn btn-primary" to="/contact?from=home&section=hero">
+            <Link className="btn btn-primary" to="/book?from=home&section=hero">
               Book Consultation
             </Link>
             <a className="btn btn-outline" href="tel:+919845155449">

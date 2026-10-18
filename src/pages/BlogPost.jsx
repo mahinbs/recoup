@@ -9,7 +9,7 @@ import { ContactInquiryForm } from '../components/contact/ContactInquiryForm';
 
 const BlogPost = () => {
   const { id } = useParams();
-  const { blogs } = useSiteContent();
+  const { blogs, blogsReady } = useSiteContent();
 
   const post = useMemo(() => blogs.find((p) => p.id === id), [blogs, id]);
 
@@ -22,6 +22,10 @@ const BlogPost = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
+
+  if (!post && !blogsReady) {
+    return <div className="min-h-screen flex items-center justify-center bg-slate-50 pt-20 text-slate-400">Loading article…</div>;
+  }
 
   if (!post) {
     return (

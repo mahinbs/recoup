@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, Outlet, Link } from 'react-router-dom';
-import { FileText, Globe, LogOut, LayoutDashboard, ExternalLink, Menu, X, Settings, Mail } from 'lucide-react';
+import { FileText, Globe, LogOut, LayoutDashboard, ExternalLink, Menu, X, Settings, Mail, Inbox, CalendarCheck, Quote, Newspaper, Send, SlidersHorizontal, GraduationCap, CalendarDays, Images, Package, Tags, Ticket, ShoppingBag, Boxes, Star, BookOpen, MessagesSquare, ClipboardList, KeyRound } from 'lucide-react';
 import { Button } from '../../components/ui/Button';
 import { useAdminAuth } from '../../context/AdminAuthContext';
 import { cn } from '../../lib/utils';
@@ -11,6 +11,61 @@ const linkClass = ({ isActive }) =>
       ? 'bg-primary text-white shadow-md shadow-primary/20'
       : 'text-slate-600 hover:bg-slate-100 hover:text-primary-dark'
   }`;
+
+const NAV = [
+  { title: 'Overview', items: [{ to: '/admin', label: 'Dashboard', icon: LayoutDashboard, end: true }] },
+  {
+    title: 'Leads',
+    items: [
+      { to: '/admin/leads', label: 'Leads', icon: Inbox },
+      { to: '/admin/appointments', label: 'Appointments', icon: CalendarCheck },
+      { to: '/admin/outbox', label: 'Email outbox', icon: Send },
+    ],
+  },
+  {
+    title: 'Website',
+    items: [
+      { to: '/admin/blogs', label: 'Blog posts', icon: FileText },
+      { to: '/admin/testimonials', label: 'Testimonials', icon: Quote },
+      { to: '/admin/newsletter', label: 'Newsletter', icon: Newspaper },
+      { to: '/admin/site', label: 'Home SEO & robots', icon: Globe },
+    ],
+  },
+  {
+    title: 'Academy',
+    items: [
+      { to: '/admin/academy/courses', label: 'Courses', icon: GraduationCap },
+      { to: '/admin/academy/batches', label: 'Batches & banners', icon: CalendarDays },
+      { to: '/admin/academy/gallery', label: 'Photo gallery', icon: Images },
+    ],
+  },
+  {
+    title: 'Shop',
+    items: [
+      { to: '/admin/shop/products', label: 'Products', icon: Package },
+      { to: '/admin/shop/categories', label: 'Categories', icon: Tags },
+      { to: '/admin/shop/orders', label: 'Orders', icon: ShoppingBag },
+      { to: '/admin/shop/inventory', label: 'Inventory', icon: Boxes },
+      { to: '/admin/shop/coupons', label: 'Offers & coupons', icon: Ticket },
+      { to: '/admin/shop/reviews', label: 'Reviews', icon: Star },
+    ],
+  },
+  {
+    title: 'AI & tools',
+    items: [
+      { to: '/admin/ai/knowledge', label: 'Knowledge base', icon: BookOpen },
+      { to: '/admin/ai/chats', label: 'Assistant chats', icon: MessagesSquare },
+      { to: '/admin/ai/quizzes', label: 'Quiz results', icon: ClipboardList },
+    ],
+  },
+  {
+    title: 'System',
+    items: [
+      { to: '/admin/config', label: 'Settings', icon: SlidersHorizontal },
+      { to: '/admin/settings', label: 'My account', icon: KeyRound },
+    ],
+  },
+];
 
 export default function AdminLayout() {
   const { logout } = useAdminAuth();
@@ -32,7 +87,7 @@ export default function AdminLayout() {
         >
           <Menu className="h-6 w-6" strokeWidth={2} />
         </Button>
-        <Link to="/admin/blogs" className="text-center" onClick={closeMobileNav}>
+        <Link to="/admin" className="text-center" onClick={closeMobileNav}>
           <span className="block text-[10px] font-bold uppercase tracking-widest text-primary">RECOUP</span>
           <span className="text-base font-bold text-primary-dark leading-none">Admin</span>
         </Link>
@@ -58,7 +113,7 @@ export default function AdminLayout() {
         )}
       >
         <div className="flex items-center justify-between border-b border-slate-100 p-6 md:block">
-          <Link to="/admin/blogs" className="block min-w-0 flex-1" onClick={closeMobileNav}>
+          <Link to="/admin" className="block min-w-0 flex-1" onClick={closeMobileNav}>
             <span className="text-xs font-bold uppercase tracking-widest text-primary">RECOUP</span>
             <span className="block text-lg font-bold text-primary-dark leading-tight">Admin</span>
           </Link>
@@ -73,23 +128,20 @@ export default function AdminLayout() {
             <X className="h-5 w-5" strokeWidth={2} />
           </Button>
         </div>
-        <nav className="flex-1 space-y-1 overflow-y-auto p-4">
-          <NavLink to="/admin/blogs" className={linkClass} end={false} onClick={closeMobileNav}>
-            <FileText className="h-5 w-5 shrink-0" />
-            Blog posts
-          </NavLink>
-          <NavLink to="/admin/messages" className={linkClass} onClick={closeMobileNav}>
-            <Mail className="h-5 w-5 shrink-0" />
-            Messages
-          </NavLink>
-          <NavLink to="/admin/site" className={linkClass} onClick={closeMobileNav}>
-            <Globe className="h-5 w-5 shrink-0" />
-            Site & robots
-          </NavLink>
-          <NavLink to="/admin/settings" className={linkClass} onClick={closeMobileNav}>
-            <Settings className="h-5 w-5 shrink-0" />
-            Settings
-          </NavLink>
+        <nav className="flex-1 space-y-5 overflow-y-auto p-4">
+          {NAV.map((group) => (
+            <div key={group.title}>
+              <p className="mb-1 px-4 text-[10px] font-bold uppercase tracking-widest text-slate-400">{group.title}</p>
+              <div className="space-y-1">
+                {group.items.map(({ to, label, icon: Icon, end }) => (
+                  <NavLink key={to} to={to} end={end} className={linkClass} onClick={closeMobileNav}>
+                    <Icon className="h-5 w-5 shrink-0" />
+                    {label}
+                  </NavLink>
+                ))}
+              </div>
+            </div>
+          ))}
         </nav>
         <div className="space-y-2 border-t border-slate-100 p-4">
           <Button
@@ -120,7 +172,7 @@ export default function AdminLayout() {
       </aside>
 
       <main className="min-h-0 max-h-screen flex-1 overflow-auto pt-14 md:pt-0">
-        <div className="max-w-5xl p-6 lg:p-10">
+        <div className="max-w-6xl p-6 lg:p-10">
           <div className="mb-8 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-400">
             <LayoutDashboard className="h-4 w-4" />
             Control panel

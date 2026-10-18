@@ -6,6 +6,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const courseSlug = (title) =>
+  title.toLowerCase().replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 80);
+
 const fellowships = [
   {
     id: "01",
@@ -154,9 +157,14 @@ export default function FellowshipSection() {
                             {f.level2.map((item, i) => <li key={i}>{item}</li>)}
                           </ul>
                         </div>
-                        <a href="/contact?from=academy&section=fellowships_mobile" className="inline-block mt-4 text-primary font-sans text-sm font-medium hover:underline">
-                          Enquiry / Apply Now →
-                        </a>
+                        <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
+                          <a href={`/academy/courses/${courseSlug(f.title)}`} className="text-primary font-sans text-sm font-medium hover:underline">
+                            View course details →
+                          </a>
+                          <a href="/contact?from=academy&section=fellowships_mobile" className="text-primary font-sans text-sm font-medium hover:underline">
+                            Enquiry / Apply Now →
+                          </a>
+                        </div>
                      </div>
                   </motion.div>
                 )}
@@ -215,6 +223,9 @@ export default function FellowshipSection() {
                   </div>
                   
                   <div className="pt-6 mt-4 border-t border-slate-100 flex-grow-0">
+                    <a href={`/academy/courses/${courseSlug(f.title)}`} className="inline-block mr-6 text-slate-600 font-sans font-medium hover:text-primary transition-colors">
+                      View course details
+                    </a>
                     <a href="/contact?from=academy&section=fellowships_desktop" className="inline-block text-primary font-sans font-medium relative group">
                       <span>Enquiry / Apply Now</span>
                       <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>

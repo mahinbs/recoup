@@ -38,7 +38,7 @@ const HeroSection = () => {
               imbalances, and take action before disease develops.
             </p>
             <Link
-              to="/contact?from=ephr&section=hero"
+              to="/book?from=ephr&section=hero"
               className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-primary text-white font-medium text-sm md:text-base shadow-lg shadow-primary/25 hover:bg-primary-darker transition-colors"
             >
               Book Your EPHR Assessment

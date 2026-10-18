@@ -5,6 +5,7 @@ import { ArrowRight, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useSiteContent } from '../context/SiteContentContext';
+import NewsletterSignup from '../components/newsletter/NewsletterSignup';
 
 const Blog = () => {
   const { blogs } = useSiteContent();
@@ -65,6 +66,11 @@ const Blog = () => {
               </Link>
             </motion.div>
           ))}
+        </div>
+      </Section>
+      <Section className="py-14 section-tint">
+        <div className="max-w-xl mx-auto">
+          <NewsletterSignup source="blog" title="Never miss an article" />
         </div>
       </Section>
     </div>

@@ -12,6 +12,7 @@ import OfflineWorkshopsSection from '../components/academy/OfflineWorkshopsSecti
 import PatientEducationSection from '../components/academy/PatientEducationSection';
 import WhyChooseSection from '../components/academy/WhyChooseSection';
 import AcademyCTA from '../components/academy/AcademyCTA';
+import AcademyGallerySection from '../components/academy/AcademyGallerySection';
 
 export default function Academy() {
   useEffect(() => {
@@ -33,6 +34,7 @@ export default function Academy() {
       <PatientEducationSection />
       <WhyChooseSection />
       <AcademyCTA />
+      <AcademyGallerySection />
     </div>
   );
 }

@@ -42,7 +42,7 @@ const ServicesHero = () => {
             manage symptoms.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link to="/contact?from=services&section=hero">
+            <Link to="/book?from=services&section=hero">
               <Button size="lg" variant="primary">
                 Book Consultation
               </Button>

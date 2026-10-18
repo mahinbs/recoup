@@ -364,7 +364,7 @@ export default function HypermobilityContent() {
               restore movement, and regain confidence in your body.
             </p>
             <div className="sp-cta-row">
-              <Link className="btn btn-primary" to="/contact?from=hypermobility&section=hero_primary">
+              <Link className="btn btn-primary" to="/book?from=hypermobility&section=hero_primary">
                 Book Your Assessment
               </Link>
               <Link className="btn btn-secondary" to="/contact?from=hypermobility&section=hero_secondary">
@@ -472,7 +472,7 @@ export default function HypermobilityContent() {
             <p>
               <strong>It’s not just about how far you can move</strong> — it’s about how well you can move.
             </p>
-            <Link className="btn btn-primary" to="/contact?from=hypermobility&section=difference_cta">
+            <Link className="btn btn-primary" to="/book?from=hypermobility&section=difference_cta">
               Book Your Consultation
             </Link>
           </div>
@@ -510,7 +510,7 @@ export default function HypermobilityContent() {
             symptoms and understand what&rsquo;s really causing them.
           </p>
           <div className="sp-cta-row" style={{ justifyContent: 'center' }}>
-            <Link className="btn btn-primary" to="/contact?from=hypermobility&section=symptoms_cta">
+            <Link className="btn btn-primary" to="/book?from=hypermobility&section=symptoms_cta">
               Book a Comprehensive Assessment
             </Link>
           </div>
@@ -657,7 +657,7 @@ export default function HypermobilityContent() {
             <p>
               <strong>A comprehensive assessment helps us connect the dots</strong> and build the right care plan for you.
             </p>
-            <Link className="btn btn-primary" to="/contact?from=hypermobility&section=assessment_cta">
+            <Link className="btn btn-primary" to="/book?from=hypermobility&section=assessment_cta">
               Book Your Consultation
             </Link>
           </div>
@@ -728,7 +728,7 @@ export default function HypermobilityContent() {
             <p>
               <strong>It’s more than treatment — it’s a path to a healthier, more active you.</strong> We’re with you at every step.
             </p>
-            <Link className="btn btn-primary" to="/contact?from=hypermobility&section=journey_cta">
+            <Link className="btn btn-primary" to="/book?from=hypermobility&section=journey_cta">
               Book Your Consultation
             </Link>
           </div>
@@ -805,7 +805,7 @@ export default function HypermobilityContent() {
               your quality of life.
             </p>
             <div className="sp-cta-row">
-              <Link className="btn btn-primary" to="/contact?from=hypermobility&section=meet_specialist">
+              <Link className="btn btn-primary" to="/book?from=hypermobility&section=meet_specialist">
                 Meet Dr. Deepak Sharan
               </Link>
             </div>
@@ -899,7 +899,7 @@ export default function HypermobilityContent() {
               Book an assessment or speak with our team about hypermobility care.
             </p>
             <div className="sp-cta-row">
-              <Link className="btn btn-primary" to="/contact?from=hypermobility&section=final_cta_primary">
+              <Link className="btn btn-primary" to="/book?from=hypermobility&section=final_cta_primary">
                 Book Your Assessment
               </Link>
               <Link className="btn btn-secondary" to="/contact?from=hypermobility&section=final_cta_secondary">

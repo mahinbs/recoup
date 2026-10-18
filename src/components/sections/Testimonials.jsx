@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { Section } from '../ui/Section';
 import { Quote } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import ananyaImg from '../../assets/new-images/Recoup-Success-Stories/1.Dr_Ananya_Iyer.jpg';
 import rajeshImg from '../../assets/new-images/Recoup-Success-Stories/2.Rajesh_Kumar.jpg';
 import sunitaImg from '../../assets/new-images/Recoup-Success-Stories/3.Sunita_Reddy.jpg';
@@ -87,6 +88,11 @@ const Testimonials = () => {
               </div>
             </motion.article>
           ))}
+        </div>
+        <div className="relative z-10 text-center mt-10">
+          <Link to="/testimonials" className="inline-flex items-center rounded-full border-2 border-primary px-6 py-3 text-sm font-semibold text-primary hover:bg-primary/5 transition-colors">
+            Read and watch more success stories
+          </Link>
         </div>
       </div>
     </Section>
