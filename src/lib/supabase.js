@@ -6,7 +6,8 @@ import { createClient } from '@supabase/supabase-js';
  * Never put the secret service_role key in this project.
  */
 const url = import.meta.env.VITE_SUPABASE_URL || 'https://xophoqawuxmfkchlckbj.supabase.co';
-const key = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
+// The publishable key is public by design (it only allows what the row-level security rules allow).
+const key = import.meta.env.VITE_SUPABASE_ANON_KEY || 'sb_publishable_gN6WvWz91bhA1ikDv9-SNQ_FS9t4NQ_';
 
 export const isSupabaseConfigured = Boolean(url && key);
 

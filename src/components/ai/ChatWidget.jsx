@@ -278,7 +278,7 @@ export default function ChatWidget() {
         >
           <div className="flex items-center justify-between bg-primary px-4 py-3 text-white sm:rounded-t-2xl">
             <div>
-              <h2 id="recoup-chat-title" className="text-base font-bold">Ask RECOUP</h2>
+              <h2 id="recoup-chat-title" className="text-base font-bold !text-white">Ask RECOUP</h2>
               <p className="text-xs text-white/80">Symptom guide from our own program information</p>
             </div>
             <button type="button" onClick={() => setOpen(false)} aria-label="Close chat" data-testid="chat-close" className="rounded-lg p-2 hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-white">
