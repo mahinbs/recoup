@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -96,9 +97,9 @@ export default function AcademyHero() {
 
             {/* CTAs */}
             <motion.div className="flex flex-wrap gap-4 mb-16" variants={itemVariants}>
-              <a href="/conditions" className="px-8 py-4 rounded-full bg-[#862CD6] text-white font-sans font-medium hover:bg-[#5B1E91] transition-colors duration-300">
-                Explore All Programs
-              </a>
+              <Link to="/academy/courses" data-testid="browse-courses-cta" className="px-8 py-4 rounded-full bg-[#862CD6] text-white font-sans font-medium hover:bg-[#5B1E91] transition-colors duration-300">
+                Browse all courses
+              </Link>
               <a href="/contact?from=academy&section=hero" className="px-8 py-4 rounded-full bg-transparent border border-[#862CD6]/30 text-[#862CD6] font-sans font-medium hover:bg-[#862CD6]/5 transition-colors duration-300">
                 Speak with Admissions
               </a>

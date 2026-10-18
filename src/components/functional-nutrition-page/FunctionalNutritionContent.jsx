@@ -580,7 +580,7 @@ export default function FunctionalNutritionContent() {
             <div className="sp-cta-row">
               <Link
                 className="btn btn-gold"
-                to="/contact?from=functional-nutrition&section=final_cta"
+                to="/book?from=functional-nutrition&section=final_cta"
               >
                 Book Your Functional Nutrition Consultation
                 <ArrowRight style={{ width: 18, height: 18, display: 'inline-block', verticalAlign: '-3px', marginLeft: 8 }} />

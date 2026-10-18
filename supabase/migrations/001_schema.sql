@@ -339,7 +339,7 @@ create sequence if not exists public.invoice_number_seq start 1001;
 create table if not exists public.orders (
   id                   uuid primary key default gen_random_uuid(),
   order_number         text not null unique,
-  tracking_token       text not null unique default encode(gen_random_bytes(12), 'hex'),
+  tracking_token       text not null unique default replace(gen_random_uuid()::text, '-', ''),
   customer_name        text not null,
   email                text not null,
   phone                text not null,

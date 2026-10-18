@@ -21,9 +21,18 @@ export default function AdminSiteSettings() {
     setRobots(robotsTxt);
   }, [robotsTxt]);
 
+  const run = async (fn, ok) => {
+    try {
+      await fn();
+      if (ok) alert(ok);
+    } catch (err) {
+      alert(err.message || 'Could not save.');
+    }
+  };
+
   const handleSaveHome = (e) => {
     e.preventDefault();
-    saveHomeMeta({ title: title.trim(), description: description.trim() });
+    run(() => saveHomeMeta({ title: title.trim(), description: description.trim() }), 'Homepage meta saved.');
   };
 
   const handleResetHome = () => {
@@ -33,12 +42,12 @@ export default function AdminSiteSettings() {
 
   const handleSaveRobots = (e) => {
     e.preventDefault();
-    saveRobotsTxt(robots);
+    run(() => saveRobotsTxt(robots), 'robots.txt text saved.');
   };
 
   const handleResetRobots = () => {
     if (!window.confirm('Reset robots.txt text to the default template?')) return;
-    resetRobotsTxt();
+    run(() => resetRobotsTxt(), 'robots.txt text reset.');
   };
 
   const downloadRobots = () => {
@@ -59,8 +68,8 @@ export default function AdminSiteSettings() {
       <div>
         <h1 className="text-3xl font-bold text-primary-dark tracking-tight">Site & robots</h1>
         <p className="text-slate-500 mt-2 max-w-2xl">
-          Control the homepage meta tags shown in the browser and exported SEO defaults. Robots.txt edits are stored locally;
-          use <strong className="text-slate-700 font-semibold">Download</strong> to replace the file in{' '}
+          Control the homepage meta tags shown in the browser and exported SEO defaults. Edits are saved to the website database;
+          for robots.txt use <strong className="text-slate-700 font-semibold">Download</strong> to replace the file in{' '}
           <code className="text-xs bg-slate-100 px-1.5 py-0.5 rounded">public/robots.txt</code> before deploy.
         </p>
       </div>

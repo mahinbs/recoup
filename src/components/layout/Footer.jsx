@@ -1,5 +1,6 @@
 import React from 'react';
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MessageCircle } from 'lucide-react';
+import NewsletterSignup from '../newsletter/NewsletterSignup';
 import { Link, useLocation } from 'react-router-dom';
 import { ContactInquiryForm } from '../contact/ContactInquiryForm';
 
@@ -60,6 +61,11 @@ const Footer = () => {
                             <li><Link to="/academy" className="hover:text-primary-light transition-colors">Academy</Link></li>
                             <li><Link to="/contact?from=footer&section=links" className="hover:text-primary-light transition-colors">Contact</Link></li>
                             <li><Link to="/blog" className="hover:text-primary-light transition-colors">Blog</Link></li>
+                            <li><Link to="/testimonials" className="hover:text-primary-light transition-colors">Success Stories</Link></li>
+                            <li><Link to="/shop" className="hover:text-primary-light transition-colors">Shop</Link></li>
+                            <li><Link to="/tools" className="hover:text-primary-light transition-colors">Free Health Tools</Link></li>
+                            <li><Link to="/book?from=footer" className="hover:text-primary-light transition-colors">Book a Consultation</Link></li>
+                            <li><Link to="/admin/login" className="text-gray-400 hover:text-primary-light transition-colors">Staff login</Link></li>
                         </ul>
                     </div>
 
@@ -75,6 +81,10 @@ const Footer = () => {
                             <Link to="/second-bell/rshs" className="hover:text-primary-light transition-colors">RSHS</Link>
                         </div>
                     </div>
+                </div>
+
+                <div className="border-t border-white/10 pt-8 mt-2 mb-8 max-w-xl">
+                    <NewsletterSignup source="footer" variant="dark" title="Get health insights in your inbox" />
                 </div>
 
                 {!isContactPage && (
