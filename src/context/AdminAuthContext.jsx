@@ -1,77 +1,95 @@
-import React, { createContext, useCallback, useContext, useMemo, useState } from 'react';
-import {
-  clearStoredPasswordHash,
-  getEffectivePasswordHash,
-  getStoredPasswordHash,
-  isAdminEmail,
-  setStoredPasswordHash,
-  sha256Hex,
-} from '../lib/adminPassword';
-
-const AUTH_KEY = 'recoup_admin_auth';
+import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { supabase } from '../lib/supabase';
 
 const AdminAuthContext = createContext(null);
 
+/**
+ * Real admin sign-in through Supabase Auth. A signed-in user is an admin only when their
+ * verified email is on the `admin_allowlist` table (checked on the server by is_admin()).
+ */
 export function AdminAuthProvider({ children }) {
-  const [authed, setAuthed] = useState(() => {
-    if (typeof localStorage === 'undefined') return false;
-    return localStorage.getItem(AUTH_KEY) === '1';
-  });
+  const [session, setSession] = useState(null);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [loading, setLoading] = useState(Boolean(supabase));
 
-  // True when a custom password has been set in this browser (otherwise the
-  // default admin credentials apply).
-  const [isPasswordProtected, setIsPasswordProtected] = useState(() => !!getStoredPasswordHash());
-
-  const login = useCallback(async (password = '', email = '') => {
-    if (!isAdminEmail(email)) {
-      return { ok: false, error: 'Invalid email or password.' };
+  const checkAdmin = useCallback(async (s) => {
+    if (!supabase || !s) {
+      setIsAdmin(false);
+      return;
     }
-    const expected = await getEffectivePasswordHash();
-    const hash = await sha256Hex(password);
-    if (hash !== expected) {
-      return { ok: false, error: 'Invalid email or password.' };
-    }
-    localStorage.setItem(AUTH_KEY, '1');
-    setAuthed(true);
-    return { ok: true };
+    const { data, error } = await supabase.rpc('is_admin');
+    setIsAdmin(!error && data === true);
   }, []);
 
-  const logout = useCallback(() => {
-    localStorage.removeItem(AUTH_KEY);
-    setAuthed(false);
+  useEffect(() => {
+    if (!supabase) return undefined;
+    let alive = true;
+    supabase.auth.getSession().then(async ({ data }) => {
+      if (!alive) return;
+      setSession(data.session);
+      await checkAdmin(data.session);
+      if (alive) setLoading(false);
+    });
+    const { data: sub } = supabase.auth.onAuthStateChange((_event, s) => {
+      setSession(s);
+      // never await supabase calls inside this callback
+      setTimeout(() => checkAdmin(s), 0);
+    });
+    return () => {
+      alive = false;
+      sub.subscription.unsubscribe();
+    };
+  }, [checkAdmin]);
+
+  const login = useCallback(
+    async (password = '', email = '') => {
+      if (!supabase) return { ok: false, error: 'The backend is not configured.' };
+      const { data, error } = await supabase.auth.signInWithPassword({ email: email.trim(), password });
+      if (error) return { ok: false, error: 'Invalid email or password.' };
+      setSession(data.session);
+      await checkAdmin(data.session);
+      return { ok: true };
+    },
+    [checkAdmin]
+  );
+
+  const sendMagicLink = useCallback(async (email) => {
+    if (!supabase) return { ok: false, error: 'The backend is not configured.' };
+    const { error } = await supabase.auth.signInWithOtp({
+      email: email.trim(),
+      options: { emailRedirectTo: `${window.location.origin}/admin` },
+    });
+    return error ? { ok: false, error: error.message } : { ok: true };
   }, []);
 
-  const changePassword = useCallback(async ({ currentPassword, newPassword }) => {
-    const expected = await getEffectivePasswordHash();
-    const cur = await sha256Hex(currentPassword || '');
-    if (cur !== expected) {
-      return { ok: false, error: 'Current password is incorrect.' };
-    }
+  const logout = useCallback(async () => {
+    if (supabase) await supabase.auth.signOut();
+    setSession(null);
+    setIsAdmin(false);
+  }, []);
+
+  const changePassword = useCallback(async ({ newPassword }) => {
+    if (!supabase) return { ok: false, error: 'The backend is not configured.' };
     if (!newPassword || newPassword.length < 8) {
       return { ok: false, error: 'New password must be at least 8 characters.' };
     }
-    const newHash = await sha256Hex(newPassword);
-    setStoredPasswordHash(newHash);
-    setIsPasswordProtected(true);
-    return { ok: true };
-  }, []);
-
-  // Removes the custom password so the default admin password applies again.
-  const clearPasswordProtection = useCallback(() => {
-    clearStoredPasswordHash();
-    setIsPasswordProtected(false);
+    const { error } = await supabase.auth.updateUser({ password: newPassword });
+    return error ? { ok: false, error: error.message } : { ok: true };
   }, []);
 
   const value = useMemo(
     () => ({
-      authed,
+      authed: isAdmin,
+      isAdmin,
+      loading,
+      session,
+      user: session?.user ?? null,
       login,
+      sendMagicLink,
       logout,
-      isPasswordProtected,
       changePassword,
-      clearPasswordProtection,
     }),
-    [authed, login, logout, isPasswordProtected, changePassword, clearPasswordProtection]
+    [isAdmin, loading, session, login, sendMagicLink, logout, changePassword]
   );
 
   return <AdminAuthContext.Provider value={value}>{children}</AdminAuthContext.Provider>;
@@ -79,8 +97,6 @@ export function AdminAuthProvider({ children }) {
 
 export function useAdminAuth() {
   const ctx = useContext(AdminAuthContext);
-  if (!ctx) {
-    throw new Error('useAdminAuth must be used within AdminAuthProvider');
-  }
+  if (!ctx) throw new Error('useAdminAuth must be used within AdminAuthProvider');
   return ctx;
 }
